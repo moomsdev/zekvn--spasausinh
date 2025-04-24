@@ -1,0 +1,147 @@
+/*
+* Author levantoan.com
+*/
+.devvn_woo_filter, .devvn_woo_filter * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.devvn_woo_filter table {
+    width: 100%;
+}
+.devvn_woo_filter table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+}
+.devvn_woo_filter table th {
+    text-align: left;
+}
+.devvn_woo_filter table th, .devvn_woo_filter table td {
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+}
+.devvn_woo_filter {
+    margin: 0 0 10px 0;
+}
+.devvn_woo_filter input {
+    width: 100%;
+}
+.wcfa_attr_title {
+    white-space: nowrap;
+}
+/*wcfa upload*/
+.wcfa-upload-image {
+    width: 100%;
+    max-width: 500px;
+}
+.wcfa-upload-image img{
+    max-width: 100%;
+    height: auto;
+}
+.wcfa-view-has-value {
+    display: none;
+    position: relative;
+}
+
+.wcfa-has-image .wcfa-view-has-value {
+    display: inline-block;
+}
+
+.wcfa-hidden-has-value {
+    display: block;
+}
+
+.wcfa-has-image .wcfa-hidden-has-value {
+    display: none;
+}
+
+a.wcfa-delete-image {
+    position: absolute;
+    top: 0;
+    right: -10px;
+    color: #fff;
+    background: #000;
+    display: block;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 12px;
+}
+
+.devvn_woo_filter .wp-picker-container {
+    position: relative;
+}
+
+.devvn_woo_filter .wp-picker-holder {
+    position: absolute;
+    top: 100%;
+    top: calc(100% + 25px);
+    top: -webkit-calc(100% + 25px);
+    top: -moz-calc(100% + 25px);
+    z-index: 999;
+    left: 0;
+}
+.devvn_woo_filter .wp-picker-container.wp-picker-active span.wp-picker-input-wrap {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 999;
+    display: flex;
+}
+
+
+.wcfa_loading {
+    position: relative;
+    opacity: .5;
+    pointer-events: none
+}
+.wcfa_loading:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    display: inherit !important;
+    z-index: 2
+}
+.wcfa_loading:after {
+    -webkit-animation: devvn_spin_pro 500ms infinite linear;
+    animation: devvn_spin_pro 500ms infinite linear;
+    border: 2px solid #9E9E9E;
+    border-radius: 32px;
+    border-right-color: transparent !important;
+    border-top-color: transparent !important;
+    content: "";
+    display: block;
+    height: 16px;
+    top: 50%;
+    margin-top: -8px;
+    left: 50%;
+    margin-left: -8px;
+    position: absolute;
+    width: 16px
+}
+@-webkit-keyframes devvn_spin_pro {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes devvn_spin_pro {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}

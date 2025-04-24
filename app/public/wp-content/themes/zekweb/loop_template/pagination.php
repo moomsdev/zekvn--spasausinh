@@ -1,0 +1,1 @@
+<?php bootstrap_pagination() ?>

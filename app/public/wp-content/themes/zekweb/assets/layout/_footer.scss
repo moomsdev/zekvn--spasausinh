@@ -1,0 +1,7 @@
+@use '../utilities/variables' as *;
+@use '../utilities/mixin' as *;
+
+footer {
+    padding: 4rem 0;
+    background-color: $primaryColor;
+}
