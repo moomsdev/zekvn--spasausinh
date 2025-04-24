@@ -13,9 +13,14 @@ import './js/qty.js';
 import './js/select2.min.js';
 import './js/swiper-bundle.min.js';
 import './js/ytdefer.min.js';
+import AOS from 'aos';
+import Swup from 'swup';
 
 jQuery(document).ready(function () {
-    initializePageFeatures();
+    const swup = new Swup();
+    swup.hooks.on('contentReplaced', () => {
+        initializePageFeatures();
+    });
 });
 
 function initializePageFeatures() {
@@ -28,6 +33,7 @@ function initializePageFeatures() {
     initDynamicClasses();
     initAccountUI();
     initSwiperSliders();
+    initFancybox();
 }
 
 // 1. Hiệu ứng AOS
@@ -204,6 +210,26 @@ function initSwiperSliders() {
             breakpoints: { 991: { slidesPerView: 6 }, 768: { slidesPerView: 3 } },
             loop: true,
             navigation: { nextEl: '.partner-button-next', prevEl: '.partner-button-prev' },
+        });
+    }
+}
+
+// 10. Khởi tạo fancybox
+function initFancybox() {
+    if (typeof Fancybox !== 'undefined') {
+        $("[data-fancybox]").fancybox({
+            slideShow: {
+                autoStart: true,
+                speed: 1000,
+                pager: false,
+            },
+            thumbs: {
+                autoStart: true,
+                axis: 'vertical',
+                showAutoplayButton: false,
+                showCloseButton: false,
+                showCounter: false,
+            },
         });
     }
 }

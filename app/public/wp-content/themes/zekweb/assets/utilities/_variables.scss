@@ -1,7 +1,11 @@
-$primaryFont: "Lato", sans-serif;
-$headingFont: "UTM-AvoBold", sans-serif;
+$primaryFont: "MyriadPro", sans-serif;
+                            
+$primaryColor: #65BDD2;
+$secondaryColor: #FFC000;
 
-$primaryColor: #5EA5DB;
-$secondaryColor: #FFCC29;
-$headingColor: #0056b3;
-$gradientColor: linear-gradient(90deg,#0274ba 0%,#49ace0 130%); 
+$xs: 320px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;

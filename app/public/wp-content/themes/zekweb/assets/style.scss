@@ -20,11 +20,24 @@
 @use "./layout/woocommerce/archive-product";
 @use "./layout/woocommerce/single-product";
 
-// Section
-// @use './layout/section/';
-
 // Blog
-// @use "./layout/blog/archive";
-// @use "./layout/blog/single";
+@use "./layout/blog/archive";
+@use "./layout/blog/single";
+
+// Section
+@use './layout/section/slider-hero';
+@use './layout/section/story';
+@use './layout/section/video'; 
+@use './layout/section/blog';
+@use './layout/section/service';
+@use './layout/section/why-us';
+@use './layout/section/testimonials';
+@use './layout/section/products';
+@use './layout/section/highlights';
+@use './layout/section/video-library';
+@use './layout/section/map';
+@use './layout/section/partner';
+@use './layout/section/faqs';
+
 
 //@/images/___.png);

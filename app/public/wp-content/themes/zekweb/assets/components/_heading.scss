@@ -1,2 +1,59 @@
 @use '../utilities/variables' as *;
 @use '../utilities/mixin' as *;
+
+.heading-wrapper {
+    position: relative;
+    text-align: center;
+
+    .icon-image {
+        margin: 0 auto;
+        position: relative;
+        width: 4rem;
+        height: auto;
+        transform: translateY(-50%);
+
+        @include maxWidth($lg) {
+            width: 3rem;
+        }
+    }
+}
+
+.section-heading {
+    margin: 0 auto;
+    position: relative;
+    display: inline-block;
+    max-width: 80rem;
+    padding-bottom: clamp(1.5rem, 2vw, 2.5rem);
+    color: $primaryColor;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    @include breakText;
+
+    &:after,
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 1px;
+        background-color: $primaryColor;
+    }
+    &:after {
+        width: 80%;
+    }
+    &:before {
+        width: 15%;
+        background-color: #fff;
+        z-index: 1;
+    }
+
+    &.fs-36 {
+        @include resFont(2.4, 3.6);
+    }
+
+    &.fs-48 {
+        @include resFont(2.4, 4.8);
+    }
+}

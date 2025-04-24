@@ -6,7 +6,32 @@ Template Name: Trang chủ
 <?php get_header(); ?>
 
 <main id="main">
-  <?php get_template_part('template-parts/section', 'banner'); ?>
+  <?php
+  // Slider hero
+   get_template_part('template-parts/section', 'slider_hero');
+   //story
+   get_template_part('template-parts/section', 'story');
+   //video
+   get_template_part('template-parts/section', 'video');
+   //blog
+   get_template_part('template-parts/section', 'blog');
+   //service
+   get_template_part('template-parts/section', 'service');
+   //why us
+   get_template_part('template-parts/section', 'why_us');
+   //testimonials
+   get_template_part('template-parts/section', 'testimonials');
+   //products
+   get_template_part('template-parts/section', 'products');
+   //highlights
+   get_template_part('template-parts/section', 'highlights');
+   //video library
+   get_template_part('template-parts/section', 'video_library');
+   //map
+   get_template_part('template-parts/section', 'map');
+   //partner
+   get_template_part('template-parts/section', 'partner');
+   ?>
 </main>
 
 <?php get_footer(); ?>
