@@ -31,6 +31,20 @@ Template Name: Trang chủ
    get_template_part('template-parts/section', 'map');
    //partner
    get_template_part('template-parts/section', 'partner');
+   //branch
+   get_template_part('template-parts/section', 'branch');
+   //contact
+   get_template_part('template-parts/section', 'contact');
+   //faqs
+   get_template_part('template-parts/section', 'faqs');
+   //overview
+   get_template_part('template-parts/section','overview');
+   //products slider
+   get_template_part('template-parts/section','products_slider');
+   //logo slider
+   get_template_part('template-parts/section','logo_slider');
+   //materials slider
+   get_template_part('template-parts/section','materials_slider');
    ?>
 </main>
 
