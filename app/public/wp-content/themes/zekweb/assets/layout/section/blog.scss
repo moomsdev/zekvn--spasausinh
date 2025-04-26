@@ -1,2 +1,61 @@
 @use '../../utilities/variables' as *;
 @use '../../utilities/mixin' as *;
+
+@include maxWidth(767px) {
+  .blog-btn a {
+    width: 100% !important;
+  }
+}
+
+.section-blog {
+  .post-content {
+    background-color: #fff;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.3);
+    padding: 3rem;
+
+    .post-title {
+      @include resFont(1.6, 2.6);
+      @include limitLine(2);
+      line-height: 1.4;
+      text-transform: uppercase;
+      font-weight: bold;
+      text-align: center;
+      color: #000;
+
+      a {
+        color: inherit;
+
+        &:hover,
+        &:focus {
+          color: #000;
+        }
+      }
+    }
+  }
+
+  .blog-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.btn-primary {
+  margin-top: 2rem;
+  background-color: $primaryColor;
+  color: #fff;
+  border-radius: 1rem;
+  padding: 1.1rem 2.5rem;
+  line-height: 0.9;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($primaryColor, 10%);
+  }
+}

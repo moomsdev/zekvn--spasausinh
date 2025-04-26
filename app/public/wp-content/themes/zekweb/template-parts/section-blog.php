@@ -12,8 +12,7 @@ $image = get_field('image', 'option');
             </figure>
         </div>
 
-        <div class="row">
-            <!-- loop post -->
+        <div class="row gap-5 gap-md-0">
             <div class="col-12 col-md-4 loop-post">
                 <div class="post-item">
                     <figure class="post-image">
@@ -26,8 +25,7 @@ $image = get_field('image', 'option');
                     </div>
                 </div>
             </div>
-             <!-- loop post -->
-             <div class="col-12 col-md-4 loop-post">
+            <div class="col-12 col-md-4 loop-post">
                 <div class="post-item">
                     <figure class="post-image">
                         <img src="https://images.unsplash.com/photo-1714578187196-29775454aa39?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGxhY2Vob2xkZXIlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D" alt="<?php the_title(); ?>" loading="lazy">
@@ -39,8 +37,7 @@ $image = get_field('image', 'option');
                     </div>
                 </div>
             </div>
-             <!-- loop post -->
-             <div class="col-12 col-md-4 loop-post">
+            <div class="col-12 col-md-4 loop-post">
                 <div class="post-item">
                     <figure class="post-image">
                         <img src="https://images.unsplash.com/photo-1714578187196-29775454aa39?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGxhY2Vob2xkZXIlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D" alt="<?php the_title(); ?>" loading="lazy">
@@ -53,7 +50,9 @@ $image = get_field('image', 'option');
                 </div>
             </div>
         </div>
+        <div class="blog-btn">
+            <a href="#" class="btn btn-primary">XEM TẤT CẢ</a>
+        </div>
     </div>
 
 </section>
-   
