@@ -1,2 +1,17 @@
 @use '../../utilities/variables' as *;
 @use '../../utilities/mixin' as *;
+
+@include maxWidth(767px) {
+    .section-video {
+        iframe {
+            height: 50rem !important;
+        }
+    }
+}
+
+.section-video {
+    iframe {
+        width: 100%;
+        height: 100rem;
+    }
+}
