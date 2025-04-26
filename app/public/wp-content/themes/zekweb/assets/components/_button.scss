@@ -26,3 +26,21 @@
         border-radius: 2rem;
     }
 }
+
+.btn-primary {
+  background-color: $primaryColor;
+  color: #fff;
+  border-radius: 1rem;
+  padding: 1.1rem 2.5rem;
+  line-height: 1;
+  @include resFont(1.4, 1.8);
+  font-weight: bold;
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($primaryColor, 10%);
+  }
+}
