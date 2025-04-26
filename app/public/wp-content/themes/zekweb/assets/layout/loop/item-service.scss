@@ -1,0 +1,29 @@
+@use "../../utilities/variables" as *;
+@use "../../utilities/mixin" as *;
+
+.loop-service {
+  .loop-inner {
+    border-radius: 2rem;
+    margin-bottom: 25px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+  }
+  img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .heading-wrapper {
+    width: 100%;
+    background-color: $primaryColor;
+    h4 {
+        width: 80%;
+        margin: auto;
+        padding: 10px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+  }
+}

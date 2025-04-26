@@ -10,7 +10,7 @@
 }
 
 html {
-	height: 100%;  
+	height: 100%;
   font-size: 62.5%;
   overflow-y: scroll;
   scroll-behavior: smooth;
@@ -107,5 +107,13 @@ section {
 
   @include maxWidth($md) {
     padding: 1.5rem 0;
+  }
+
+  &.frame-shadow {
+    background-color: #fff;
+    border-radius: 3rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+    padding: 3rem 2rem;
+    margin: 4rem 0;
   }
 }

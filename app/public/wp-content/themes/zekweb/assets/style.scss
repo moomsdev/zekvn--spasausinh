@@ -27,7 +27,7 @@
 // Section
 @use './layout/section/slider-hero';
 @use './layout/section/story';
-@use './layout/section/video'; 
+@use './layout/section/video';
 @use './layout/section/blog';
 @use './layout/section/service';
 @use './layout/section/why-us';
@@ -41,3 +41,8 @@
 
 
 //@/images/___.png);
+
+//loop
+@use './layout/loop/item-service';
+@use './layout/loop/item-whyus';
+@use './layout/loop/item-highlights';

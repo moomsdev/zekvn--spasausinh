@@ -1,0 +1,41 @@
+@use "../../utilities/variables" as *;
+@use "../../utilities/mixin" as *;
+
+.loop-highlight {
+  .loop-inner {
+    border-radius: 2rem;
+    position: relative;
+    margin-bottom: 25px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+  }
+  figure {
+    position: relative;
+    overflow: hidden;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+  }
+  img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .heading-wrapper {
+    width: 100%;
+    padding-bottom: 1rem;
+    h4 {
+      width: 85%;
+      margin: auto;
+      padding: 10px;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .btn-hightlight {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateY(50%);
+  }
+}
