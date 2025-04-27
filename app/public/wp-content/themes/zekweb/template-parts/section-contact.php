@@ -9,7 +9,7 @@ $image = get_field('image', 'option');
         <div class="row">
             <div class="col-12 col-lg-4">
                 <figure class="contact-image">
-                    <img src="" alt="" loading="lazy">
+                <img src="<?php bloginfo('template_url'); ?>/assets/images/sidebar-img-form.png" alt="heading-icon">
                 </figure>
             </div>
             <div class="col-12 col-lg-8">
@@ -20,4 +20,3 @@ $image = get_field('image', 'option');
         </div>
     </div>
 </section>
- 
