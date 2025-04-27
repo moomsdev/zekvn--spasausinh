@@ -57,3 +57,23 @@
         @include resFont(2.4, 4.8);
     }
 }
+
+.loop-heading {
+    text-transform: uppercase;
+    color: $primaryColor;
+    @include breakText;
+    @include limitLine(2);
+
+    &.fs-18 {
+        @include resFont(0.8, 1.4);
+    }
+
+    &.fs-24 {
+        @include resFont(1.8, 2.4);
+    }
+
+    &.fs-32 {
+        @include resFont(2, 3.2);
+    }
+
+}

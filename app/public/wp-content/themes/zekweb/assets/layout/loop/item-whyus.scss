@@ -1,0 +1,30 @@
+@use "../../utilities/variables" as *;
+@use "../../utilities/mixin" as *;
+
+.loop-whyus {
+  .loop-inner {
+    border-radius: 0 0 2rem 2rem;
+    overflow: hidden;
+    margin-bottom: 25px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+    position: relative;
+  }
+  img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+  }
+  .heading-wrapper {
+    width: 100%;
+    h4 {
+        width: 70%;
+        margin: auto;
+        padding: 10px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+    }
+  }
+}
