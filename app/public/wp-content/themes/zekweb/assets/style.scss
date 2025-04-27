@@ -24,6 +24,9 @@
 @use "./layout/blog/archive";
 @use "./layout/blog/single";
 
+// Page
+@use "./layout/momneadknow";
+
 // Section
 @use './layout/section/slider-hero';
 @use './layout/section/story';
@@ -48,3 +51,4 @@
 @use './layout/loop/item-service';
 @use './layout/loop/item-whyus';
 @use './layout/loop/item-highlights';
+@use './layout/loop/item-momblog';

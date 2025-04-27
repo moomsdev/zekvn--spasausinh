@@ -1,0 +1,110 @@
+@use '../utilities/variables' as *;
+@use '../utilities/mixin' as *;
+
+.momneadknow-banner {
+  color: #000;
+
+  .momneadknow-banner__image {
+    margin-bottom: 2rem;
+
+    img {
+      object-fit: cover;
+      aspect-ratio: 16 / 9;
+      width: 100%;
+    }
+  }
+
+  .momneadknow-banner__title {
+    @include resFont(1.6, 3.2);
+    @include limitLine(1);
+    font-weight: bold;
+    margin-bottom: 1rem;
+
+    &:hover {
+        color: #000;
+    }
+  }
+
+  .momneadknow-banner__description {
+    @include resFont(1.4, 2.8);
+    @include limitLine(2);
+  }
+}
+
+.momneadknow-sidebar {
+  border-radius: 20px;
+  box-shadow: 6px 6px 20px 3px #656565;
+  background: #fff;
+  padding: 2rem;
+
+  .momneadknow-sidebar__header {
+    @include resFont(1.6, 2.3);
+    @include limitLine(1);
+    font-weight: bold;
+    color: #000;
+  }
+
+  .momneadknow-item__item {
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+
+    img {
+      object-fit: cover;
+      aspect-ratio: 16 / 12;
+      width: 100%;
+      border-radius: 16px;
+    }
+  }
+
+  .momneadknow-sidebar__title {
+    @include resFont(1.4, 1.7);
+    @include limitLine(2);
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 1rem;
+  }
+
+  .momneadknow-sidebar__description {
+    @include resFont(1.3, 1.6);
+    @include limitLine(2);
+    font-weight: bold;
+    color: #000;
+  }
+}
+
+.momneadknow-blog {
+  img {
+    object-fit: cover;
+    aspect-ratio: 16 / 12;
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  .momneadknow-blog__body {
+    padding: 0 1.4rem;
+    color: #000;
+    font-weight: bold;
+  }
+
+  .momneadknow-blog__title {
+    @include resFont(1.7, 2.2);
+    @include limitLine(2);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+
+    &:hover {
+        color: #000;
+    }
+  }
+
+  .momneadknow-blog__description {
+    @include resFont(1.3, 1.6);
+    @include limitLine(2);
+  }
+}

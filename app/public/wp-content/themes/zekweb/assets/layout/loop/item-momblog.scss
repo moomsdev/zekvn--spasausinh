@@ -1,0 +1,33 @@
+@use "../../utilities/variables" as *;
+@use "../../utilities/mixin" as *;
+
+.momneadknow-blog {
+  img {
+    object-fit: cover;
+    aspect-ratio: 16 / 12;
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  .momneadknow-blog__body {
+    padding: 0 1.4rem;
+    color: #000;
+    font-weight: bold;
+  }
+
+  .momneadknow-blog__title {
+    @include resFont(1.7, 2.2);
+    @include limitLine(2);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+
+    &:hover {
+      color: #000;
+    }
+  }
+
+  .momneadknow-blog__description {
+    @include resFont(1.3, 1.6);
+    @include limitLine(2);
+  }
+}
