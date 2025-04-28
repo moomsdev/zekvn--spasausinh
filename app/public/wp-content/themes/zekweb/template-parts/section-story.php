@@ -1,10 +1,10 @@
 <section class="section-story" style="background-image: url(<?php bloginfo('template_url'); ?>/assets/images/bg_comment.png); background-repeat: no-repeat; background-size: cover;">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="story-image col-12 col-md-5" style="background-image: url(<?php bloginfo('template_url'); ?>/assets/images/story-bg1.png);">
+        <div class="row align-items-center g-5">
+            <div class="story-image col-12 col-lg-5" style="background-image: url(<?php bloginfo('template_url'); ?>/assets/images/story-bg1.png);">
                 <img src="<?php bloginfo('template_url'); ?>/assets/images/doctor1.png" alt="Story Image">
             </div>
-            <div class="story-content col-12 col-md-7">
+            <div class="story-content col-12 col-lg-7">
                 <h3 class="story-title mb-4">BÀ MẸ 3 CON XÂY DỰNG “ ĐẾ CHẾ TRIỆU ĐÔ”
                     TỪ DỊCH VỤ VÀ SẢN PHẨM MẸ BÉ</h3>
                 <div class="story-description">
@@ -14,7 +14,7 @@
 
                         Không chỉ là một nữ doanh nhân thành đạt, bà Mai còn là một diễn giả truyền cảm hứng, lan tỏa kiến thức chuyên môn trên sóng VTV và đào tạo hàng triệu học viên theo nghề chăm sóc Mẹ và Bé. Thành công của bà Trần Thị Mai không chỉ đến từ tầm nhìn chiến lược sắc bén mà còn từ tinh thần trách nhiệm cao, lòng đam mê, nhiệt huyết và tinh thần phụng sự cộng đồng. Bà là tấm gương sáng, nguồn cảm hứng bất tận cho những ai đang ấp ủ khát vọng xây dựng chuỗi hệ thống kinh doanh thành công và đóng góp giá trị cho xã hội.</p>
                 </div>
-                <a href="#" class="btn btn-primary story-btn">XEM THÊM</a>
+                <a href="#" class="btn btn-primary story-btn mt-4">XEM THÊM</a>
             </div>
         </div>
     </div>
