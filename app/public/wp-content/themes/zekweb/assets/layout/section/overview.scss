@@ -31,10 +31,10 @@
     }
 
     .overview-text {
-      @include resFont(1.8, 2.4);
-      @include limitLine(2);
       margin-bottom: 0;
       line-height: 0.9;
+      @include resFont(1.8, 2.4);
+      @include limitLine(2);
     }
   }
 }

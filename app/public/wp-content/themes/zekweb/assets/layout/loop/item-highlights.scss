@@ -2,34 +2,44 @@
 @use "../../utilities/mixin" as *;
 
 .loop-highlight {
+  &:hover {
+    img {
+      transform: scale(1.1);
+    }
+
+    .loop-heading {
+      color: $primaryColor;
+    }
+  }
+
   .loop-inner {
-    border-radius: 2rem;
-    position: relative;
     margin-bottom: 25px;
+    position: relative;
+    border-radius: 2rem;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
   }
+
   figure {
     position: relative;
     overflow: hidden;
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
   }
+
   img {
     width: 100%;
     aspect-ratio: 16/9;
     object-fit: cover;
   }
-  .heading-wrapper {
-    width: 100%;
-    padding-bottom: 1rem;
-    h4 {
-      width: 85%;
-      margin: auto;
-      padding: 10px;
-      align-items: center;
-      display: flex;
-      justify-content: center;
-    }
+
+  .loop-heading {
+    padding: 1.5rem 1.5rem 2rem;
+    text-align: center;
+    font-weight: 700;
+    color: #000;
+    @include breakText;
+    @include limitLine(2);
+    @include transition;
   }
 
   .btn-hightlight {

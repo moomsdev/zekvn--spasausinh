@@ -1,5 +1,16 @@
 @use './variables' as *;
 
+@mixin limitLine($lines) {
+  & {
+    display: -webkit-box;
+    line-clamp: $lines;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
 @mixin minWidth($min-width) {
   @media only screen and (min-width: $min-width) {
     @content;
@@ -70,21 +81,15 @@
   font-weight: 900;
 }
 
-@mixin limitLine($lines) {
-  display: -webkit-box;
-  -webkit-line-clamp: $lines;
-  line-clamp: $lines;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
 
 @mixin transition {
-  transition: all 0.25s ease-in-out 0s;
-  -moz-transition: all 0.25s ease-in-out 0s;
-  -o-transition: all 0.25s ease-in-out 0s;
-  -webkit-transition: all 0.25s ease-in-out 0s;
-  -ms-transition: all 0.25s ease-in-out 0s;
+  & {
+    transition: all 0.25s ease-in-out 0s;
+    -moz-transition: all 0.25s ease-in-out 0s;
+    -o-transition: all 0.25s ease-in-out 0s;
+    -webkit-transition: all 0.25s ease-in-out 0s;
+    -ms-transition: all 0.25s ease-in-out 0s;
+  }
 }
 
 @mixin breakText {

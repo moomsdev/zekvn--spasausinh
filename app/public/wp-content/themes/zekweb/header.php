@@ -26,7 +26,7 @@
 	$jsFiles = glob(get_template_directory() . '/dist/assets/main-*.js');
 	if ($jsFiles) {
 		$jsFile = str_replace(get_template_directory(), get_template_directory_uri(), $jsFiles[0]);
-		echo '<script src="' . $jsFile . '?v=' . time() . '" defer></script>';
+		echo '<script type="module" src="' . $jsFile . '?v=' . time() . '" defer></script>';
 	}
 	?>
 

@@ -1,30 +1,32 @@
 // Import CSS
-import './vendor/bootstrap.min.css';
-import './vendor/jquery.fancybox.css';
+import 'aos/dist/aos.css';
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import './vendor/select2.min.css';
-import './vendor/swiper-bundle.min.css';
+import './style.scss';
 
 // Import các file JS cơ bản
-import './js/bootstrap.min.js';
+import 'bootstrap/dist/js/bootstrap.bundle';
+import 'bootstrap/dist/css/bootstrap.css';
+
+import { Fancybox } from "@fancyapps/ui";
+import Swiper from 'swiper';
+
 import './js/jquery-ui.min.js';
-import './js/jquery.fancybox.min.js';
 import './js/jquery.min.js';
 import './js/qty.js';
-import './js/select2.min.js';
-import './js/swiper-bundle.min.js';
 import './js/ytdefer.min.js';
 import AOS from 'aos';
 import Swup from 'swup';
 
 jQuery(document).ready(function () {
     const swup = new Swup();
-    swup.hooks.on('contentReplaced', () => {
+    swup.hooks.on('page:view', () => {
         initializePageFeatures();
     });
 });
 
 function initializePageFeatures() {
-    initAOS();
+    initAnimations();
     initMobileMenu();
     initSelect2();
     initBackToTop();
@@ -36,11 +38,13 @@ function initializePageFeatures() {
     initFancybox();
 }
 
-// 1. Hiệu ứng AOS
-function initAOS() {
-    if (typeof AOS !== 'undefined') {
-        AOS.init();
-    }
+// 1. Hiệu ứng
+function initAnimations() {
+    AOS.init({
+        duration: 400,
+        once: true, // chỉ animate 1 lần
+    });
+    AOS.refresh();
 }
 
 // 2. Xử lý Menu Mobile
@@ -52,9 +56,9 @@ function initMobileMenu() {
         $('body').removeClass('active-menu');
     });
     $("#menu-mobile .menu li.menu-item-has-children> a").after('<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>');
-    $('#menu-mobile .menu li.menu-item-has-children svg').click(function () { 
-        $(this).parent('li').children('ul').stop(0).slideToggle(300); 
-        $(this).parent('li').toggleClass('re-arrow'); 
+    $('#menu-mobile .menu li.menu-item-has-children svg').click(function () {
+        $(this).parent('li').children('ul').stop(0).slideToggle(300);
+        $(this).parent('li').toggleClass('re-arrow');
     });
 }
 
@@ -153,83 +157,79 @@ function initAccountUI() {
 
 // 9. Khởi tạo các slider Swiper
 function initSwiperSliders() {
-    if (typeof Swiper !== 'undefined') {
-        // Banner slider
-        new Swiper(".swiper-banner", {
-            loop: true,
-            autoplay: { delay: 6000 },
-            speed: 500,
-            pagination: { el: ".banner-pagination", clickable: true },
-            navigation: { nextEl: ".banner-next", prevEl: ".banner-prev" },
-            breakpoints: {
-                0: { slidesPerView: 1 },
-                429: { slidesPerView: 1 },
-                575: { slidesPerView: 1 },
-                768: { slidesPerView: 1 },
-                992: { slidesPerView: 1 }
-            },
-        });
-        // Slide sản phẩm theo danh mục
-        new Swiper('.section-product-cat-home-slide', {
-            slidesPerView: 4,
-            spaceBetween: 10,
-            autoplay: { delay: 3000, disableOnInteraction: false },
-            loop: true,
-            breakpoints: { 0: { slidesPerView: 2 }, 992: { slidesPerView: 4 } },
-        });
-        // Slide dự án
-        new Swiper('.section-project-home-slide', {
-            slidesPerView: 4,
-            spaceBetween: 25,
-            autoplay: { delay: 6000, disableOnInteraction: false },
-            loop: true,
-            breakpoints: { 0: { slidesPerView: 1 }, 992: { slidesPerView: 3 } },
-            navigation: { nextEl: '.project-home-slide-button-next', prevEl: '.project-home-slide-button-prev' },
-        });
-        // Slide phản hồi khách hàng
-        new Swiper('.section-feedback-slide', {
-            slidesPerView: 1,
-            spaceBetween: 100,
-            autoplay: { delay: 3000, disableOnInteraction: false },
-            loop: true,
-            navigation: { nextEl: '.feedback-slide-button-next', prevEl: '.feedback-slide-button-prev' },
-        });
-        // Slide chứng nhận
-        new Swiper('.section-feedback-slide2', {
-            slidesPerView: 2,
-            spaceBetween: 0,
-            autoplay: { delay: 3000, disableOnInteraction: false },
-            loop: true,
-            navigation: { nextEl: '.feedback-certify-button-next', prevEl: '.feedback-certify-button-prev' },
-        });
-        // Slide đối tác
-        new Swiper('.section-partner-slide', {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            autoplay: { delay: 3000, disableOnInteraction: false },
-            breakpoints: { 991: { slidesPerView: 6 }, 768: { slidesPerView: 3 } },
-            loop: true,
-            navigation: { nextEl: '.partner-button-next', prevEl: '.partner-button-prev' },
-        });
-    }
+    // Banner slider
+    new Swiper(".swiper-banner", {
+        loop: true,
+        autoplay: { delay: 6000 },
+        speed: 500,
+        pagination: { el: ".banner-pagination", clickable: true },
+        navigation: { nextEl: ".banner-next", prevEl: ".banner-prev" },
+        breakpoints: {
+            0: { slidesPerView: 1 },
+            429: { slidesPerView: 1 },
+            575: { slidesPerView: 1 },
+            768: { slidesPerView: 1 },
+            992: { slidesPerView: 1 }
+        },
+    });
+    // Slide sản phẩm theo danh mục
+    new Swiper('.section-product-cat-home-slide', {
+        slidesPerView: 4,
+        spaceBetween: 10,
+        autoplay: { delay: 3000, disableOnInteraction: false },
+        loop: true,
+        breakpoints: { 0: { slidesPerView: 2 }, 992: { slidesPerView: 4 } },
+    });
+    // Slide dự án
+    new Swiper('.section-project-home-slide', {
+        slidesPerView: 4,
+        spaceBetween: 25,
+        autoplay: { delay: 6000, disableOnInteraction: false },
+        loop: true,
+        breakpoints: { 0: { slidesPerView: 1 }, 992: { slidesPerView: 3 } },
+        navigation: { nextEl: '.project-home-slide-button-next', prevEl: '.project-home-slide-button-prev' },
+    });
+    // Slide phản hồi khách hàng
+    new Swiper('.section-feedback-slide', {
+        slidesPerView: 1,
+        spaceBetween: 100,
+        autoplay: { delay: 3000, disableOnInteraction: false },
+        loop: true,
+        navigation: { nextEl: '.feedback-slide-button-next', prevEl: '.feedback-slide-button-prev' },
+    });
+    // Slide chứng nhận
+    new Swiper('.section-feedback-slide2', {
+        slidesPerView: 2,
+        spaceBetween: 0,
+        autoplay: { delay: 3000, disableOnInteraction: false },
+        loop: true,
+        navigation: { nextEl: '.feedback-certify-button-next', prevEl: '.feedback-certify-button-prev' },
+    });
+    // Slide đối tác
+    new Swiper('.section-partner-slide', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        autoplay: { delay: 3000, disableOnInteraction: false },
+        breakpoints: { 991: { slidesPerView: 6 }, 768: { slidesPerView: 3 } },
+        loop: true,
+        navigation: { nextEl: '.partner-button-next', prevEl: '.partner-button-prev' },
+    });
 }
 
 // 10. Khởi tạo fancybox
 function initFancybox() {
-    if (typeof Fancybox !== 'undefined') {
-        $("[data-fancybox]").fancybox({
-            slideShow: {
-                autoStart: true,
-                speed: 1000,
-                pager: false,
-            },
-            thumbs: {
-                autoStart: true,
-                axis: 'vertical',
-                showAutoplayButton: false,
-                showCloseButton: false,
-                showCounter: false,
-            },
-        });
-    }
+    $("[data-fancybox]").Fancybox({
+        slideShow: {
+            autoStart: true,
+            speed: 1000,
+            pager: false,
+        },
+        thumbs: {
+            autoStart: true,
+            axis: 'vertical',
+            showAutoplayButton: false,
+            showCloseButton: false,
+            showCounter: false,
+        },
+    });
 }

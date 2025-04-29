@@ -17,7 +17,11 @@
     "vite-plugin-static-copy": "^2.3.1"
   },
   "dependencies": {
+    "@fancyapps/ui": "^5.0.36",
     "aos": "^2.3.4",
+    "bootstrap": "^5.3.5",
+    "gsap": "^3.12.7",
+    "swiper": "^11.2.6",
     "swup": "^4.8.1"
   }
 }

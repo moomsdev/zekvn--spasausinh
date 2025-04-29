@@ -20,10 +20,10 @@ html {
 body {
   font-family: $primaryFont;
   font-size: 1.8rem;
-  @include resFont(1.6, 1.8);
   font-weight: normal;
   line-height: 1.2;
   color: #000;
+  @include resFont(1.6, 1.8);
 }
 
 ::-webkit-scrollbar {

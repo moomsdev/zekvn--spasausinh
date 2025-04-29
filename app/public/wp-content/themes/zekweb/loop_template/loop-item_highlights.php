@@ -1,4 +1,4 @@
-<div class="col-md-6 col-lg-3 loop-highlight">
+<div class="col-6 col-lg-3 loop-highlight box">
     <div class="loop-inner">
         <figure class="loop-image">
             <a href="">
@@ -9,7 +9,7 @@
         </figure>
 
         <div class="heading-wrapper">
-            <h4 class="loop-heading fs-18 text-black">top 1 trong 40 doanh nghiệp toạ đàm tại vtv</h2>
+            <h4 class="loop-heading fs-16">top 1 trong 40 doanh nghiệp toạ đàm tại vtv</h2>
         </div>
 
         <a class="btn-hightlight bora-1">xem thêm</a>
