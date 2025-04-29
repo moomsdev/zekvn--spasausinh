@@ -6,14 +6,8 @@
   border-radius: 2rem;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
   margin: 2.5rem 0;
-  .section-heading {
-    text-align: center;
-    color: $primaryColor;
-    font-weight: bold;
-    margin-bottom: 2rem;
-    position: relative;
-  }
   .row {
+    align-items: stretch;
     .contact-image {
       img {
         width: 100%;
