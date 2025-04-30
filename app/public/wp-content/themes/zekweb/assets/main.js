@@ -23,6 +23,8 @@ jQuery(document).ready(function () {
     swup.hooks.on('page:view', () => {
         initializePageFeatures();
     });
+
+    initializePageFeatures();
 });
 
 function initializePageFeatures() {
@@ -42,9 +44,9 @@ function initializePageFeatures() {
 function initAnimations() {
     AOS.init({
         duration: 400,
-        once: true, // chỉ animate 1 lần
+        // once: true, // chỉ animate 1 lần
     });
-    AOS.refresh();
+    AOS.refreshHard();
 }
 
 // 2. Xử lý Menu Mobile

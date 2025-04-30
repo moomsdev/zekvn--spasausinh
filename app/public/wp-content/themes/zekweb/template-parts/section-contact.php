@@ -5,7 +5,7 @@ $image = get_field('image', 'option');
 
 <section class="section-contact">
     <div class="container">
-        <h2 class="section-heading"><?php echo $title; ?></h2>
+        z<?php get_template_part('loop_template/loop', 'heading_section') ?>
         <div class="row">
             <div class="col-12 col-lg-4">
                 <figure class="contact-image">

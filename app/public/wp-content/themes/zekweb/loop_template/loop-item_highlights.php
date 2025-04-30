@@ -1,4 +1,7 @@
-<div class="col-6 col-lg-3 loop-highlight box">
+<?php
+$aos_delay = isset($args['aos_delay']) ? (int)$args['aos_delay'] : 0;
+?>
+<div class="col-6 col-lg-3 loop-highlight box" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="<?= $aos_delay ?>">
     <div class="loop-inner">
         <figure class="loop-image">
             <a href="">
@@ -8,7 +11,7 @@
 
         </figure>
 
-        <div class="heading-wrapper">
+        <div class="loop-heading-wrapper">
             <h4 class="loop-heading fs-16">top 1 trong 40 doanh nghiệp toạ đàm tại vtv</h2>
         </div>
 

@@ -196,45 +196,6 @@ function rename_post_formats($safe_text)
 add_filter('esc_html', 'rename_post_formats');
 add_theme_support('post-formats', array('aside', 'chat'));
 
-/* ===============================
- * 8. TẠO CUSTOM POST TYPE DỰ ÁN
- * =============================== */
-// Đăng ký custom post type 'project' cho Dự án
-function tao_custom_post_type() {
-    $label = array(
-        'name' => 'Dự án',
-        'singular_name' => 'Dự án'
-    );
-    $args = array(
-        'labels' => $label,
-        'description' => 'Post type đăng dự án',
-        'supports' => array(
-            'title',
-            'editor',
-            'excerpt',
-            'author',
-            'thumbnail',
-            'comments',
-            'trackbacks',
-            'revisions',
-            'custom-fields'
-        ),
-        'public' => true,
-        'show_ui' => true,
-        'show_in_menu' => true,
-        'show_in_nav_menus' => true,
-        'show_in_admin_bar' => true,
-        'menu_position' => 5,
-        'menu_icon' => 'dashicons-admin-multisite',
-        'can_export' => true,
-        'has_archive' => true,
-        'exclude_from_search' => false,
-        'publicly_queryable' => true,
-        'rewrite' => array('slug' => 'du-an'),
-    );
-    register_post_type('project', $args);
-}
-add_action('init', 'tao_custom_post_type');
 
 /* ===============================
  * 9. WIDGET HIỂN THỊ BÀI VIẾT XEM NHIỀU
@@ -880,3 +841,43 @@ function enqueue_jquery_script() {
     wp_enqueue_script('jquery');
 }
 add_action('wp_enqueue_scripts', 'enqueue_jquery_script');
+
+/* ===============================
+ * 8. TẠO CUSTOM POST TYPE DỊCH VỤ
+ * =============================== */
+// Đăng ký custom post type 'project' cho Dịch vụ
+function tao_custom_post_type() {
+    $label = array(
+        'name' => 'Dịch vụ',
+        'singular_name' => 'Dịch vụ'
+    );
+    $args = array(
+        'labels' => $label,
+        'description' => 'Post type đăng dịch vụ',
+        'supports' => array(
+            'title',
+            'editor',
+            'excerpt',
+            'author',
+            'thumbnail',
+            'comments',
+            'trackbacks',
+            'revisions',
+            'custom-fields'
+        ),
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'show_in_nav_menus' => true,
+        'show_in_admin_bar' => true,
+        'menu_position' => 5,
+        'menu_icon' => 'dashicons-admin-tools',
+        'can_export' => true,
+        'has_archive' => true,
+        'exclude_from_search' => false,
+        'publicly_queryable' => true,
+        'rewrite' => array('slug' => 'dich-vu'),
+    );
+    register_post_type('service', $args);
+}
+add_action('init', 'tao_custom_post_type');
