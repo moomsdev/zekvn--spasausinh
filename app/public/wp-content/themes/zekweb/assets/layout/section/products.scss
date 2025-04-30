@@ -1,3 +1,95 @@
 @use '../../utilities/variables' as *;
 @use '../../utilities/mixin' as *;
-   
+
+@include maxWidth(991px) {
+  .product-info-box {
+    min-height: 8rem !important;
+  }
+
+  #products-tab {
+    li {
+      &:not(:last-child) {
+        margin-right: 0 !important;
+      }
+    }
+  }
+}
+
+.section-products {
+  .products-heading__description {
+    @include resFont(1.4, 2);
+    @include limitLine(1);
+    color: #000;
+    text-transform: uppercase;
+  }
+
+  #products-tab {
+    li {
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+
+    button {
+      @include resFont(1.4, 1.9);
+      @include limitLine(1);
+      color: #000;
+      text-transform: uppercase;
+      font-weight: bold;
+
+      &:hover {
+        color: $primaryColor;
+      }
+    }
+
+    button.active {
+      color: $primaryColor;
+    }
+  }
+
+  #products-tab-content {
+    .product-card {
+      figure {
+        margin-bottom: -0.1rem;
+      }
+
+      .product-info-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.6rem 1.6rem 0.6rem 1.6rem;
+        background: #fff;
+        text-align: center;
+        min-height: 11rem;
+        box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.6);
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+      }
+
+      .product-name {
+        font-weight: bold;
+        @include resFont(1.2, 1.6);
+        @include limitLine(2);
+        color: #333;
+        text-transform: uppercase;
+        line-height: 1.2;
+      }
+
+      .product-btn {
+        @include resFont(2, 2.4);
+        @include limitLine(1);
+        color: $primaryColor;
+        text-transform: uppercase;
+        text-decoration: none;
+        line-height: 1.4;
+        display: inline-block;
+        font-weight: bold;
+      }
+
+      .product-btn:hover {
+        color: $primaryColor;
+      }
+    }
+  }
+}
