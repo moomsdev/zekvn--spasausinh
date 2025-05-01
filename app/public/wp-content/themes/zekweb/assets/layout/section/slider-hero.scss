@@ -1,2 +1,53 @@
-@use '../../utilities/variables' as *;
-@use '../../utilities/mixin' as *;
+@use "../../utilities/variables" as *;
+@use "../../utilities/mixin" as *;
+
+.brand-section {
+    text-align: center;
+
+    .mySwiper {
+      width: 100%;
+      overflow: hidden;
+      .swiper-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        .swiper-slide {
+          flex: 0 0 calc(100% / 5 - 20px);
+          background-color: $primaryColor;
+          border-radius: 20px;
+          padding: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s ease;
+          height: 100%;
+        }
+      }
+
+      .loop-image {
+        a img {
+            width: 100%;
+            aspect-ratio: 20 / 9;
+            object-fit: contain;
+        }
+      }
+
+      .swiper-pagination {
+        margin-top: 20px;
+        position: relative;
+        display: block;
+
+        .swiper-pagination-bullet {
+          background: #7cc1d2;
+          opacity: 0.4;
+          margin: 0 5px;
+        }
+
+        .swiper-pagination-bullet-active {
+          opacity: 1;
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
