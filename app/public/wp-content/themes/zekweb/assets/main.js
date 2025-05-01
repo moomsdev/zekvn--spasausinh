@@ -163,14 +163,14 @@ function initAccountUI() {
 
 // 9. Khởi tạo các slider Swiper
 function initSwiperSliders() {
-    
+
     // Slider logo
     new Swiper('.logo-slider', {
         spaceBetween: 20,
         loop: true,
-        autoplay: { 
-            delay: 3000, 
-            disableOnInteraction: false 
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
         },
         pagination: {
             el: '.swiper-pagination',
@@ -188,7 +188,33 @@ function initSwiperSliders() {
             }
         }
     });
+
+    // Slider banner
+    new Swiper('.logo-banner', {
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 1
+            },
+            768: {
+                slidesPerView: 1
+            },
+            1200: {
+                slidesPerView: 1
+            }
+        }
+    });
 }
+
 
 // 10. Khởi tạo fancybox
 function initFancybox() {
