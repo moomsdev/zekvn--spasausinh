@@ -7,7 +7,7 @@
   }
 }
 
-.section-materials_slider {
+.section-materials {
   .section-description {
     @include resFont(1.4, 2.2);
     @include limitLine(3);
@@ -20,59 +20,50 @@
     .materials-item {
       position: relative;
     }
+  }
 
-    .materials-card {
-      border-radius: 2rem;
-      padding: 2.5rem 2rem;
-      height: 50rem;
-      color: #fff;
-      text-align: center;
-    }
+  .swiper-pagination {
+    margin-top: 6rem;
+    position: relative;
+    display: block;
 
-    .materials-card-1 {
-      background: #7a8537;
-    }
-    .materials-card-2 {
-      background: #53672b;
-    }
-    .materials-card-3 {
-      background: #80806c;
-    }
-    .materials-card-4 {
-      background: #807c53;
-    }
+    .swiper-pagination-bullet {
+      position: relative;
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 50%;
+      border: 0.2rem solid #7cc1d2;
+      background-color: transparent;
+      opacity: 0.3;
+      margin: 0 0.5rem;
+      transition: all 0.3s ease;
 
-    .materials-card-header {
-      margin: 3rem 0;
-
-      .materials-title {
-
-        font-weight: bold;
-        @include resFont(1.6, 3);
-        @include limitLine(1);
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transform: translateY(-50%);
+        width: 5.1rem;
+        height: 0.1rem;
+        background-color: #7cc1d2;
+        opacity: 0;
+        transition: all 0.6s linear;
       }
     }
 
-    .materials-card-body {
-      margin-bottom: 1.5rem;
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+      transform: scale(1.1);
+      margin-right: 5rem !important;
+      background: #7cc1d2;
 
-      .materials-desc {
-        @include resFont(1.4, 2.2);
-        @include limitLine(6);
-        max-height: 17rem;
+      &::after {
+        opacity: 1;
       }
     }
-
-    .materials-card-image {
-      position: absolute;
-      bottom: -50px;
-      left: 0;
-      right: 0;
-
-      img {
-        aspect-ratio: 6 / 3;
-        object-fit: contain;
-      }
+    .swiper-pagination-bullet:last-child::after {
+      display: none;
     }
   }
 }
