@@ -30,6 +30,10 @@
 // Page
 @use "./layout/momneadknow";
 
+//service
+@use './layout/section/service/content-media';
+@use './layout/section/service/content';
+
 // Section
 @use './layout/section/slider-hero';
 @use './layout/section/story';

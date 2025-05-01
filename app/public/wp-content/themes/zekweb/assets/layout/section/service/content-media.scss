@@ -1,0 +1,83 @@
+@use "../../../utilities/variables" as *;
+@use "../../../utilities/mixin" as *;
+
+.content-media {
+  .description {
+    width: 80%;
+    margin: 0 auto 8rem;
+  }
+
+  .main-content {
+    padding: 5rem;
+    &.bg-content {
+      background-color: #f2fcff;
+    }
+
+    .section-title {
+      color: $primaryColor;
+      margin-bottom: 1rem;
+      font-size: 2.8rem;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 1.6rem;
+      line-height: 1.7;
+      position: relative;
+
+      &:not(:last-of-type)::before {
+        content: "-";
+        position: absolute;
+        left: -1rem;
+        color: #000;
+      }
+    }
+
+    img {
+      margin-left: 3rem;
+      aspect-ratio: 10 / 9;
+      border-radius: 2rem;
+      object-fit: cover;
+      background: gainsboro;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+    }
+
+    @media (max-width: 992px) {
+      img {
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 2.2rem;
+      }
+
+      p {
+        font-size: 1.5rem;
+      }
+
+      img {
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .text-center {
+        height: 0px;
+      }
+
+      p {
+        font-size: 1.4rem;
+      }
+
+      img {
+        margin-left: 0;
+      }
+    }
+  }
+}
