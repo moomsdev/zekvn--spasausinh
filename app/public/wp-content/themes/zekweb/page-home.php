@@ -40,7 +40,7 @@ Template Name: Trang chủ
    //overview
    get_template_part('template-parts/section','overview');
    //products slider
-   get_template_part('template-parts/section','products_slider');
+   get_template_part('template-parts/section','product_slider');
    //logo slider
    get_template_part('template-parts/section','logo_slider');
    //materials slider

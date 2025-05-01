@@ -1,2 +1,71 @@
-@use '../../utilities/variables' as *;
-@use '../../utilities/mixin' as *;
+@use "../../utilities/variables" as *;
+@use "../../utilities/mixin" as *;
+
+.product-slider-section {
+    margin: 5rem 0;
+  ::after {
+    content: none;
+  }
+  ::before {
+    content: none;
+  }
+  .section-heading {
+    position: relative;
+  }
+  .icon-image {
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translateX(-700%);
+    }
+  }
+  .blog-content {
+    background-color: #dff6fc;
+    border-radius: 0 0 3rem 3rem;
+    .swiper-pagination {
+      margin-top: 2rem;
+      position: relative;
+      display: block;
+
+      .swiper-pagination-bullet {
+        position: relative;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: 2px solid #7cc1d2;
+        background-color: transparent;
+        opacity: 0.3;
+        margin: 0 5px;
+        transition: all 0.3s ease;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 100%;
+          transform: translateY(-50%);
+          width: 5rem;
+          height: 1px;
+          background-color: #7cc1d2;
+          opacity: 0;
+          transition: all 0.3s ease;
+        }
+      }
+
+      .swiper-pagination-bullet-active {
+        opacity: 1;
+        transform: scale(1.1);
+        margin-right: 5rem;
+        background: #7cc1d2;
+
+        &::after {
+          opacity: 1;
+        }
+      }
+      .swiper-pagination-bullet:last-child::after {
+        display: none;
+      }
+    }
+  }
+}
