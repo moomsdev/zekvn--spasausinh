@@ -3,6 +3,7 @@ import 'aos/dist/aos.css';
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import './vendor/select2.min.css';
 import './style.scss';
+import 'swiper/swiper-bundle.css';
 
 // Import các file JS cơ bản
 import 'bootstrap/dist/js/bootstrap.bundle';
@@ -10,6 +11,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import { Fancybox } from "@fancyapps/ui";
 import Swiper from 'swiper';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+Swiper.use([Navigation, Pagination, Autoplay]);
 
 import './js/jquery-ui.min.js';
 import './js/jquery.min.js';
@@ -29,15 +33,15 @@ jQuery(document).ready(function () {
 
 function initializePageFeatures() {
     initAnimations();
-    initMobileMenu();
-    initSelect2();
-    initBackToTop();
-    initStickyHeader();
-    initContactForm7Ajax();
-    initDynamicClasses();
-    initAccountUI();
+    // initMobileMenu();
+    // initSelect2();
+    // initBackToTop();
+    // initStickyHeader();
+    // initContactForm7Ajax();
+    // initDynamicClasses();
+    // initAccountUI();
     initSwiperSliders();
-    initFancybox();
+    // initFancybox();
 }
 
 // 1. Hiệu ứng
@@ -159,149 +163,31 @@ function initAccountUI() {
 
 // 9. Khởi tạo các slider Swiper
 function initSwiperSliders() {
-    // Banner slider
-    new Swiper(".swiper-banner", {
+    
+    // Slider logo
+    new Swiper('.logo-slider', {
+        spaceBetween: 20,
         loop: true,
-        autoplay: { delay: 6000 },
-        speed: 500,
-        pagination: { el: ".banner-pagination", clickable: true },
-        navigation: { nextEl: ".banner-next", prevEl: ".banner-prev" },
-        breakpoints: {
-            0: { slidesPerView: 1 },
-            429: { slidesPerView: 1 },
-            575: { slidesPerView: 1 },
-            768: { slidesPerView: 1 },
-            992: { slidesPerView: 1 }
+        autoplay: { 
+            delay: 3000, 
+            disableOnInteraction: false 
         },
-    });
-    // Slide sản phẩm theo danh mục
-    new Swiper('.section-product-cat-home-slide', {
-        slidesPerView: 4,
-        spaceBetween: 10,
-        autoplay: { delay: 3000, disableOnInteraction: false },
-        loop: true,
-        breakpoints: { 0: { slidesPerView: 2 }, 992: { slidesPerView: 4 } },
-    });
-    // Slide dự án
-    new Swiper('.section-project-home-slide', {
-        slidesPerView: 4,
-        spaceBetween: 25,
-        autoplay: { delay: 6000, disableOnInteraction: false },
-        loop: true,
-        breakpoints: { 0: { slidesPerView: 1 }, 992: { slidesPerView: 3 } },
-        navigation: { nextEl: '.project-home-slide-button-next', prevEl: '.project-home-slide-button-prev' },
-    });
-    // Slide phản hồi khách hàng
-    new Swiper('.section-feedback-slide', {
-        slidesPerView: 1,
-        spaceBetween: 100,
-        autoplay: { delay: 3000, disableOnInteraction: false },
-        loop: true,
-        navigation: { nextEl: '.feedback-slide-button-next', prevEl: '.feedback-slide-button-prev' },
-    });
-    // Slide chứng nhận
-    new Swiper('.section-feedback-slide2', {
-        slidesPerView: 2,
-        spaceBetween: 0,
-        autoplay: { delay: 3000, disableOnInteraction: false },
-        loop: true,
-        navigation: { nextEl: '.feedback-certify-button-next', prevEl: '.feedback-certify-button-prev' },
-    });
-    // Slide đối tác
-    new Swiper('.section-partner-slide', {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        autoplay: { delay: 3000, disableOnInteraction: false },
-        breakpoints: { 991: { slidesPerView: 6 }, 768: { slidesPerView: 3 } },
-        loop: true,
-        navigation: { nextEl: '.partner-button-next', prevEl: '.partner-button-prev' },
-    });
-    if (typeof Swiper !== 'undefined') {
-        // Banner slider
-        new Swiper(".swiper-banner", {
-            loop: true,
-            autoplay: { delay: 6000 },
-            speed: 500,
-            pagination: { el: ".banner-pagination", clickable: true },
-            navigation: { nextEl: ".banner-next", prevEl: ".banner-prev" },
-            breakpoints: {
-                0: { slidesPerView: 1 },
-                429: { slidesPerView: 1 },
-                575: { slidesPerView: 1 },
-                768: { slidesPerView: 1 },
-                992: { slidesPerView: 1 }
-            },
-        });
-        // Slide sản phẩm theo danh mục
-        new Swiper('.section-product-cat-home-slide', {
-            slidesPerView: 4,
-            spaceBetween: 10,
-            autoplay: { delay: 3000, disableOnInteraction: false },
-            loop: true,
-            breakpoints: { 0: { slidesPerView: 2 }, 992: { slidesPerView: 4 } },
-        });
-        // Slide dự án
-        new Swiper('.section-project-home-slide', {
-            slidesPerView: 4,
-            spaceBetween: 25,
-            autoplay: { delay: 6000, disableOnInteraction: false },
-            loop: true,
-            breakpoints: { 0: { slidesPerView: 1 }, 992: { slidesPerView: 3 } },
-            navigation: { nextEl: '.project-home-slide-button-next', prevEl: '.project-home-slide-button-prev' },
-        });
-        // Slide phản hồi khách hàng
-        new Swiper('.section-feedback-slide', {
-            slidesPerView: 1,
-            spaceBetween: 100,
-            autoplay: { delay: 3000, disableOnInteraction: false },
-            loop: true,
-            navigation: { nextEl: '.feedback-slide-button-next', prevEl: '.feedback-slide-button-prev' },
-        });
-        // Slide chứng nhận
-        new Swiper('.section-feedback-slide2', {
-            slidesPerView: 2,
-            spaceBetween: 0,
-            autoplay: { delay: 3000, disableOnInteraction: false },
-            loop: true,
-            navigation: { nextEl: '.feedback-certify-button-next', prevEl: '.feedback-certify-button-prev' },
-        });
-        // Slide đối tác
-        new Swiper('.section-partner-slide', {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            autoplay: { delay: 3000, disableOnInteraction: false },
-            breakpoints: { 991: { slidesPerView: 6 }, 768: { slidesPerView: 3 } },
-            loop: true,
-            navigation: { nextEl: '.partner-button-next', prevEl: '.partner-button-prev' },
-        });
-        // Slide logo
-        new Swiper('.mySwiper', {
-            slidesPerView: 5,
-            spaceBetween: 20,
-            loop: true,
-            pagination: {
-              el: '.swiper-pagination',
-              clickable: true,
-            },
-            breakpoints: {
-              0: {
-                slidesPerView: 1
-              },
-              576: {
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            0: {
                 slidesPerView: 2
-              },
-              768: {
+            },
+            768: {
                 slidesPerView: 3
-              },
-              992: {
-                slidesPerView: 4
-              },
-              1200: {
+            },
+            1200: {
                 slidesPerView: 5
-              }
             }
-          });
-    }
+        }
+    });
 }
 
 // 10. Khởi tạo fancybox
