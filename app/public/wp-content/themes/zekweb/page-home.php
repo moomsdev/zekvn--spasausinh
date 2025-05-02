@@ -5,10 +5,12 @@ Template Name: Trang chủ
 ?>
 <?php get_header(); ?>
 
-<main id="main">
+<main id="main" style="margin-bottom: 20px;">
   <?php
   // Slider hero
    get_template_part('template-parts/section', 'slider_hero');
+   //overview
+   get_template_part('template-parts/section','overview');
    //story
    get_template_part('template-parts/section', 'story');
    //video
@@ -27,24 +29,23 @@ Template Name: Trang chủ
    get_template_part('template-parts/section', 'highlights');
    //video library
    get_template_part('template-parts/section', 'video_library');
-   //map
-   get_template_part('template-parts/section', 'map');
-   //partner
-   get_template_part('template-parts/section', 'partner');
    //branch
    get_template_part('template-parts/section', 'branch');
-   //contact
-   get_template_part('template-parts/section', 'contact');
-   //faqs
-   get_template_part('template-parts/section', 'faqs');
-   //overview
-   get_template_part('template-parts/section','overview');
-   //products slider
-   get_template_part('template-parts/section','products_slider');
-   //logo slider
-   get_template_part('template-parts/section','logo_slider');
-   //materials slider
-   get_template_part('template-parts/section','materials_slider');
+   //partner
+   get_template_part('template-parts/section', 'partner');
+
+  //  //map
+  //  get_template_part('template-parts/section', 'map');
+  //  //contact
+  //  get_template_part('template-parts/section', 'contact');
+  //  //faqs
+  //  get_template_part('template-parts/section', 'faqs');
+  //  //products slider
+  //  get_template_part('template-parts/section','products_slider');
+  //  //logo slider
+  //  get_template_part('template-parts/section','logo_slider');
+  //  //materials slider
+  //  get_template_part('template-parts/section','materials_slider');
    ?>
 </main>
 
