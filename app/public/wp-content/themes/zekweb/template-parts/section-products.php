@@ -56,6 +56,9 @@ $image = get_field('image', 'option');
                             </div>
                         </div>
                     </div>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn-hightlight rounded-4" style="height: 3.5rem; line-height: 1.7;">XEM TẤT CẢ</a>
+                    </div>
                 </div>
                 <div class="row mt-4 g-4 align-items-start flex-row-reverse">
                     <div class="col-md-4 col-lg-4 col-12 product-banner">
@@ -88,6 +91,9 @@ $image = get_field('image', 'option');
 
                             </div>
                         </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn-hightlight rounded-4" style="height: 3.5rem; line-height: 1.7;">XEM TẤT CẢ</a>
                     </div>
                 </div>
                 <div class="row mt-4 g-4 align-items-start">
@@ -122,6 +128,9 @@ $image = get_field('image', 'option');
                                 <?php get_template_part('loop_template/loop', 'item_products') ?>
                             </div>
                         </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn-hightlight rounded-4" style="height: 3.5rem; line-height: 1.7;">XEM TẤT CẢ</a>
                     </div>
                 </div>
             </div>
@@ -157,6 +166,9 @@ $image = get_field('image', 'option');
                             </div>
                         </div>
                     </div>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn-hightlight rounded-4" style="height: 3.5rem; line-height: 1.7;">XEM TẤT CẢ</a>
+                    </div>
                 </div>
                 <div class="row mt-4 g-4 align-items-start">
                     <div class="col-md-4 col-lg-4 col-12 product-banner">
@@ -189,6 +201,9 @@ $image = get_field('image', 'option');
 
                             </div>
                         </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn-hightlight rounded-4" style="height: 3.5rem; line-height: 1.7;">XEM TẤT CẢ</a>
                     </div>
                 </div>
                 <div class="row mt-4 g-4 align-items-start flex-row-reverse">
@@ -223,6 +238,9 @@ $image = get_field('image', 'option');
                                 <?php get_template_part('loop_template/loop', 'item_products') ?>
                             </div>
                         </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn-hightlight rounded-4" style="height: 3.5rem; line-height: 1.7;">XEM TẤT CẢ</a>
                     </div>
                 </div>
             </div>
@@ -258,6 +276,9 @@ $image = get_field('image', 'option');
                             </div>
                         </div>
                     </div>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn-hightlight rounded-4" style="height: 3.5rem; line-height: 1.7;">XEM TẤT CẢ</a>
+                    </div>
                 </div>
                 <div class="row mt-4 g-4 align-items-start flex-row-reverse">
                     <div class="col-md-4 col-lg-4 col-12 product-banner">
@@ -290,6 +311,9 @@ $image = get_field('image', 'option');
 
                             </div>
                         </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn-hightlight rounded-4" style="height: 3.5rem; line-height: 1.7;">XEM TẤT CẢ</a>
                     </div>
                 </div>
                 <div class="row mt-4 g-4 align-items-start">
@@ -324,6 +348,9 @@ $image = get_field('image', 'option');
                                 <?php get_template_part('loop_template/loop', 'item_products') ?>
                             </div>
                         </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn-hightlight rounded-4" style="height: 3.5rem; line-height: 1.7;">XEM TẤT CẢ</a>
                     </div>
                 </div>
             </div>
