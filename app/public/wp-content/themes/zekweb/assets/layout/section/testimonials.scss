@@ -1,2 +1,126 @@
 @use '../../utilities/variables' as *;
 @use '../../utilities/mixin' as *;
+
+@media screen and (max-width: 991px) {
+  .swiper-slide {
+    flex-direction: column;
+
+    .testimonials-video {
+      width: 100% !important;
+    }
+
+    .testimonials-content {
+      width: 100% !important;
+    }
+  }
+}
+
+.section-testimonials {
+  iframe {
+    width: 100%;
+    @include aspectRatio(6/5);
+    object-fit: cover;
+    border-radius: 2.4rem;
+  }
+
+  .testimonials-content {
+    color: #fff;
+    text-align: center;
+  }
+
+  .testimonials-title {
+    @include resFont(2, 3);
+    @include limitLine(2);
+    line-height: 1.4;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .testimonials-description {
+    @include resFont(1.4, 1.8);
+    @include limitLine(5);
+    margin-bottom: 1rem;
+  }
+
+  .testimonials-review {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+
+    img {
+      width: 20rem;
+    }
+  }
+
+  .testimonials-profile {
+    img {
+      width: 8rem;
+      margin-bottom: 1rem;
+      object-fit: contain;
+    }
+
+    h3 {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+
+    .testimonials-video {
+      width: 40%;
+    }
+
+    .testimonials-content {
+      width: 60%;
+    }
+  }
+
+  .swiper-pagination {
+    margin-top: 2rem;
+    position: relative;
+    display: block;
+
+    .swiper-pagination-bullet {
+      position: relative;
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 50%;
+      border: .2rem solid #7cc1d2;
+      background-color: transparent;
+      opacity: 0.3;
+      margin: 0 .5rem;
+      transition: all 0.3s ease;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transform: translateY(-50%);
+        width: 5rem;
+        height: .1rem;
+        background-color: #7cc1d2;
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+    }
+
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+      transform: scale(1.1);
+      margin-right: 5rem;
+      background: #7cc1d2;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+    .swiper-pagination-bullet:last-child::after {
+      display: none;
+    }
+  }
+}
