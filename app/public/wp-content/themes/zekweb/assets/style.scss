@@ -19,8 +19,9 @@
 
 
 // Woocommerce
-@use "./layout/woocommerce/archive-product";
-@use "./layout/woocommerce/single-product";
+// @use "./layout/woocommerce/archive-product";
+// @use "./layout/woocommerce/archive-product";
+@use "./layout/project/page-showroom";
 
 // Blog
 @use "./layout/blog/archive";
