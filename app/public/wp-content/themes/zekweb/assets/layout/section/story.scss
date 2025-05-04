@@ -1,3 +1,65 @@
 @use '../../utilities/variables' as *;
 @use '../../utilities/mixin' as *;
 
+@include maxWidth(991px) {
+    .story-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.section-story {
+  .story-image {
+    position: relative;
+    aspect-ratio: 5 / 6;
+    object-fit: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    img {
+      position: absolute;
+      bottom: -4%;
+      left: -5%;
+      width: 100%;
+      aspect-ratio: 4 / 6;
+      object-fit: contain;
+      border-radius: 16px;
+    }
+  }
+
+  .story-content {
+    color: #fff;
+  }
+
+  .story-title {
+    @include resFont(2, 4);
+    @include limitLine(3);
+    line-height: 1.2;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .story-description {
+    @include resFont(1.4, 1.8);
+    @include limitLine(10);
+  }
+}
+
+.btn-primary {
+  background-color: $primaryColor;
+  color: #fff;
+  border-radius: 1rem;
+  padding: 1.1rem 2.5rem;
+  line-height: 0.9;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($primaryColor, 10%);
+  }
+}
