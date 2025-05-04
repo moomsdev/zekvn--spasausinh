@@ -1,2 +1,11 @@
 @use '../../utilities/variables' as *;
 @use '../../utilities/mixin' as *;
+
+.section-video {
+    iframe {
+        width: 100%;
+        min-height: 50rem;
+        @include aspectRatio(16/9);
+        object-fit: cover;
+    }
+}

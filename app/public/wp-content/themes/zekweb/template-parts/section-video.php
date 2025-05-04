@@ -11,6 +11,8 @@ $image = get_field('image', 'option');
         </figure>
     </div>
     <div class="video-wrapper">
-
+        <div class="container-fluid">
+            <iframe src="https://www.youtube.com/embed/ItRExComFJ4?si=gJfbFf52rKwQqYUy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
     </div>
 </section>
