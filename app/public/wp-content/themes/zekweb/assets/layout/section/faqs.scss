@@ -1,3 +1,35 @@
-@use '../../utilities/variables' as *;
-@use '../../utilities/mixin' as *;
-    
+@use "../../utilities/variables" as *;
+@use "../../utilities/mixin" as *;
+
+.faq-card {
+  background-color: #fff;
+  border-radius: 2rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+  margin: 1.5rem 0;
+  h5 {
+    font-size: 2.3rem;
+  }
+
+  .faq-item {
+    .faq-question {
+      font-size: 2.3rem;
+      color: $primaryColor;
+    }
+    .faq-answer {
+      font-size: 2.3rem;
+      color: #333;
+    }
+  }
+
+  @media (max-width: 576px) {
+    h5 {
+      font-size: 1.8rem !important;
+    }
+    .faq-question {
+      font-size: 1.8rem !important;
+    }
+    .faq-answer {
+      font-size: 1.5rem !important;
+    }
+  }
+}
