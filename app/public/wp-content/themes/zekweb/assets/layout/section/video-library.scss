@@ -1,3 +1,59 @@
 @use '../../utilities/variables' as *;
 @use '../../utilities/mixin' as *;
-   
+
+@include maxWidth(991px) {
+  .video-library-list-more {
+    a {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .video-title {
+    text-align: center;
+  }
+
+  .video-description {
+    text-align: justify;
+  }
+}
+
+.section-video-library {
+  box-shadow: 0px 0px 10px 0px #2d2c2c;
+  border-radius: 3rem;
+  background: #fff;
+
+  iframe {
+    width: 100%;
+    min-height: 20rem;
+    @include aspectRatio(16/9);
+    object-fit: cover;
+    border-radius: 3rem;
+  }
+
+  .video-date {
+    @include resFont(1.2, 1.6);
+    @include limitLine(1);
+  }
+
+  .video-title {
+    @include resFont(1.7, 2.4);
+    @include limitLine(2);
+    text-transform: uppercase;
+    font-weight: bold;
+
+    &:hover {
+      color: #000;
+    }
+  }
+
+  .video-description {
+    @include resFont(1.4, 1.8);
+    @include limitLine(4);
+  }
+
+  .video-library-list-more {
+    margin-top: 3rem;
+  }
+}
