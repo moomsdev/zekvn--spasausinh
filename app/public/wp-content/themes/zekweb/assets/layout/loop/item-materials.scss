@@ -1,0 +1,43 @@
+@use '../../utilities/variables' as *;
+@use '../../utilities/mixin' as *;
+
+.materials-card {
+  border-radius: 2rem;
+  padding: 2.5rem 2rem;
+  height: 50rem;
+  color: #fff;
+  text-align: center;
+  background: #7a8537;
+}
+
+.materials-card-header {
+  margin: 3rem 0;
+
+  .materials-title {
+    font-weight: bold;
+    @include resFont(1.6, 3);
+    @include limitLine(1);
+  }
+}
+
+.materials-card-body {
+  margin-bottom: 1.5rem;
+
+  .materials-desc {
+    @include resFont(1.4, 2.2);
+    @include limitLine(6);
+    max-height: 17rem;
+  }
+}
+
+.materials-card-image {
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  right: 0;
+
+  img {
+    aspect-ratio: 6 / 3;
+    object-fit: contain;
+  }
+}

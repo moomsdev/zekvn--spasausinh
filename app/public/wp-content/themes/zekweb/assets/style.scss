@@ -43,6 +43,7 @@
 @use './layout/section/overview';
 @use './layout/section/contact';
 @use './layout/section/logo-slider';
+@use './layout/section/materials-slider';
 
 
 
@@ -52,3 +53,4 @@
 @use './layout/loop/item-service';
 @use './layout/loop/item-whyus';
 @use './layout/loop/item-highlights';
+@use './layout/loop/item-materials';
