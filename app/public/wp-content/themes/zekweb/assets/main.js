@@ -1,9 +1,16 @@
+import $ from 'jquery';
+import jQuery from 'jquery';
+
+window.$ = $;
+window.jQuery = jQuery;
+
 // Import CSS
 import 'aos/dist/aos.css';
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import './vendor/select2.min.css';
 import './style.scss';
 import 'swiper/swiper-bundle.css';
+import '@fortawesome/fontawesome-free/css/all.css'
 
 // Import các file JS cơ bản
 import 'bootstrap/dist/js/bootstrap.bundle';
@@ -15,14 +22,12 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 Swiper.use([Navigation, Pagination, Autoplay]);
 
-import './js/jquery-ui.min.js';
-import './js/jquery.min.js';
 import './js/qty.js';
 import './js/ytdefer.min.js';
 import AOS from 'aos';
 import Swup from 'swup';
 
-jQuery(document).ready(function () {
+jQuery(function($) {
     const swup = new Swup();
     swup.hooks.on('page:view', () => {
         initializePageFeatures();
@@ -33,15 +38,15 @@ jQuery(document).ready(function () {
 
 function initializePageFeatures() {
     initAnimations();
-    // initMobileMenu();
-    // initSelect2();
-    // initBackToTop();
-    // initStickyHeader();
-    // initContactForm7Ajax();
-    // initDynamicClasses();
-    // initAccountUI();
+    initMobileMenu();
+    initSelect2();
+    initBackToTop();
+    initStickyHeader();
+    initContactForm7Ajax();
+    initDynamicClasses();
+    initAccountUI();
     initSwiperSliders();
-    // initFancybox();
+    initFancybox();
 }
 
 // 1. Hiệu ứng
@@ -93,13 +98,31 @@ function initBackToTop() {
 
 // 5. Head dính khi cuộn
 function initStickyHeader() {
-    var navfixed = $(".head");
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 10) {
-            navfixed.addClass("navbar-fixed-top");
+    const $header = $('#header');
+    let lastScrollTop = 0;
+    let isScrolling;
+    let headerHeight = $header.outerHeight();
+
+    $(window).on('scroll', function () {
+        let scrollTop = $(this).scrollTop();
+
+        // Fixed header khi cuộn xuống vượt qua chiều cao của header
+        if (scrollTop > headerHeight) {
+            $header.addClass('is-fixed');
         } else {
-            navfixed.removeClass("navbar-fixed-top");
+            $header.removeClass('is-fixed');
         }
+
+        // Add is-hidden class when scrolling in any direction
+        $header.addClass('is-hidden');
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+        // Dừng scroll thì hiển thị lại header sau 150ms
+        clearTimeout(isScrolling);
+        isScrolling = setTimeout(function () {
+            $header.removeClass('is-hidden');
+        }, 150);
     });
 }
 
@@ -218,18 +241,14 @@ function initSwiperSliders() {
 
 // 10. Khởi tạo fancybox
 function initFancybox() {
-    $("[data-fancybox]").Fancybox({
+    Fancybox.bind("[data-fancybox]", {
+        // Các tùy chọn
         slideShow: {
             autoStart: true,
             speed: 1000,
-            pager: false,
         },
-        thumbs: {
+        Thumbs: {
             autoStart: true,
-            axis: 'vertical',
-            showAutoplayButton: false,
-            showCloseButton: false,
-            showCounter: false,
         },
     });
 }

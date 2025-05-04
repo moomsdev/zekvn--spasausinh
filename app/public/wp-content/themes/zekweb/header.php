@@ -18,9 +18,6 @@
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/dist/style.css?v=<?php echo time(); ?>">
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css?v=<?php echo time(); ?>">
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-
-
 	<!-- Nhúng JS -->
 	<?php
 	$jsFiles = glob(get_template_directory() . '/dist/assets/main-*.js');
@@ -46,32 +43,69 @@
 		<div class="line-dark"></div>
 
 		<header id="header">
-			<?php if (is_home() || is_front_page()) { ?>
-				<h1 class="site-name" style="display: none;"><?php bloginfo('title'); ?></h1>
-			<?php } ?>
+			<div class="container">
+				<?php
+				if (is_home() || is_front_page()) :
+					echo '<h1 class="site-name" style="display: none;">' . get_bloginfo('name') . '</h1>';
+				endif;
+				?>
 
-			<!-- Navbar -->
-			<nav>
-				<div class="container">
-					<div class="row align-items-center">
-						<div class="col-lg-3 col-12">
-							<a href="<?php echo esc_url(home_url()); ?>" title="<?php bloginfo('title'); ?>">
-								<img src="<?php the_field('logo', 'option') ?>" alt="<?php bloginfo('title'); ?>"
-									class="img-logo" />
-							</a>
-							<div class="bars-mobile d-lg-none">
-								<i class="fal fa-bars"></i>
+				<div class="header-inner">
+					<!-- Navbar -->
+					<nav class="d-none d-lg-block pc-menu">
+						<?php wp_nav_menu(array('container' => '', 'theme_location' => 'main', 'menu_class' => 'menu')); ?>
+					</nav>
+
+					<!-- Menu mobile -->
+					<div id="touch-menu" class="touch-menu d-block d-md-none"></div>
+
+					<!-- Logo mobile -->
+					<a href="<?php echo home_url(); ?>" class="d-lg-none menu-logo">
+						<img src="<?php echo get_field('logo', 'option'); ?>" alt="<?php echo get_bloginfo('name'); ?>">
+					</a>
+
+					<!-- Ext menu -->
+					<div class="ext-menu">
+						<div class="ext-menu-inner">
+							<div class="search">
+								<button data-bs-toggle="modal" data-bs-target="#search-modal">
+									<img src="<?php bloginfo('template_url'); ?>/assets/images/search.png" alt="Search">
+								</button>
 							</div>
-						</div>
-						<div class="col-lg-9 col-12 d-none d-md-block">
-							<?php wp_nav_menu(array('container' => '', 'theme_location' => 'main', 'menu_class' => 'menu')); ?>
+							
+							<div class="cart">
+								<!-- Cart -->
+								<a href="<?php echo wc_get_cart_url(); ?>" class="cart-btn">
+									<i class="fa-solid fa-cart-shopping"></i>
+									<span class="cart-count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+								</a>
+							</div>
 						</div>
 					</div>
 				</div>
-			</nav>
-
-			<!-- Banner -->
+			</div>
 		</header>
 
 		<!-- Menu mobile -->
-		<?php wp_nav_menu(array('container' => '', 'theme_location' => 'main', 'menu_class' => 'menu')); ?>
+		<div id="menu-mobile">
+			<div class="close" id="close-menu"></div>
+			<?php wp_nav_menu(array('container' => '', 'theme_location' => 'main', 'menu_class' => 'menu')); ?>
+		</div>
+
+	<div class="modal fade" id="search-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+				<div class="search-form">
+					<div class="input-search">
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						<form role="search" method="get" autocomplete="off" class="woocommerce-product-search" action="<?php echo esc_url(home_url('/')); ?>">
+							<label class="screen-reader-text" for="woocommerce-product-search-field-<?php echo isset($index) ? absint($index) : 0; ?>"><?php esc_html_e('Search for:', 'woocommerce'); ?></label>
+							<input type="search" id="woocommerce-product-search-field-<?php echo isset($index) ? absint($index) : 0; ?>" class="search-input" placeholder="<?php echo esc_attr__('Nhập tìm kiếm&hellip;', 'woocommerce'); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+							<button type="submit" value="<?php echo esc_attr_x('Search', 'submit button', 'woocommerce'); ?>" class="search-submit">
+								<img src="<?php bloginfo('template_url'); ?>/assets/images/search.png" alt="Search">
+							</button>
+							<input type="hidden" name="post_type" value="producdivt" />
+						</form>
+					</div>
+				</div>
+		</div>
+	</div>

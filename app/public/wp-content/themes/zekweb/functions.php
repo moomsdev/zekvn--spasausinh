@@ -302,7 +302,11 @@ class home_news extends WP_Widget {
         <div class="widget-title"><?php echo ($title);?></div>
         <div class="widget-post">
             
-            <?php $new=new WP_Query('showposts=5&orderby=date&order=DESC');while($new->have_posts()) : $new->the_post();?>
+            <?php 
+            $new = new WP_Query('showposts=5&orderby=date&order=DESC');
+            while($new->have_posts()) : $new->the_post();
+            global $post;
+            ?>
             <div class="item">
                 <div class="img">
                     <a href="<?php the_permalink();?>" aria-label="<?php the_title();?>"><?php the_post_thumbnail('medium', array('alt' => trim(strip_tags( $post->post_title )),'title' => trim(strip_tags( $post->post_title )),)); ?></a>
@@ -881,3 +885,22 @@ function tao_custom_post_type() {
     register_post_type('service', $args);
 }
 add_action('init', 'tao_custom_post_type');
+
+/* ===============================
+ * 29. TẠO LOGO TRONG MENU
+ * =============================== */
+add_filter('wp_nav_menu_items', 'insert_logo_in_menu_middle', 10, 2);
+function insert_logo_in_menu_middle($items, $args) {
+    if ($args->theme_location === 'main') {
+        $menu_items = explode('</li>', $items);
+        $middle_index = ceil(count($menu_items) / 2);
+        
+        $logo = '<li class="d-none d-lg-block menu-logo"><a href="' . home_url() . '">
+                    <img src="' . get_field('logo', 'option') . '" alt="main-logo" />
+                </a></li>';
+
+        array_splice($menu_items, $middle_index, 0, $logo);
+        $items = implode('</li>', $menu_items);
+    }
+    return $items;
+}
