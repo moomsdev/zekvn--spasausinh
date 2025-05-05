@@ -1,37 +1,32 @@
 <?php
-$title = get_field('title', 'option');
-$image = get_field('image', 'option');
+$title = get_field('sec12_title', 'option');
+$partnerList = get_field('sec12_partner', 'option');
 ?>
 
 <section class="section-partner">
-    <div class="heading-wrapper">
-        <h2 class="section-heading fs-36">Đối tác chiến lược</h2>
-        <figure class="icon-image">
-            <img src="<?php bloginfo('template_url'); ?>/assets/images/heading-icon.png" alt="heading-icon">
-        </figure>
-    </div>
+    <?php get_template_part('loop_template/loop', 'heading_section', ['title' => $title]) ?>
+
     <div class="container">
         <div class="row g-3">
-            <div class="col-6 col-md-3">
-                <figure class="partner-logo">
-                    <img src="<?php bloginfo('template_url'); ?>/assets/images/partner1.png" alt="partner-logo" loading="lazy">
-                </figure>
-            </div>
-            <div class="col-6 col-md-3">
-                <figure class="partner-logo">
-                    <img src="<?php bloginfo('template_url'); ?>/assets/images/partner1.png" alt="partner-logo" loading="lazy">
-                </figure>
-            </div>
-            <div class="col-6 col-md-3">
-                <figure class="partner-logo">
-                    <img src="<?php bloginfo('template_url'); ?>/assets/images/partner1.png" alt="partner-logo" loading="lazy">
-                </figure>
-            </div>
-            <div class="col-6 col-md-3">
-                <figure class="partner-logo">
-                    <img src="<?php bloginfo('template_url'); ?>/assets/images/partner1.png" alt="partner-logo" loading="lazy">
-                </figure>
-            </div>
+            <?php 
+            foreach ($partnerList as $partner) :
+                $partner_logo = $partner['logo'];
+                $partner_url = $partner['url'];
+            ?>
+                <div class="col-6 col-md-3 d-flex justify-content-center align-items-center">
+                    <figure class="partner-logo">
+                        <?php
+                        if ($partner_url) :
+                        ?>
+                            <a href="<?php echo $partner_url; ?>" target="_blank">
+                                <img src="<?php echo $partner_logo; ?>" alt="partner-logo" loading="lazy">
+                            </a>
+                        <?php else : ?>
+                            <img src="<?php echo $partner_logo; ?>" alt="partner-logo" loading="lazy">
+                        <?php endif; ?>
+                    </figure>
+                </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>

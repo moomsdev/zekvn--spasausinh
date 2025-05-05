@@ -3,9 +3,8 @@
 
 .section-contact {
   padding: 3rem 0;
-  border-radius: 2rem;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
   margin: 2.5rem 0;
+  
   .section-heading {
     text-align: center;
     color: $primaryColor;
@@ -13,19 +12,30 @@
     margin-bottom: 2rem;
     position: relative;
   }
-  .row {
+
     .contact-image {
+      height: 100%;
+      max-height: 56.6rem;
+      display: flex;
+      align-items: center;
+      
       img {
-        width: 100%;
+        aspect-ratio: 496/966;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 1rem;
       }
     }
     .contact-form {
-      padding: 2rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
 
       form {
         display: flex;
         flex-direction: column;
         gap: 1rem;
+        height: 100%;
 
         label {
           font-weight: bold;
@@ -57,6 +67,7 @@
 
         textarea {
           min-height: 80px;
+          flex: 1;
         }
 
         input[type="submit"] {
@@ -68,6 +79,7 @@
           width: 100%;
           font-weight: bold;
           transition: 0.3s ease;
+          margin-top: auto;
 
           &:hover {
             background-color: #3aa3b4;
@@ -75,5 +87,10 @@
         }
       }
     }
+}
+
+.google-map {
+  iframe {
+    aspect-ratio: 16/9;
   }
 }

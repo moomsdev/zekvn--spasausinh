@@ -1,10 +1,10 @@
 <?php
-$title = get_field('sec14_title', 'option');
-$faqs = get_field('sec14_faqs', 'option');
+$faqsTitle = isset($args['faqs_title']) ? $args['faqs_title'] : 'Tiêu đề mặc định';
+$faqs = isset($args['faqs']) ? $args['faqs'] : '';
 ?>
 <div class="faq-card p-4">
   <div class="container">
-    <h3 class="mb-4 fw-bold"><?php echo $title; ?></h3>
+    <h3 class="mb-4 fw-bold"><?php echo $faqsTitle; ?></h3>
 
     <?php foreach ($faqs as $faq) : ?>
       <div class="faq-item mb-3">

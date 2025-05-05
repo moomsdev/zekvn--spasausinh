@@ -4,4 +4,90 @@
 footer {
     padding: 4rem 0;
     background-color: $primaryColor;
+
+    .footer-company-name {
+        margin-bottom: 1.5rem;
+        color: #fff;
+        line-height: 1.2;
+        font-weight: 600;
+        text-transform: uppercase;
+        @include resFont(1.8, 3);
+    }
+
+    .footer-info-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+
+        @include maxWidth($lg) {
+            grid-template-columns: 1fr;
+        }
+
+        .footer-info {
+            & > div {
+                margin-bottom: 1rem;
+                color: #fff;
+                @include resFont(1.6, 1.8);
+            }
+        }
+
+        .footer-nav {
+            ul {
+                margin-bottom: 0;
+                list-style: none;
+                columns: 2;
+                gap: 2rem 1.5rem;
+
+                li {
+                    padding-bottom: 2rem;
+                    break-inside: avoid;
+
+                    a {
+                        display: block;
+                        text-transform: uppercase;
+                        color: #fff;
+                        font-weight: 600;
+                        @include resFont(1.6, 1.8);
+
+                        &:hover {
+                            color: $secondaryColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .social-title {
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: #fff;
+        font-weight: 600;
+        text-transform: uppercase;
+        @include resFont(1.8, 3);
+    }
+
+    .socials {
+        text-align: center;
+    }
+
+    .social-list {
+        a {
+            display: inline-block;
+            margin-right: 1rem;
+            color: #fff;
+
+            i {
+                font-size: 3rem;
+            }
+
+            &:hover {
+                color: $secondaryColor;
+            }
+        }
+    }
+
+
+    
+    
 }

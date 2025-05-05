@@ -1,17 +1,24 @@
 <?php
-$title = get_field('title', 'option');
-$image = get_field('image', 'option');
+$title = get_field('sec11_title', 'option');
+$image = get_field('sec11_img', 'option');
+$branchList = get_field('sec11_branch', 'option');
 ?>
 
 <section class="section-branch">
-    <div class="heading-wrapper">
-        <h2 class="section-heading fs-48">Home care ghi đậm dấu ấn trên dải chữ s:</h2>
-        <figure class="icon-image">
-            <img src="<?php bloginfo('template_url'); ?>/assets/images/heading-icon.png" alt="heading-icon">
-        </figure>
+    <?php get_template_part('loop_template/loop', 'heading_section', ['title' => $title]) ?>
+
     <div class="container">
-        <figure>
-            <img src="<?php bloginfo('template_url'); ?>/assets/images/map-viet-nam.png" alt="map-viet-nam">
-        </figure>
+        <div class="branch-inner">
+            <figure>
+                <img src="<?php echo $image; ?>" alt="<?php echo $title; ?>" loading="lazy">
+            </figure>
+            <div class="branch-list">
+                <select name="" id="">
+                    <?php foreach ($branchList as $branch) : ?>
+                        <option value="<?php echo $branch['branch_address']; ?>"><?php echo $branch['branch_address']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
     </div>
 </section>

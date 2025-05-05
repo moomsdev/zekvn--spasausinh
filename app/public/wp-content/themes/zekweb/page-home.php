@@ -40,16 +40,11 @@ Template Name: Trang chủ
   //video library
   get_template_part('template-parts/section', 'video_library');
   
-  //  //map
-  //  get_template_part('template-parts/section', 'map');
-  //  //partner
-  //  get_template_part('template-parts/section', 'partner');
-  //  //branch
-  //  get_template_part('template-parts/section', 'branch');
-  //  //contact
-  //  get_template_part('template-parts/section', 'contact');
-  //  //faqs
-  //  get_template_part('template-parts/section', 'faqs');
+  //Branch
+  get_template_part('template-parts/section', 'branch');
+
+  //partner
+  get_template_part('template-parts/section', 'partner');
 
   //  //products slider
   //  get_template_part('template-parts/section','products_slider');

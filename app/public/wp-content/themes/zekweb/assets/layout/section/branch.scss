@@ -1,2 +1,24 @@
 @use '../../utilities/variables' as *;
 @use '../../utilities/mixin' as *;
+
+.section-branch {
+    .branch-inner {
+      position: relative;
+
+      .branch-list {
+        position: absolute;
+        top: 10%;
+        right: 50%;
+        transform: translateX(50%);
+        width: 100%;
+        min-width: max-content;
+        max-width: 50rem;
+        
+        select {
+          border: 1px solid #000;
+          color: #000;
+          cursor: pointer;
+        }
+      }
+    }
+}

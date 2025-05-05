@@ -1,2 +1,9 @@
 @use '../../utilities/variables' as *;
 @use '../../utilities/mixin' as *;
+
+.service-page {
+  .section-service.frame-shadow {
+    background-color: unset;
+    box-shadow: unset;
+  }
+}

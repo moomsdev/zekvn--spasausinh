@@ -1,8 +1,4 @@
-<?php
-/*
-Template Name: Showroom
- */
-?>
+
 <?php get_header(); ?>
 
 <main id="main">
