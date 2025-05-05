@@ -24,12 +24,32 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<div <?php wc_product_class( 'item-product', $product ); ?>>
-	<div class="img">
-		<a href="<?php the_permalink()?>" title="<?php the_title(); ?>"><?php the_post_thumbnail('large', array('alt'   => trim(strip_tags( $post->post_title )),'title' => trim(strip_tags( $post->post_title )),)); ?></a>
+<div class="col-6 col-lg-3 slider-content">
+	<div class="product-card">
+		<figure>
+			<img loading="lazy" decoding="async"
+					src="<?php the_post_thumbnail_url('large', array('class' => 'img-news', 'alt' => trim(strip_tags($post->post_title)), 'title' => trim(strip_tags($post->post_title)))) ?>"
+					alt="<?php the_title() ?>">
+		</figure>
+		<div class="product-info-box">
+			<div class="product-name"><?php the_title() ?></div>
+			
+			<?php wc_get_template('loop/price.php'); ?>
+		</div>
 	</div>
-	<div class="info">
-		<h3 class="name"><a href="<?php the_permalink()?>"><?php the_title(); ?></a></h3>
-		<?php wc_get_template( 'loop/price.php' ); ?>
-	</div>
+	<!-- Add to cart -->
+	<?php
+	global $product;
+	$product_id = $product->get_id();
+	$product_sku = $product->get_sku();
+	?>
+	<a href="?add-to-cart=<?php echo $product_id; ?>" 
+	data-quantity="1" 
+	class="button product_type_simple add_to_cart_button ajax_add_to_cart custom-add-to-cart" 
+	data-product_id="<?php echo $product_id; ?>" 
+	data-product_sku="<?php echo $product_sku; ?>" 
+	aria-label="Thêm sản phẩm vào giỏ hàng" 
+	rel="nofollow">
+	Thêm vào giỏ hàng
+	</a>
 </div>

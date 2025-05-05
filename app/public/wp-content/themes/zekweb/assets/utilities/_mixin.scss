@@ -1,4 +1,5 @@
 @use './variables' as *;
+@use 'sass:math';
 
 @mixin limitLine($lines) {
   & {
@@ -25,38 +26,37 @@
 
 @mixin resFont($min-size, $max-size, $important: false) {
   $font-size: #{$max-size}rem;
-
-  @if $important {
-    $font-size: #{$max-size}rem !important;
+  & {
+    font-size: $font-size;
+    @if $important {
+      font-size: #{$max-size}rem !important;
+    }
   }
-
-  font-size: $font-size;
 
   @include maxWidth($lg) {
     $font-size: calc(#{$max-size}rem - ((#{$max-size}rem - #{$min-size}rem)) / 2);
-
-    @if $important {
-      $font-size: calc(#{$max-size}rem - ((#{$max-size}rem - #{$min-size}rem)) / 2) !important;
+    & {
+      font-size: $font-size;
+      @if $important {
+        font-size: calc(#{$max-size}rem - ((#{$max-size}rem - #{$min-size}rem)) / 2) !important;
+      }
     }
-
-    font-size: $font-size;
   }
 
   @include maxWidth($sm) {
     $font-size: #{$min-size}rem;
-
-    @if $important {
-      $font-size: #{$min-size}rem !important;
+    & {
+      font-size: $font-size;
+      @if $important {
+        font-size: #{$min-size}rem !important;
+      }
     }
-
-    font-size: $font-size;
   }
 }
 
-
 @mixin aspectRatio($ratio: 16/9) {
   height: 0;
-  padding-bottom: 100% / $ratio;
+  padding-bottom: math.div(100%, $ratio);
   @supports (aspect-ratio: 16/9) {
     aspect-ratio: $ratio;
     height: initial;

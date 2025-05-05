@@ -1,0 +1,42 @@
+@use "../../utilities/variables" as *;
+@use "../../utilities/mixin" as *;
+
+.section-product-offers {
+    margin-bottom: clamp(3rem, 5vw, 5rem);
+    padding: 3rem 5rem;
+    position: relative;
+    top: -3rem;
+    border-radius: 3rem;
+    box-shadow: 0 0 .8rem 1.6rem rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    z-index: 999;
+
+    @include maxWidth($md) {
+        padding:2rem 1rem;
+    }
+
+    .product-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+
+        .product-image {
+            img {
+                max-height: 7.5rem;
+            }
+        }
+        
+        .product-name {
+            color: $primaryColor;
+            font-weight: 600;
+            @include resFont(1.6, 1.8);
+        }
+
+        .product-desc {
+            @include resFont(1.6, 1.8);
+        }
+    }
+
+}

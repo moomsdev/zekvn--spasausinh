@@ -16,10 +16,10 @@
   }
 
   .momneadknow-blog__title {
-    @include resFont(1.7, 2.2);
-    @include limitLine(2);
     margin-bottom: 1rem;
     line-height: 1.4;
+    @include resFont(1.7, 2.2);
+    @include limitLine(2);
 
     &:hover {
       color: #000;

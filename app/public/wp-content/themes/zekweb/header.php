@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/dist/main.css?v=<?php echo time(); ?>">
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/dist/style.css?v=<?php echo time(); ?>">
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css?v=<?php echo time(); ?>">
+	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
 	<!-- Nhúng JS -->
@@ -61,7 +62,7 @@
 					<div id="touch-menu" class="touch-menu d-block d-md-none"></div>
 
 					<!-- Logo mobile -->
-					<a href="<?php echo home_url(); ?>" class="d-lg-none menu-logo">
+					<a href="<?php echo home_url(); ?>" class="d-lg-none menu-logo menu-logo-mobile">
 						<img src="<?php echo get_field('logo', 'option'); ?>" alt="<?php echo get_bloginfo('name'); ?>">
 					</a>
 

@@ -43,11 +43,11 @@
   }
 
   .story-title {
-    @include resFont(2, 4);
-    @include limitLine(3);
     line-height: 1.2;
     text-transform: uppercase;
     font-weight: bold;
+    @include resFont(2, 4);
+    @include limitLine(3);
   }
 
   .story-description {

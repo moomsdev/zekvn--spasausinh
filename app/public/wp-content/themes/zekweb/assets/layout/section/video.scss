@@ -1,10 +1,11 @@
 @use '../../utilities/variables' as *;
 @use '../../utilities/mixin' as *;
+@use 'sass:math';
 
 .section-video {
     iframe {
         width: 100%;
-        @include aspectRatio(16/9);
         object-fit: cover;
+        @include aspectRatio(math.div(16, 9));
     }
 }

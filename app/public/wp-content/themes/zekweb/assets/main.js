@@ -10,7 +10,7 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import './vendor/select2.min.css';
 import './style.scss';
 import 'swiper/swiper-bundle.css';
-import '@fortawesome/fontawesome-free/css/all.css'
+// import '@fortawesome/fontawesome-free/css/all.css'
 
 // Import các file JS cơ bản
 import 'bootstrap/dist/js/bootstrap.bundle';
@@ -53,7 +53,7 @@ function initializePageFeatures() {
 function initAnimations() {
     AOS.init({
         duration: 400,
-        // once: true, // chỉ animate 1 lần
+        once: true, // chỉ animate 1 lần
     });
     AOS.refreshHard();
 }
@@ -242,6 +242,58 @@ function initSwiperSliders() {
             el: '.swiper-pagination',
             clickable: true,
         },
+    });
+
+    // Slider product
+    new Swiper('.products-latest', {
+        // slidesPerView: 4,
+        // spaceBetween: 20,
+        // // loop: true,
+        // // autoplay: {
+        // //     delay: 3000,
+        // //     disableOnInteraction: false
+        // // },
+        // pagination: {
+        //     el: '.swiper-pagination',
+        //     clickable: true,
+        // },
+        breakpoints: {
+            0: {
+                slidesPerView: 2
+            },
+            768: {
+                slidesPerView: 3
+            },
+            1200: {
+                slidesPerView: 4
+            }
+        }
+    });
+
+    // Slider materials
+    new Swiper('.materials-slider', {
+        slidesPerView: 4,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 1
+            },
+            991: {
+                slidesPerView: 2
+            },
+            1200: {
+                slidesPerView: 4
+            }
+        }
     });
 }
 

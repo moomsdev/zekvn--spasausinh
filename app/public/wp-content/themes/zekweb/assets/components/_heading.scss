@@ -50,11 +50,11 @@
     }
 
     &.fs-36 {
-        @include resFont(2.4, 3.6);
+        @include resFont(2, 3);
     }
 
     &.fs-48 {
-        @include resFont(2.4, 4.8);
+        @include resFont(2, 4);
     }
 }
 

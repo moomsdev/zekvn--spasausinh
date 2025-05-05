@@ -1,5 +1,6 @@
 @use '../../utilities/variables' as *;
 @use '../../utilities/mixin' as *;
+@use 'sass:math';
 
 @include maxWidth(991px) {
   .video-library-list-more {
@@ -27,9 +28,9 @@
   iframe {
     width: 100%;
     min-height: 20rem;
-    @include aspectRatio(16/9);
     object-fit: cover;
     border-radius: 3rem;
+    @include aspectRatio(math.div(16, 9));
   }
 
   .video-date {
@@ -38,10 +39,10 @@
   }
 
   .video-title {
-    @include resFont(1.7, 2.4);
-    @include limitLine(2);
     text-transform: uppercase;
     font-weight: bold;
+    @include resFont(1.7, 2.4);
+    @include limitLine(2);
 
     &:hover {
       color: #000;

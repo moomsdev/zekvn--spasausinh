@@ -1,2 +1,86 @@
-@use '../../utilities/variables' as *;
-@use '../../utilities/mixin' as *;
+@use "../../utilities/variables" as *;
+@use "../../utilities/mixin" as *;
+
+.product-slider-section {
+    margin: 5rem 0;
+
+  .section-heading {
+    position: relative;
+
+    &:after,
+    &:before {
+      content: none;
+    }
+  }
+
+  .icon-image {
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translateX(-700%);
+    }
+  }
+  .swiper-pagination {
+    margin-top: 2rem;
+    position: relative;
+    display: block;
+
+    .swiper-pagination-bullet {
+      position: relative;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid #7cc1d2;
+      background-color: transparent;
+      opacity: 0.3;
+      margin: 0 5px;
+      transition: all 0.3s ease;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transform: translateY(-50%);
+        width: 5rem;
+        height: 1px;
+        background-color: #7cc1d2;
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+    }
+
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+      transform: scale(1.1);
+      margin-right: 5rem;
+      background: #7cc1d2;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+    .swiper-pagination-bullet:last-child::after {
+      display: none;
+    }
+  }
+
+  .price {
+    color: $primaryColor;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .product-name {
+    a:hover {
+      color: $primaryColor;
+    }
+  }
+
+  .slider-content {
+    position: relative;
+    padding: 1rem;
+    border-radius: 1.5rem;
+  }
+}

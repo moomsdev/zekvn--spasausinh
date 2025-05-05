@@ -26,8 +26,8 @@
     }
 
     .overview-title {
-      @include resFont(3, 4.5);
       font-weight: bold;
+      @include resFont(3, 4.5);
     }
 
     .overview-text {

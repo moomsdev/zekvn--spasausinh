@@ -7,7 +7,6 @@
 @use "./components/sidebar";
 @use "./components/pagination";
 @use "./components/breadcrumb";
-@use "./components/loop-post";
 @use "./components/heading";
 @use "./components/sidebar-project";
 
@@ -16,6 +15,7 @@
 @use "./layout/header";
 @use "./layout/footer";
 @use "./layout/contact-page";
+@use "./layout/_intro-page";
 
 
 // Woocommerce
@@ -52,13 +52,16 @@
 @use './layout/section/contact';
 @use './layout/section/logo-slider';
 @use './layout/section/branch';
+@use './layout/section/product-slider';
+@use './layout/section/materials-slider';
+@use './layout/section/product-offers';
 
 //@/images/___.png);
-
 //loop
+@use './layout/loop/item-products';
 @use './layout/loop/item-service';
 @use './layout/loop/item-whyus';
 @use './layout/loop/item-highlights';
 @use './layout/loop/item-momblog';
 @use './layout/loop/post';
-@use './layout/loop/item-products';
+@use './layout/loop/item-materials';

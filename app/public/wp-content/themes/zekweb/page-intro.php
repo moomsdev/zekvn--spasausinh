@@ -10,14 +10,14 @@ Template Name: Giới Thiệu
         <div class="overlay">
             <div class="heading-wrapper">
                 <h2 class="section-heading fs-48 text-white"><?php echo get_the_title(); ?></h2>
-                <?php echo get_field('short_desc'); ?>
+                <?php echo wpautop(get_field('short_desc')); ?>
             </div>
         </div>
     </section>
 
     <?php get_template_part('template-parts/section','overview') ?>
 
-    <section class="intro-section">
+    <section class="intro-section" style="background-image: url(<?php echo get_field('background'); ?>);">
         <div class="intro-content">
             <div class="heading-wrapper">
                 <h2 class="section-heading fs-48 text-white"><?php echo get_field('title_story') ?></h2>
@@ -26,78 +26,31 @@ Template Name: Giới Thiệu
                         <img src="<?php bloginfo('template_url'); ?>/assets/images/heading-icon-white.png" alt="">
                     </figure>
                 </div>
-                <?php echo get_field('story_content') ?>
+                <?php echo wpautop(get_field('story_content')); ?>
             </div>
         </div>
     </section>
 
     <div class="container py-5 intro-story">
-        <div class="row mb-10 align-items-center">
-            <div class="col-lg-7 col-12">
-                <h4 class="section-title">HÀNH TRÌNH “THAI NGHÉN” THƯƠNG HIỆU</h4>
-                <p>Khi chưa làm mẹ, chị Mai đã chứng kiến sự thay đổi của nhiều người phụ nữ sau sinh. Sau một trần đau
-                    đẻ, họ như trở thành một con người khác: tỉnh thần mệt mỏi, làn da xuống sắc, ngoại hình xuống
-                    cấp... điều này cũng đã dầy lên trong chỉ nhiều xót xa, thôi thúc chị phải làm điều gì đó để giúp mẹ
-                    xoa dịu nỗi đau này.
-                </p>
-                <p>Mong muốn ấy chính thức "cựa mình khỏi "chiếc nghén ý tưởng để trở thành điều có thật sau khi chị Mai
-                    chính thức làm mẹ lần đầu cách đây hơn 10 năm. Hơn ai hết, chỉ cầm nhân rõ được những thay đổi và
-                    hiểu được điều gì là cần thiết và tốt nhất cho cả mẹ và bé trong giai đoạn này. </p>
-                <p>Chính điều này là động lực để chị Mai tiến hành kết nối với các chuyên gia dinh dưỡng, các bác sĩ sản
-                    khoa, nhi khoa cả trong và ngoài nước cùng với tất cả tâm huyết để khai sinh "Home Care vào năm
-                    2008. </p>
+        <?php
+        $content_media = get_field('content_media');
+        foreach ($content_media as $index => $item) :
+        ?>
+            <div class="row mb-5 align-items-center <?php echo ($index + 1) % 2 === 0 ? 'd-lg-flex flex-lg-row-reverse flex-row' : ''; ?>">
+                <div class="col-lg-7 col-12 content-item">
+                    <h4 class="section-title"><?php echo $item['title'] ?></h4>
+                    <?php echo wpautop($item['content']) ?>
+                </div>
+                <div class="col-lg-5 col-12 mt-4 mt-lg-0 mb-4 mb-lg-0 <?php echo ($index + 1) % 2 === 0 ? 'text-center text-lg-start' : 'text-center text-lg-end'; ?>">
+                    <figure class="icon-image">
+                        <img src="<?php echo $item['img'] ?>" alt="<?php echo $item['title'] ?>">
+                    </figure>
+                </div>
             </div>
-            <div class="col-lg-5 col-12 text-center">
-                <figure class="icon-image">
-                    <img src="<?php bloginfo('template_url'); ?>/assets/images/doctor1.png" alt="">
-                </figure>
-            </div>
-        </div>
-        <div class="row mb-10 align-items-center">
-            <div class="col-lg-5 col-12 text-center">
-                <figure class="icon-image">
-                    <img src="<?php bloginfo('template_url'); ?>/assets/images/doctor1.png" alt="">
-                </figure>
-            </div>
-            <div class="col-lg-7 col-12">
-                <h4 class="section-title">HÀNH TRÌNH PHÁT TRIỂN CỦA HOME CARE</h4>
-                <p>Home Care sử dụng liệu pháp chăm sóc da 100% bằng thảo dược thiên nhiên cao cấp kết hợp liệu pháp
-                    Massage Hoàng gia Taroshi, đặc biệt có kết hợp sử dụng công nghệ cao hiện đại để mang đến hiệu quả
-                    tốt nhất. Toàn bộ liệu n bộ liệu trình đều được xây dựng và kiểm định an toàn bởi đội ngũ bác sĩ sản
-                    khoa, nhi khoa, dinh dưỡng chuyên môn cao có nhiều năm kinh nghiệm. </p>
-                <p>Home Care cam kết liệu trình chăm sóc sẽ giúp mẹ bầu khỏe mạnh, thai giáo thông minh và liệu trình
-                    sau sinh hiện đại phục hồi sức khỏe nhanh chóng, hướng dẫn kiêng cữ đúng cách để vừa tận dụng “thời
-                    kỳ vàng” sau sinh giúp da sáng hồng, tống đẩy hết sản dịch, đào thải mỡ thừa an toàn, giúp cơ thể
-                    thon gọn ngay trong thời gian ở cữ. Đặc biệt, mọi liệu pháp đều không ảnh hưởng tới nguồn sữa mẹ!
-                </p>
-                <p>Với hơn 10 năm kinh nghiệm và phát triển, Home Care hiện đã có hệ thống chi nhánh ở Hà Nội, Hồ Chí
-                    Minh và nhiều tỉnh thành trên khắp Việt Nam. Chúng tôi tự hào khi thương hiệu Home Care liên tục
-                    được vinh danh nhiều giải thưởng quý giá do người tiêu dùng bình chọn như Sản Phẩm Uy Tín – Dịch Vụ
-                    Hoàn Hảo – Nhãn Hiệu Ưa Dùng; TOP100 Spa Uy Tín…</p>
-
-            </div>
-        </div>
-        <div class="row mb-10 align-items-center">
-            <div class="col-lg-7 col-12">
-                <h4 class="section-title">CHẶNG ĐƯỜNG BỨT PHÁ</h4>
-                <p>Đặc biệt, năm 2016, Home Care đã được hơn 20.000 mẹ bầu tin chọn, và xác lập kỷ lục 2000 mẹ bầu hài
-                    lòng mỗi tháng trong năm. Home Care còn là sự lựa chọn hàng đầu của Sao Việt và các doanh nhân.
-                    Trong đó phải kể đến chị Đinh Việt Chung – Giám Đốc Công ty Sơn Việt Hàn, chị Đỗ Thị Hương – chủ
-                    tịch công ty IBS , Chị Hoàng Thu Thủy Chủ tịch của 3 công ty lớn hàng đầu Vệt Nam (May mặc,Thiết kế
-                    đồ họa và nội thất)…</p>
-                <p>Bên cạnh đó, tôi cũng tập trung nuôi dưỡng những ước mơ Việt khi gây quỹ học bổng cho các bạn sinh
-                    viên nghèo hiếu học và tổ chức hàng trăm khoá học cho hàng nghìn học viên chuyên ngành y dược có thu
-                    nhập ổn định khi làm việc tại Home Care hoặc có những bước khởi nghiệp riêng.</p>
-                <p>Tâm huyết của tôi là mọi phụ nữ Việt đều xứng đáng có cuộc sống TỐT và nhất là phải ĐẸP!</p>
-                <p>Trần Thị Mai</p>
-                <p>Giám Đốc</p>
-            </div>
-            <div class="col-lg-5 col-12 text-center">
-                <figure class="icon-image">
-                    <img src="<?php bloginfo('template_url'); ?>/assets/images/doctor1.png" alt="">
-                </figure>
-            </div>
-        </div>
+        <?php
+        endforeach;
+        ?>
+   
     </div>
 
     <?php get_template_part('template-parts/section','video') ?>

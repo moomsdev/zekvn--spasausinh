@@ -17,10 +17,10 @@
 
 .section-products {
   .products-heading__description {
-    @include resFont(1.4, 2);
-    @include limitLine(1);
     color: #000;
     text-transform: uppercase;
+    @include resFont(1.4, 2);
+    @include limitLine(1);
   }
 
   #products-tab {
@@ -31,11 +31,11 @@
     }
 
     button {
-      @include resFont(1.4, 1.9);
-      @include limitLine(1);
       color: #000;
       text-transform: uppercase;
       font-weight: bold;
+      @include resFont(1.4, 1.9);
+      @include limitLine(1);
 
       &:hover {
         color: $primaryColor;
@@ -69,22 +69,22 @@
 
       .product-name {
         font-weight: bold;
-        @include resFont(1.2, 1.6);
-        @include limitLine(2);
         color: #333;
         text-transform: uppercase;
         line-height: 1.2;
+        @include resFont(1.2, 1.6);
+        @include limitLine(2);
       }
 
       .product-btn {
-        @include resFont(2, 2.4);
-        @include limitLine(1);
         color: $primaryColor;
         text-transform: uppercase;
         text-decoration: none;
         line-height: 1.4;
         display: inline-block;
         font-weight: bold;
+        @include resFont(2, 2.4);
+        @include limitLine(1);
       }
 
       .product-btn:hover {
