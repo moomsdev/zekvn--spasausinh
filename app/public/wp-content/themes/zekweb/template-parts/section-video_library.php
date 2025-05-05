@@ -1,15 +1,11 @@
 <?php
-$title = get_field('title', 'option');
-$image = get_field('image', 'option');
+$title = get_field('sec10_title', 'option');
+$library_mom = get_field('sec10_library_mom', 'option');
 ?>
 
 <section class="section-video-library">
-    <div class="heading-wrapper">
-        <h2 class="section-heading fs-36">Thư viện mẹ yêu cầu tìm</h2>
-        <figure class="icon-image">
-            <img src="<?php bloginfo('template_url'); ?>/assets/images/heading-icon.png" alt="heading-icon">
-        </figure>
-    </div>
+    <?php get_template_part('loop_template/loop', 'heading_section', ['title' => $title]) ?>
+    
     <div class="container-fluid">
         <div class="row g-5">
             <div class="col-12 col-lg-6 video-library-main">

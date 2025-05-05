@@ -54,9 +54,11 @@
 
   .testimonials-profile {
     img {
-      width: 8rem;
+      max-width: 8rem;
       margin-bottom: 1rem;
-      object-fit: contain;
+      object-fit: cover;
+      border-radius: 50%;
+      @include aspectRatio(1/1);
     }
 
     h3 {

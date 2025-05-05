@@ -27,20 +27,39 @@
     }
 }
 
-.btn-primary {
+// .btn-primary {
+//   background-color: $primaryColor;
+//   color: #fff;
+//   border-radius: 1rem;
+//   padding: 1.1rem 2.5rem;
+//   line-height: 1;
+//   @include resFont(1.4, 1.8);
+//   font-weight: bold;
+//   text-transform: uppercase;
+//   outline: none;
+//   border: none;
+//   cursor: pointer;
+
+//   &:hover {
+//     background-color: darken($primaryColor, 10%);
+//   }
+// }
+
+.btn-common {
+  padding: 1.1rem 2.5rem;
   background-color: $primaryColor;
   color: #fff;
-  border-radius: 1rem;
-  padding: 1.1rem 2.5rem;
-  line-height: 1;
-  @include resFont(1.4, 1.8);
   font-weight: bold;
+  line-height: 0.9;
   text-transform: uppercase;
-  outline: none;
+  border-radius: 1rem;
   border: none;
+  outline: none;
   cursor: pointer;
+  @include resFont(1.4, 1.8);
 
   &:hover {
+    color: #fff;
     background-color: darken($primaryColor, 10%);
   }
 }

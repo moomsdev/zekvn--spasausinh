@@ -1,14 +1,14 @@
-<div class="col-md-6 col-lg-3 loop-service">
-    <div class="loop-inner">
+<div class="col-6 col-lg-3 loop-service">
+    <div class="loop-inner h-100 d-flex flex-column">
         <figure class="loop-image">
-            <a href="">
-                <img src="https://images.unsplash.com/photo-1714578187196-29775454aa39?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGxhY2Vob2xkZXIlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D"
-                    alt="heading-icon">
+            <a href="<?php the_permalink(); ?>">
+                <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" loading="lazy">
             </a>
-
         </figure>
-        <div class="heading-wrapper">
-            <h4 class="loop-heading fs-24 text-white">chăm sóc sau sinh</h2>
+        <div class="heading-wrapper flex-grow-1 d-flex align-items-center">
+            <h4 class="loop-heading mb-0">
+                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+            </h4>
         </div>
     </div>
 </div>

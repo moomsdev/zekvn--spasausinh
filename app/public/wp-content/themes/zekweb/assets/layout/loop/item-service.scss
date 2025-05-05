@@ -9,21 +9,30 @@
     position: relative;
     overflow: hidden;
   }
+
   img {
     width: 100%;
-    aspect-ratio: 16/9;
+    aspect-ratio: 558/500;
     object-fit: cover;
   }
+
   .heading-wrapper {
     width: 100%;
     background-color: $primaryColor;
+
     h4 {
-        width: 80%;
-        margin: auto;
-        padding: 10px;
-        align-items: center;
-        display: flex;
-        justify-content: center;
+      width: 100%;
+      padding: 10px;
+      font-weight: 600;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      @include resFont(1.8, 2.2);
+      @include limitLine(2);
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
     }
   }
 }

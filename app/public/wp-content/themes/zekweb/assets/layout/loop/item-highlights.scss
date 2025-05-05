@@ -28,7 +28,7 @@
 
   img {
     width: 100%;
-    aspect-ratio: 16/9;
+    aspect-ratio: 558/500;
     object-fit: cover;
   }
 
@@ -43,6 +43,10 @@
     @include breakText;
     @include limitLine(2);
     @include transition;
+
+    a:hover {
+      color: $primaryColor;
+    }
   }
 
   .btn-hightlight {

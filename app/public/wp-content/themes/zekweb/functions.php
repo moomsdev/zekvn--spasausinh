@@ -904,3 +904,37 @@ function insert_logo_in_menu_middle($items, $args) {
     }
     return $items;
 }
+
+/* ===============================
+ * 30. LẤY ID VIDEO YOUTUBE
+ * =============================== */
+function getYoutubeEmbedUrl($url) {
+    $video_id = '';
+    
+    // Kiểm tra nếu URL chứa "watch?v="
+    if (strpos($url, 'watch?v=') !== false) {
+        $video_id = explode('watch?v=', $url)[1];
+    }
+    // Kiểm tra nếu URL dạng youtu.be
+    else if (strpos($url, 'youtu.be/') !== false) {
+        $video_id = explode('youtu.be/', $url)[1];
+    }
+    
+    // Xử lý thêm nếu có các tham số phụ (&)
+    if (strpos($video_id, '&') !== false) {
+        $video_id = explode('&', $video_id)[0];
+    }
+    
+    return 'https://www.youtube.com/embed/' . $video_id . '?autoplay=1&mute=1&rel=0&modestbranding=1';
+}
+
+function getYoutubeVideoId($url) {
+    $video_id = '';
+    $pattern = '/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i';
+    if (preg_match($pattern, $url, $match)) {
+        $video_id = $match[1];
+    }
+    return $video_id;
+}
+
+

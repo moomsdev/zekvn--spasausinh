@@ -1,25 +1,18 @@
-<div class="brand-section">
+<?php
+$banners = get_field('banners', 'option');
+$i = 0;
+?>
+<div class="banner-section">
     <div class="section-banner-slide">
-        <div class="swiper logo-banner">
+        <div class="swiper slider-hero">
             <div class="swiper-wrapper">
+                <?php foreach ($banners as $banner) : ?>
                 <div class="swiper-slide">
-                    <div class="slider-content">
-                    <figure class="loop-image">
-                        <a href="#">
-                            <img src="<?php bloginfo('template_url'); ?>/assets/images/Asset 1.png" alt="Bonbon">
-                        </a>
+                    <figure class="image-banner">
+                        <img src="<?php echo $banner['img']; ?>" alt="slider-hero-<?php echo $i; ?>" loading="lazy">
                     </figure>
-                    </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="slider-content">
-                    <figure class="loop-image">
-                        <a href="#">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/images/Asset 2.png" alt="Bonbon">
-                        </a>
-                    </figure>
-                    </div>
-                </div>
+                <?php $i++; endforeach; ?>
             </div>
             <div class="swiper-pagination"></div>
         </div>

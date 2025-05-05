@@ -213,38 +213,29 @@ function initSwiperSliders() {
     });
 
     // Slider banner
-    new Swiper('.logo-banner', {
-        spaceBetween: 20,
+    new Swiper('.slider-hero', {
         loop: true,
+        effect: 'fade',
+        speed: 1000,
         autoplay: {
             delay: 3000,
             disableOnInteraction: false
         },
+        direction: "vertical",
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
         },
-        breakpoints: {
-            0: {
-                slidesPerView: 1
-            },
-            768: {
-                slidesPerView: 1
-            },
-            1200: {
-                slidesPerView: 1
-            }
-        }
     });
 
-    // Slider product
+    // Slider testimonials
     new Swiper('.testimonials-slider', {
         slidesPerView: 1,
         spaceBetween: 40,
         centeredSlides: true,
         loop: true,
         autoplay: {
-            delay: 4000,
+            delay: 8000,
             disableOnInteraction: false
         },
         pagination: {
@@ -253,7 +244,6 @@ function initSwiperSliders() {
         },
     });
 }
-
 
 // 10. Khởi tạo fancybox
 function initFancybox() {

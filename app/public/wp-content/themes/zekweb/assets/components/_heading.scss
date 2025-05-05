@@ -11,6 +11,7 @@
         width: 4rem;
         height: auto;
         transform: translateY(-50%);
+        z-index: 3;
 
         @include maxWidth($lg) {
             width: 3rem;
@@ -22,7 +23,6 @@
     margin: 0 auto;
     position: relative;
     display: inline-block;
-    max-width: 80rem;
     padding-bottom: clamp(1.5rem, 2vw, 2.5rem);
     color: $primaryColor;
     font-weight: bold;

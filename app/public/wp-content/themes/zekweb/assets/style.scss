@@ -49,8 +49,6 @@
 @use './layout/section/logo-slider';
 @use './layout/section/branch';
 
-
-
 //@/images/___.png);
 
 //loop
@@ -58,3 +56,5 @@
 @use './layout/loop/item-whyus';
 @use './layout/loop/item-highlights';
 @use './layout/loop/item-momblog';
+@use './layout/loop/post';
+@use './layout/loop/item-products';
