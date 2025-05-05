@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/dist/main.css?v=<?php echo time(); ?>">
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/dist/style.css?v=<?php echo time(); ?>">
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css?v=<?php echo time(); ?>">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
 	<!-- Nhúng JS -->
 	<?php
