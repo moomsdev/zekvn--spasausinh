@@ -7,18 +7,18 @@
 
   h3 {
     color: $primaryColor;
-    @include resFont(1.8, 2.3);
+    @include resFont(1.6, 2.2);
   }
 
   .faq-item {
     .faq-question {
       color: $primaryColor;
-      @include resFont(1.8, 2.3);
+      @include resFont(1.6, 2);
     }
     
     .faq-answer {
       color: #333;
-      @include resFont(1.8, 2.3);
+      @include resFont(1.6, 2);
     }
   }
 }

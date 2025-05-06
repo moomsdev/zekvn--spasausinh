@@ -3,7 +3,7 @@
 
 .section-product-offers {
     margin-bottom: clamp(3rem, 5vw, 5rem);
-    padding: 3rem 5rem;
+    padding: 3rem;
     position: relative;
     top: -3rem;
     border-radius: 3rem;
@@ -31,11 +31,11 @@
         .product-name {
             color: $primaryColor;
             font-weight: 600;
-            @include resFont(1.6, 1.8);
+            @include resFont(1.4, 1.6);
         }
 
         .product-desc {
-            @include resFont(1.6, 1.8);
+            @include resFont(1.4, 1.6);
         }
     }
 

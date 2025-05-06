@@ -28,12 +28,12 @@ $content_media = $args['content_media'];
     ?>
     <div class="main-content bg-content">
         <div class="container">
-            <div class="row mb-10 align-items-center">
+            <div class="row">
                 <div class="col-lg-7 col-12 mb-3">
                     <h4 class="section-title"><?php echo $item['title']; ?></h4>
                     <?php echo $item['content']; ?>
-
                 </div>
+                
                 <div class="col-lg-5 col-12 text-center">
                     <figure class="icon-image">
                         <img src="<?php echo $item['img'] ?>" alt="">

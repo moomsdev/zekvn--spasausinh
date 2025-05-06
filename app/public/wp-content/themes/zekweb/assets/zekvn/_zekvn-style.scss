@@ -861,7 +861,7 @@ a img.aligncenter {
 .supports {
   position: fixed;
   z-index: 999;
-  bottom: 6rem;
+  bottom: 8rem;
   right: 2rem;
 
   .item:not(:first-child) {
@@ -896,8 +896,8 @@ a img.aligncenter {
 
 .backtop {
   position: fixed;
-  right: 20px;
-  bottom: 40px;
+  right: 2rem;
+  bottom: 2rem;
   transition: .5s;
   z-index: 999;
 

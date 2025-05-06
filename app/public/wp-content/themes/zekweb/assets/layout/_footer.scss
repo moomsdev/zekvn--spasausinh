@@ -38,16 +38,24 @@ footer {
                 columns: 2;
                 gap: 2rem 1.5rem;
 
+                @include maxWidth($md) {
+                    gap: 1rem;
+                    margin-bottom: 2rem;
+                }
                 li {
                     padding-bottom: 2rem;
                     break-inside: avoid;
+
+                    @include maxWidth($md) {
+                        padding-bottom: 1rem;
+                    }
 
                     a {
                         display: block;
                         text-transform: uppercase;
                         color: #fff;
                         font-weight: 600;
-                        @include resFont(1.6, 1.8);
+                        @include resFont(1.4, 1.6);
 
                         &:hover {
                             color: $secondaryColor;
