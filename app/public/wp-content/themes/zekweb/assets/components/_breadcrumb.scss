@@ -1,2 +1,19 @@
 @use '../utilities/variables' as *;
 @use '../utilities/mixin' as *;
+
+.breadcrumbs {
+  padding: 1rem 0;
+  background-color: #d4d4d4;
+  margin-bottom: 3rem;
+
+  nav {
+    a,
+    span {
+      @include resFont(1.4, 1.8)
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

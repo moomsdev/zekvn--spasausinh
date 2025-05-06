@@ -6,8 +6,11 @@ $videoID = getYoutubeVideoId($video);
 ?>
 
 <section class="section-video">
-    <?php get_template_part('loop_template/loop', 'heading_section', ['title' => $title]) ?>
-    <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/<?php echo $videoID; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="container">
+        <?php get_template_part('loop_template/loop', 'heading_section', ['title' => $title]) ?>
+        
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/<?php echo $videoID; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
     </div>
 </section>

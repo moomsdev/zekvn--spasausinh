@@ -5,7 +5,7 @@ $product_price
 ?>
 <div class="product-card">
     <figure>
-        <img src="<?php echo $product_image ?>" alt="Product 1" class="img-fluid">
+        <img src="<?php echo $product_image ?>" alt="<?php the_title() ?>" class="img-fluid">
     </figure>
     <div class="product-info-box">
         <div class="product-name"><?php the_title() ?></div>

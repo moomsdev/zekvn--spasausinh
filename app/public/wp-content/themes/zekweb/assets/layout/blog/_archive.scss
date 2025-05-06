@@ -1,2 +1,25 @@
 @use "../../utilities/variables" as *;
 @use "../../utilities/mixin" as *;
+
+.all-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  list-style: none;
+  margin-bottom: 3rem;
+
+  li {
+    &.active {
+      a {
+        color: $primaryColor;
+        text-decoration: underline;
+      }
+    }
+
+    a {
+      color: #000;
+      font-weight: 500;
+      @include resFont(1.6, 2, true);
+    }
+  }
+}

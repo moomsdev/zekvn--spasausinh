@@ -22,7 +22,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 Swiper.use([Navigation, Pagination, Autoplay]);
 
-import './js/qty.js';
+// import './js/qty.js';
 import './js/ytdefer.min.js';
 import AOS from 'aos';
 import Swup from 'swup';
@@ -214,17 +214,18 @@ function initSwiperSliders() {
 
     // Slider banner
     new Swiper('.slider-hero', {
-        loop: true,
         effect: 'fade',
         speed: 1000,
         autoplay: {
-            delay: 3000,
-            disableOnInteraction: false
+            delay: 5000,
+            disableOnInteraction: true
         },
+        allowTouchMove: false,
+        touchRatio: 0,
         direction: "vertical",
         pagination: {
             el: '.swiper-pagination',
-            clickable: true,
+            clickable: false,
         },
     });
 

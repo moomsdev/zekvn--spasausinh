@@ -173,6 +173,8 @@ do_action( 'woocommerce_before_main_content' );
 			<?php
 			// Materials Slider
 			get_template_part('template-parts/product/section','materials_slider');
+			// branch
+			get_template_part('template-parts/section', 'branch');
 			?>
 		</div>
 	</div>

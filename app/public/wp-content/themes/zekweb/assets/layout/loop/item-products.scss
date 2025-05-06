@@ -31,7 +31,7 @@
     text-transform: uppercase;
     line-height: 1.2;
     @include limitLine(2);
-    @include resFont(1.2, 1.6);
+    @include resFont(1.4, 1.6);
   }
 
   .product-btn {
@@ -47,5 +47,17 @@
 
   .product-btn:hover {
     color: $primaryColor;
+  }
+
+  .price {
+    color: $primaryColor;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .product-name {
+    a:hover {
+      color: $primaryColor;
+    }
   }
 }

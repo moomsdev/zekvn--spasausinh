@@ -10,15 +10,14 @@
   }
 
   .momneadknow-blog__body {
-    padding: 0 1.4rem;
     color: #000;
     font-weight: bold;
   }
 
   .momneadknow-blog__title {
-    margin-bottom: 1rem;
-    line-height: 1.4;
-    @include resFont(1.7, 2.2);
+    padding: 1rem 0 0;
+    line-height: 1.2;
+    @include resFont(1.4, 1.6);
     @include limitLine(2);
 
     &:hover {

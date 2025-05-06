@@ -14,16 +14,25 @@
         border-bottom-left-radius: 2rem;
         border-bottom-right-radius: 2rem;
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8);
+
+        @include maxWidth($md) {
+            padding: 1rem 1.5rem;
+        }
     }
 
     .post-title {
         font-weight: 600;
         text-transform: uppercase;
-        @include resFont(1.8, 2.2);
+        @include resFont(1.4, 2);
         @include limitLine(2);
 
-        &.color-primary a {
+        a {
             color: $primaryColor;
+            text-decoration: none;
+
+            &:hover {
+                color: $primaryColor;
+            }
         }
     }
 }

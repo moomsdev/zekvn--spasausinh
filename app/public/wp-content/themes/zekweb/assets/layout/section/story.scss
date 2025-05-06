@@ -1,8 +1,6 @@
 @use '../../utilities/variables' as *;
 @use '../../utilities/mixin' as *;
 
-
-
 .section-story {
   position: relative;
 
@@ -25,6 +23,10 @@
     background-repeat: no-repeat;
     background-size: contain;
 
+    @include maxWidth($md) {
+      aspect-ratio: 5 / 4;
+    }
+
     img {
       position: absolute;
       bottom: 0;
@@ -43,6 +45,7 @@
   }
 
   .story-title {
+    text-align: justify;
     line-height: 1.2;
     text-transform: uppercase;
     font-weight: bold;
@@ -51,14 +54,14 @@
   }
 
   .story-description {
+    text-align: justify;
     @include resFont(1.4, 1.8);
-    @include limitLine(10);
   }
 
   .story-btn {
     display: inline-block;
 
-    @include maxWidth(991px) {
+    @include maxWidth($lg) {
       width: 100%;
       text-align: center;
     }

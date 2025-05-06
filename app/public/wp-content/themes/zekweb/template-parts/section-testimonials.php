@@ -1,8 +1,9 @@
 <?php
 $title = get_field('sec7_title', 'option');
+$bg = get_field('sec7_bg', 'option');
 $testimonials = get_field('sec7_testimanial', 'option');
 ?>
-<section class="section-testimonials overflow-hidden" style="background-image: url(<?php bloginfo('template_url'); ?>/assets/images/testimonials-bg.png); background-repeat: no-repeat; background-size: cover;">
+<section class="section-testimonials overflow-hidden" style="background-image: url(<?php echo $bg; ?>); background-repeat: no-repeat; background-size: cover;">
     <div class="container testimonials-slider swiper" data-aos="fade-down">
         <div class="swiper-wrapper">
             <?php

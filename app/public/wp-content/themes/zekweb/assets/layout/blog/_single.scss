@@ -1,2 +1,24 @@
 @use "../../utilities/variables" as *;
 @use "../../utilities/mixin" as *;
+
+.single-blog {
+  max-width: 800px;
+  margin: 0 auto;
+
+  .category {
+      color: $primaryColor;
+  }
+  .post-image {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      img {
+          max-width: 700px;
+          border-radius: 30px;
+          aspect-ratio: 1/1;
+      }
+  }
+}
+

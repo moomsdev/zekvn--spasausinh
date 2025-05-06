@@ -20,3 +20,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 the_title( '<h1 class="product_title entry-title">', '</h1>' );
+?>
+<div class="product-status">
+	<div class="status">
+			<span class="status-label">Tình trạng:</span>
+			<span class="status-value">
+				<!-- kiểm tra kho còn hàng hay hết hàng -->
+				<?php
+				$product_id = get_the_ID();
+				$stock_quantity = get_post_meta($product_id, '_stock', true);
+				if ($stock_quantity > 0) {
+					echo 'Còn hàng';
+				} else {
+					echo 'Hết hàng';
+				}
+				?>
+
+			</span>
+	</div>
+
+	<div class="star-review">
+		<figure>
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/star-review-product.png" alt="star" loading="lazy">
+		</figure>
+	</div>
+</div>
+

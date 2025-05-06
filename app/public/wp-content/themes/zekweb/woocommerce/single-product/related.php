@@ -23,13 +23,19 @@ if ( $related_products ) : ?>
 
 	<section class="detail-related">
 
-		<?php
-		$heading = apply_filters( 'woocommerce_product_related_products_heading', __( 'Related products', 'woocommerce' ) );
+		<div class="head-related">
+			<?php
+			$heading = apply_filters( 'woocommerce_product_related_products_heading', __( 'Related products', 'woocommerce' ) );
 
 		if ( $heading ) :
 			?>
 			<h2><?php echo esc_html( $heading ); ?></h2>
 		<?php endif; ?>
+
+			<div class="view-all">
+				<a href="<?php echo get_permalink( wc_get_page_id( 'shop' ) ); ?>" class="btn-view-products">Xem thêm sản phẩm</a>
+			</div>
+		</div>
 		<?php woocommerce_product_loop_start(); ?>
 
 			<?php foreach ( $related_products as $related_product ) : ?>
@@ -44,8 +50,8 @@ if ( $related_products ) : ?>
 
 			<?php endforeach; ?>
 
-		<?php woocommerce_product_loop_end(); ?>
-
+			<?php woocommerce_product_loop_end(); ?>
+		
 	</section>
 	<?php
 endif;

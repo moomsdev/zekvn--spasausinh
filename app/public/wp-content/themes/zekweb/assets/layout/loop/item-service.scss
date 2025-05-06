@@ -4,8 +4,8 @@
 .loop-service {
   .loop-inner {
     border-radius: 2rem;
-    margin-bottom: 25px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+    margin-bottom: 2.5rem;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.35);
     position: relative;
     overflow: hidden;
   }
@@ -22,13 +22,18 @@
 
     h4 {
       width: 100%;
-      padding: 10px;
+      padding: 1rem;
       font-weight: 600;
       align-items: center;
       display: flex;
       justify-content: center;
-      @include resFont(1.8, 2.2);
+      @include resFont(1.4, 2);
       @include limitLine(2);
+
+      @include maxWidth($md) {
+        padding: .5rem 0;
+      }
+
       a {
         color: #fff;
         text-decoration: none;

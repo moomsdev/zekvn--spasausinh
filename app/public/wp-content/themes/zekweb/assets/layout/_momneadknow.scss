@@ -6,6 +6,11 @@
 
   .momneadknow-banner__image {
     margin-bottom: 2rem;
+    figure {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2rem;
+    }
 
     img {
       object-fit: cover;
@@ -17,8 +22,8 @@
   .momneadknow-banner__title {
     margin-bottom: 1rem;
     font-weight: bold;
-    @include resFont(1.6, 3.2);
-    @include limitLine(1);
+    @include resFont(1.6, 1.8);
+    @include limitLine(2);
     
     &:hover {
         color: #000;
@@ -26,7 +31,8 @@
   }
 
   .momneadknow-banner__description {
-    @include resFont(1.4, 2.8);
+    text-align: justify;
+    @include resFont(1.4, 1.6);
     @include limitLine(2);
   }
 }
@@ -46,10 +52,11 @@
 
   .momneadknow-item__item {
     &:not(:last-child) {
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
     }
 
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
     gap: 1rem;
     align-items: center;
     justify-content: space-between;
@@ -63,17 +70,21 @@
   }
 
   .momneadknow-sidebar__title {
-    font-weight: bold;
     color: #000;
-    margin-bottom: 1rem;
-    @include resFont(1.4, 1.7);
+    margin-bottom: .4rem;
+    font-weight: 500;
+    line-height: 1.2;
+    @include resFont(1.4, 1.5);
     @include limitLine(2);
+    @include breakText;
   }
 
   .momneadknow-sidebar__description {
-    font-weight: bold;
+    margin-bottom: 0;
+    font-weight: 400;
     color: #000;
-    @include resFont(1.3, 1.6);
+    line-height: 1.2;
+    @include resFont(1.3, 1.4);
     @include limitLine(2);
   }
 }
@@ -87,15 +98,15 @@
   }
 
   .momneadknow-blog__body {
-    padding: 0 1.4rem;
     color: #000;
-    font-weight: bold;
   }
 
   .momneadknow-blog__title {
+    font-weight: 600;
     margin-bottom: 1rem;
-    line-height: 1.4;
-    @include resFont(1.7, 2.2);
+    line-height: 1.2;
+    text-transform: capitalize;
+    @include resFont(1.4, 1.6);
     @include limitLine(2);
 
     &:hover {
@@ -104,6 +115,7 @@
   }
 
   .momneadknow-blog__description {
+    font-weight: 500;
     @include resFont(1.3, 1.6);
     @include limitLine(2);
   }

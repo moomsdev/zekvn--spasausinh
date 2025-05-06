@@ -24,7 +24,7 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<div class="col-6 col-lg-3 slider-content">
+<div class="col-6 col-lg-3 slider-content text-center">
 	<div class="product-card">
 		<figure>
 			<img loading="lazy" decoding="async"
@@ -32,7 +32,7 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
 					alt="<?php the_title() ?>">
 		</figure>
 		<div class="product-info-box">
-			<div class="product-name"><?php the_title() ?></div>
+			<div class="product-name"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></div>
 			
 			<?php wc_get_template('loop/price.php'); ?>
 		</div>

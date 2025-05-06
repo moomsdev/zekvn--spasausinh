@@ -3,7 +3,9 @@
 
 .section-branch {
     .branch-inner {
+      margin: 0 auto;
       position: relative;
+      max-width: 90rem;
 
       .branch-list {
         position: absolute;
@@ -11,13 +13,14 @@
         right: 50%;
         transform: translateX(50%);
         width: 100%;
-        min-width: max-content;
-        max-width: 50rem;
+        min-width: fit-content;
+        max-width: max-content;;
         
         select {
           border: 1px solid #000;
           color: #000;
           cursor: pointer;
+          @include resFont(1.4, 1.6);
         }
       }
     }

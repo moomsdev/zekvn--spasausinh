@@ -24,9 +24,12 @@ defined( 'ABSPATH' ) || exit;
 $label = ! empty( $args['product_name'] ) ? sprintf( esc_html__( '%s quantity', 'woocommerce' ), wp_strip_all_tags( $args['product_name'] ) ) : esc_html__( 'Quantity', 'woocommerce' );
 
 ?>
-<div class="quantity">
-	<?php
-	/**
+<div class="quantity-input">
+	<span class="quantity-label">Số lượng:</span>
+
+	<div class="quantity">
+		<?php
+		/**
 	 * Hook to output something before the quantity input field.
 	 *
 	 * @since 7.2.0
@@ -62,5 +65,6 @@ $label = ! empty( $args['product_name'] ) ? sprintf( esc_html__( '%s quantity', 
 	 */
 	do_action( 'woocommerce_after_quantity_input_field' );
 	?>
+</div>
 </div>
 <?php

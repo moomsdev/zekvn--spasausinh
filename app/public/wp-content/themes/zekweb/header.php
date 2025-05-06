@@ -44,7 +44,7 @@
 	<div id="zek-web">
 		<div class="line-dark"></div>
 
-		<header id="header">
+		<header id="header" class="<?php echo is_home() || is_front_page() ? 'is-fixed' : ''; ?>">
 			<div class="container">
 				<?php
 				if (is_home() || is_front_page()) :
@@ -59,7 +59,7 @@
 					</nav>
 
 					<!-- Menu mobile -->
-					<div id="touch-menu" class="touch-menu d-block d-md-none"></div>
+					<div id="touch-menu" class="touch-menu d-block d-lg-none"></div>
 
 					<!-- Logo mobile -->
 					<a href="<?php echo home_url(); ?>" class="d-lg-none menu-logo menu-logo-mobile">
@@ -94,20 +94,23 @@
 			<?php wp_nav_menu(array('container' => '', 'theme_location' => 'main', 'menu_class' => 'menu')); ?>
 		</div>
 
-	<div class="modal fade" id="search-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-				<div class="search-form">
-					<div class="input-search">
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						<form role="search" method="get" autocomplete="off" class="woocommerce-product-search" action="<?php echo esc_url(home_url('/')); ?>">
-							<label class="screen-reader-text" for="woocommerce-product-search-field-<?php echo isset($index) ? absint($index) : 0; ?>"><?php esc_html_e('Search for:', 'woocommerce'); ?></label>
-							<input type="search" id="woocommerce-product-search-field-<?php echo isset($index) ? absint($index) : 0; ?>" class="search-input" placeholder="<?php echo esc_attr__('Nhập tìm kiếm&hellip;', 'woocommerce'); ?>" value="<?php echo get_search_query(); ?>" name="s" />
-							<button type="submit" value="<?php echo esc_attr_x('Search', 'submit button', 'woocommerce'); ?>" class="search-submit">
-								<img src="<?php bloginfo('template_url'); ?>/assets/images/search.png" alt="Search">
-							</button>
-							<input type="hidden" name="post_type" value="producdivt" />
-						</form>
+		<!-- Search modal -->
+		<div class="modal fade" id="search-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="search-form">
+						<div class="input-search">
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							<form role="search" method="get" autocomplete="off" class="woocommerce-product-search" action="<?php echo esc_url(home_url('/')); ?>">
+								<label class="screen-reader-text" for="woocommerce-product-search-field-<?php echo isset($index) ? absint($index) : 0; ?>"><?php esc_html_e('Search for:', 'woocommerce'); ?></label>
+								<input type="search" id="woocommerce-product-search-field-<?php echo isset($index) ? absint($index) : 0; ?>" class="search-input" placeholder="<?php echo esc_attr__('Nhập tìm kiếm&hellip;', 'woocommerce'); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+								<button type="submit" value="<?php echo esc_attr_x('Search', 'submit button', 'woocommerce'); ?>" class="search-submit">
+									<img src="<?php bloginfo('template_url'); ?>/assets/images/search.png" alt="Search">
+								</button>
+								<input type="hidden" name="post_type" value="producdivt" />
+							</form>
+						</div>
 					</div>
 				</div>
+			</div>
 		</div>
-	</div>

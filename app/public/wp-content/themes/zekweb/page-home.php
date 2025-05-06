@@ -32,7 +32,7 @@ Template Name: Trang chủ
   get_template_part('template-parts/section', 'testimonials');
 
   //products
-  // get_template_part('template-parts/section', 'products');
+  get_template_part('template-parts/section', 'products');
 
   //highlights
   get_template_part('template-parts/section', 'highlights');

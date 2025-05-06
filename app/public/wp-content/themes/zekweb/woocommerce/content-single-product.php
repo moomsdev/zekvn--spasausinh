@@ -34,7 +34,7 @@ if ( post_password_required() ) {
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
 	<div class="detail-head">
 		<div class="row row-margin">
-			<div class="col-xl-6 col-lg-6 col-md-12">
+			<div class="col-12 col-md-5">
 				<?php
 				/**
 				 * Hook: woocommerce_before_single_product_summary.
@@ -45,7 +45,7 @@ if ( post_password_required() ) {
 				do_action( 'woocommerce_before_single_product_summary' );
 				?>
 			</div>
-			<div class="col-xl-6 col-lg-6 col-md-12">
+			<div class="col-12 col-md-7">
 				<?php
 				/**
 				 * Hook: woocommerce_single_product_summary.
@@ -65,14 +65,32 @@ if ( post_password_required() ) {
 		</div>
 	</div>
 	<div class="detail-body">
-		<div class="block-content">
-			<div class="content-post clearfix">
-				<?php the_content();?>
-			</div>
-		</div>
-		<div class="block-review">
-			<?php echo do_shortcode('[cusrev_reviews]'); ?>
-		</div>
+
+	<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+		<li class="nav-item" role="presentation">
+			<button class="nav-link active" id="pills-desc-tab" data-bs-toggle="pill" data-bs-target="#pills-desc" type="button" role="tab" aria-controls="pills-desc" aria-selected="true">Mô tả sản phẩm</button>
+		</li>
+		<li class="nav-item" role="presentation">
+			<button class="nav-link" id="pills-uses-tab" data-bs-toggle="pill" data-bs-target="#pills-uses" type="button" role="tab" aria-controls="pills-uses" aria-selected="false">Công dụng sản phẩm</button>
+		</li>
+		<li class="nav-item" role="presentation">
+			<button class="nav-link" id="pills-manual-tab" data-bs-toggle="pill" data-bs-target="#pills-manual" type="button" role="tab" aria-controls="pills-manual" aria-selected="false">Hướng dẫn sử dụng</button>
+		</li>
+		<li class="nav-item" role="presentation">
+			<button class="nav-link" id="pills-note-tab" data-bs-toggle="pill" data-bs-target="#pills-note" type="button" role="tab" aria-controls="pills-note" aria-selected="false">Lưu ý sử dụng</button>
+		</li>
+	</ul>
+
+	<div class="tab-content" id="pills-tabContent">
+		<div class="tab-pane fade show active" id="pills-desc" role="tabpanel" aria-labelledby="pills-desc-tab"><?php the_content();?></div>
+		<div class="tab-pane fade" id="pills-uses" role="tabpanel" aria-labelledby="pills-uses-tab"><?php echo get_field('product_uses'); ?></div>
+		<div class="tab-pane fade" id="pills-manual" role="tabpanel" aria-labelledby="pills-manual-tab"><?php echo get_field('user_manual'); ?></div>
+		<div class="tab-pane fade" id="pills-note" role="tabpanel" aria-labelledby="pills-note-tab"><?php echo get_field('notes_on_use'); ?></div>
+	</div>
+		
+		<!-- <div class="block-review">
+			<?php //echo do_shortcode('[cusrev_reviews]'); ?>
+		</div> -->
 	</div>
 	<?php
 	/**
