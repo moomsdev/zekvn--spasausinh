@@ -40,7 +40,7 @@ do_action( 'woocommerce_before_main_content' );
 		get_template_part('template-parts/product/section','slider'); 
 		?>
 
-		<div class="container">
+		<div class="archive-product">
 			<?php
 			// Offers
 			get_template_part('template-parts/product/section','offers');
@@ -127,6 +127,7 @@ do_action( 'woocommerce_before_main_content' );
 					</div>
 				</div>
 			</div>
+			<div class="container">
 			<?php
 			if ( woocommerce_product_loop() ) {
 				/**
@@ -162,7 +163,7 @@ do_action( 'woocommerce_before_main_content' );
 				do_action( 'woocommerce_no_products_found' );
 			}
 			?>
-			
+			</div>
 		</div>
 		<?php
 		// Banner

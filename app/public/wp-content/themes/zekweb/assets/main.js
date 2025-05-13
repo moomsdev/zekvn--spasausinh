@@ -5,12 +5,10 @@ window.$ = $;
 window.jQuery = jQuery;
 
 // Import CSS
-// import 'aos/dist/aos.css';
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import './vendor/select2.min.css';
 import './style.scss';
 import 'swiper/swiper-bundle.css';
-// import '@fortawesome/fontawesome-free/css/all.css'
 
 // Import các file JS cơ bản
 import 'bootstrap/dist/js/bootstrap.bundle';
@@ -24,7 +22,6 @@ Swiper.use([Navigation, Pagination, Autoplay]);
 
 import './js/qty.js';
 import './js/ytdefer.min.js';
-import AOS from 'aos';
 import Swup from 'swup';
 
 jQuery(function($) {
@@ -107,11 +104,11 @@ function initStickyHeader() {
         let scrollTop = $(this).scrollTop();
 
         // Fixed header khi cuộn xuống vượt qua chiều cao của header
-        if (scrollTop > headerHeight) {
-            $header.addClass('is-fixed');
-        } else {
-            $header.removeClass('is-fixed');
-        }
+        // if (scrollTop > headerHeight) {
+        //     $header.addClass('is-fixed');
+        // } else {
+        //     $header.removeClass('is-fixed');
+        // }
 
         // Add is-hidden class when scrolling in any direction
         $header.addClass('is-hidden');

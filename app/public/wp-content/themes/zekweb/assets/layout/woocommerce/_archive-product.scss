@@ -1,2 +1,124 @@
 @use "../../utilities/variables" as *;
 @use "../../utilities/mixin" as *;
+
+.archive-product {
+  .dropdown-toggle,
+  form .form-control {
+    font-weight: 500;
+    color: #000;
+    box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.2);
+    @include resFont(1.4, 1.6);
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+    }
+  }
+
+  ul.dropdown-menu {
+    &.show {
+      li a {
+        font-weight: 500;
+        color: #000;
+        @include resFont(1.4, 1.6);
+      }
+    }
+  }
+}
+
+.woocommerce-cart {
+    .quantity-label {
+        display: none;
+    }
+
+  .quantity {
+    padding: 0.1rem 1rem;
+    border: 1px solid #000;
+    border-radius: 0.5rem;
+    float: unset !important;
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+
+    
+
+    input[type="button"] {
+      border: none;
+      background-color: transparent;
+      font-weight: 500;
+      line-height: 1;
+      @include resFont(1.8, 2.5, true);
+    }
+
+    input[type="number"] {
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      font-weight: 600;
+      @include resFont(1.6, 2, true);
+    }
+  }
+
+  .quantity-input {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+
+    .quantity-label {
+      font-weight: 600;
+      text-transform: uppercase;
+      @include resFont(1.6, 2, true);
+    }
+  }
+
+  .checkout-button {
+    background-color: $primaryColor!important;
+  }
+}
+
+
+.woocommerce-checkout {
+    label {
+        font-weight: 600;
+    }
+
+    input,
+    textarea,
+    span.select2-selection {
+        border-radius: 10px !important;
+        border: 1px solid #c1c1c1 !important;
+        color: #c1c1c1 !important;
+    }
+
+    .woocommerce-checkout-review-order-table {
+        .cart_item {
+            .product-name {
+                img {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .select2-container .select2-selection--single,
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        height: auto;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        line-height: 1em;
+    }
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        top: 50%;
+    }
+}
+
+.woocommerce-order-received {
+    .woocommerce-order {
+        .woocommerce-order-details,
+        .woocommerce-customer-details,
+        .customnew {
+            display: none;
+        }
+    }
+}

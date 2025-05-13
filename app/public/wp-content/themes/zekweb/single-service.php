@@ -36,10 +36,11 @@ $faqs = get_field('faqs');
                 case 'video':
                     get_template_part('template-parts/service/section', 'video', ['title' => $title, 'video' => $video]);
                     break;
+                case 'contact':
+                    get_template_part('template-parts/section', 'contact');
+                    break;
             endswitch;
         }
-
-        get_template_part('template-parts/section', 'contact');
 
         get_template_part('template-parts/service/section', 'faqs', ['faqs_title' => $faqsTitle, 'faqs' => $faqs]);
         ?>

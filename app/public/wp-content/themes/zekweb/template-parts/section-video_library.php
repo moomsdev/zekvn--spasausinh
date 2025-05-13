@@ -97,7 +97,7 @@ $library_mom = get_field('sec10_library_mom', 'option');
             </div>
         </div>
         <div class="mt-5 d-flex justify-content-center">
-            <a href="<?php echo get_term_link($library_mom, 'category'); ?>" class="btn-hightlight rounded-4" style="height: 3.5rem; line-height: 1.7;">XEM TẤT CẢ</a>
+            <a href="<?php echo get_term_link($library_mom, 'category'); ?>" class="btn-hightlight rounded-4">XEM TẤT CẢ</a>
         </div>
     </div>
 

@@ -44,7 +44,8 @@
 	<div id="zek-web">
 		<div class="line-dark"></div>
 
-		<header id="header" class="<?php echo is_home() || is_front_page() ? 'is-fixed' : ''; ?>">
+		<header id="header" class="is-fixed">
+		<!-- <header id="header" class="<?php //echo is_home() || is_front_page() ? 'is-fixed' : ''; ?>"> -->
 			<div class="container">
 				<?php
 				if (is_home() || is_front_page()) :
@@ -59,7 +60,9 @@
 					</nav>
 
 					<!-- Menu mobile -->
-					<div id="touch-menu" class="touch-menu d-block d-lg-none"></div>
+					<div class="menu-mobile">
+						<div id="touch-menu" class="touch-menu d-block d-lg-none"></div>
+					</div>
 
 					<!-- Logo mobile -->
 					<a href="<?php echo home_url(); ?>" class="d-lg-none menu-logo menu-logo-mobile">

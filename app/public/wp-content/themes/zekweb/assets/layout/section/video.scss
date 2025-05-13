@@ -7,7 +7,7 @@
         position: relative;
         width: 100%;
         object-fit: cover;
-        border-radius: 2rem;
+        // border-radius: 2rem;
         overflow: hidden;
         @include aspectRatio(math.div(16, 9));
     }

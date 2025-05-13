@@ -1,6 +1,8 @@
 /*Woo qty*/
 jQuery( function( $ ) {
- 
+    // Check if we're on a cart page and if wc_cart_params exists
+    var isCartPage = $('form.woocommerce-cart-form').length > 0;
+    
     if ( ! String.prototype.getDecimals ) {
         String.prototype.getDecimals = function() {
             var num = this,
@@ -51,6 +53,62 @@ jQuery( function( $ ) {
  
         // Trigger change event
         $qty.trigger( 'change' );
+        
+        // Auto update cart when in cart page
+        if ($('form.woocommerce-cart-form').length) {
+            // Add loading state
+            $('form.woocommerce-cart-form').addClass('processing').block({
+                message: null,
+                overlayCSS: {
+                    background: '#fff',
+                    opacity: 0.6
+                }
+            });
+            
+            // Get the form data
+            var data = $('form.woocommerce-cart-form').serialize();
+            
+            // Add action to update cart
+            data += '&action=woocommerce_update_cart&update_cart=Update+Cart';
+            
+            // AJAX request to update cart
+            $.ajax({
+                type: 'POST',
+                url: wc_cart_params.ajax_url,
+                data: data,
+                dataType: 'html',
+                success: function(response) {
+                    // Update cart fragments
+                    var $html = $.parseHTML(response);
+                    var $form = $($html).find('.woocommerce-cart-form');
+                    var $totals = $($html).find('.cart_totals');
+                    
+                    // Replace the cart form and totals
+                    $('.woocommerce-cart-form').replaceWith($form);
+                    $('.cart_totals').replaceWith($totals);
+                    
+                    // Trigger updated_cart_totals event
+                    $(document.body).trigger('updated_cart_totals');
+                    $(document.body).trigger('wc_fragment_refresh');
+                },
+                complete: function() {
+                    // Remove loading state
+                    $('form.woocommerce-cart-form').removeClass('processing').unblock();
+                    wcqi_refresh_quantity_increments();
+                }
+            });
+        }
     });
     wcqi_refresh_quantity_increments();
+    
+    // Handle direct input changes for quantity fields in cart
+    if (isCartPage) {
+        $(document).on('change', '.woocommerce-cart-form .qty', function() {
+            // Delay to allow for typing
+            clearTimeout(window.quantityUpdateTimer);
+            window.quantityUpdateTimer = setTimeout(function() {
+                $('[name="update_cart"]').trigger('click');
+            }, 500);
+        });
+    }
 });

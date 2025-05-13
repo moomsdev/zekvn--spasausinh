@@ -95,7 +95,7 @@ if ($catProduct && is_array($catProduct)) {
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-center">
-                                    <a href="<?php echo get_term_link($child); ?>" class="btn-hightlight rounded-4" style="height: 3.5rem; line-height: 1.7;">XEM TẤT CẢ</a>
+                                    <a href="<?php echo get_term_link($child); ?>" class="btn-hightlight rounded-4">XEM TẤT CẢ</a>
                                 </div>
                             </div>
                         <?php endforeach; ?>
@@ -155,7 +155,7 @@ if ($catProduct && is_array($catProduct)) {
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center">
-                                <a href="<?php echo get_term_link($cat); ?>" class="btn-hightlight rounded-4" style="height: 3.5rem; line-height: 1.7;">XEM TẤT CẢ</a>
+                                <a href="<?php echo get_term_link($cat); ?>" class="btn-hightlight rounded-4">XEM TẤT CẢ</a>
                             </div>
                         </div>
                     <?php endif; ?>
