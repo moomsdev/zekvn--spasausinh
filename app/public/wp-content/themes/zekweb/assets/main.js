@@ -5,7 +5,7 @@ window.$ = $;
 window.jQuery = jQuery;
 
 // Import CSS
-import 'aos/dist/aos.css';
+// import 'aos/dist/aos.css';
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import './vendor/select2.min.css';
 import './style.scss';
@@ -22,7 +22,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 Swiper.use([Navigation, Pagination, Autoplay]);
 
-// import './js/qty.js';
+import './js/qty.js';
 import './js/ytdefer.min.js';
 import AOS from 'aos';
 import Swup from 'swup';
@@ -51,11 +51,11 @@ function initializePageFeatures() {
 
 // 1. Hiệu ứng
 function initAnimations() {
-    AOS.init({
-        duration: 400,
-        once: true, // chỉ animate 1 lần
-    });
-    AOS.refreshHard();
+    // AOS.init({
+    //     duration: 400,
+    //     once: true, // chỉ animate 1 lần
+    // });
+    // AOS.refreshHard();
 }
 
 // 2. Xử lý Menu Mobile
@@ -214,20 +214,31 @@ function initSwiperSliders() {
 
     // Slider banner
     new Swiper('.slider-hero', {
-        effect: 'fade',
+        direction: "horizontal",
+        touchReleaseOnEdges: true,
+        effect: 'slide',
         speed: 1000,
         autoplay: {
             delay: 5000,
             disableOnInteraction: true
         },
-        allowTouchMove: false,
-        touchRatio: 0,
-        direction: "vertical",
+        allowTouchMove: window.innerWidth >= 991,
         pagination: {
             el: '.swiper-pagination',
             clickable: false,
         },
+        breakpoints: {
+            0: {
+                direction: "horizontal",
+                allowTouchMove: false,
+            },
+            991: {
+                direction: "vertical",
+                allowTouchMove: true
+            },
+        }
     });
+
 
     // Slider testimonials
     new Swiper('.testimonials-slider', {
@@ -247,17 +258,17 @@ function initSwiperSliders() {
 
     // Slider product
     new Swiper('.products-latest', {
-        // slidesPerView: 4,
-        // spaceBetween: 20,
-        // // loop: true,
-        // // autoplay: {
-        // //     delay: 3000,
-        // //     disableOnInteraction: false
-        // // },
-        // pagination: {
-        //     el: '.swiper-pagination',
-        //     clickable: true,
-        // },
+        slidesPerView: 4,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
         breakpoints: {
             0: {
                 slidesPerView: 2

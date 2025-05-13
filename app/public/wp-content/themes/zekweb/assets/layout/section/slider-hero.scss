@@ -8,17 +8,12 @@
     overflow: hidden;
     position: relative;
 
-    // .swiper-slide {
-    //   height: 100vh;
-    // }
-
     .image-banner {
       height: 100%;
       
       img {
         width: 100%;
         height: 100%;
-        // aspect-ratio: 16 / 9;
         object-fit: cover;
       }
     }
@@ -33,6 +28,12 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+
+      @include maxWidth($lg) {
+        top: 95%;
+        flex-direction: row;
+        column-gap: 2rem;
+      }
 
       .swiper-pagination-bullet {
         position: relative;
@@ -56,6 +57,14 @@
           background-color: $primaryColor;
           opacity: 0;
           transition: all 0.3s ease;
+
+          @include maxWidth($lg) {
+            top: 50%;
+            left: 100%;
+            transform: translateY(-50%);
+            width: 4rem;
+            height: 1px;
+          }
         }
       }
 
@@ -64,6 +73,12 @@
         transform: scale(1.1);
         margin-bottom: 5rem;
         background: $primaryColor;
+
+        @include maxWidth($lg) {
+          margin-right: 3rem;
+          margin-top: 0;
+          margin-bottom: 0;
+        }
 
         &::after {
           opacity: 1;
