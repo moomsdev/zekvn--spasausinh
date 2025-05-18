@@ -18,7 +18,11 @@ if ($catProduct && is_array($catProduct)) {
     <div class="container">
         <?php get_template_part('loop_template/loop', 'heading_section', ['title' => $title]) ?>
 
-        <ul class="nav mt-5 mb-3 justify-content-center" id="products-tab" role="tablist">
+        <div class="products-heading__description">
+          <?php echo esc_html($desc); ?>
+        </div>
+
+        <ul class="nav mt-5 mb-5 justify-content-center" id="products-tab" role="tablist">
             <?php foreach ($categories as $i => $cat): ?>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link <?php if($i==0) echo 'active'; ?>" id="products-tab-<?php echo $cat->term_id; ?>" data-bs-toggle="pill" data-bs-target="#products-<?php echo $cat->term_id; ?>" type="button" role="tab" aria-controls="products-<?php echo $cat->term_id; ?>" aria-selected="<?php echo $i==0 ? 'true' : 'false'; ?>">
@@ -40,7 +44,7 @@ if ($catProduct && is_array($catProduct)) {
                     ?>
                     <?php if ($child_cats && !is_wp_error($child_cats) && count($child_cats) > 0): ?>
                         <?php foreach ($child_cats as $child): ?>
-                            <div class="row g-4 align-items-start mt-5 <?php echo array_search($child, $child_cats) % 2 == 1 ? 'flex-row-reverse' : ''; ?>">
+                            <div class="row g-4 align-items-start <?php echo array_search($child, $child_cats) % 2 == 1 ? 'flex-row-reverse' : ''; ?>">
                                 <div class="col-md-4 col-lg-4 col-12 product-banner">
                                     <?php
                                     $thumbnail_id = get_term_meta($child->term_id, 'thumbnail_id', true);
@@ -100,7 +104,7 @@ if ($catProduct && is_array($catProduct)) {
                             </div>
                         <?php endforeach; ?>
                     <?php else: ?>
-                        <div class="row g-4 align-items-start mt-5">
+                        <div class="row g-4 align-items-start">
                             <div class="col-md-4 col-lg-4 col-12 product-banner">
                                 <?php
                                 $thumbnail_id = get_term_meta($cat->term_id, 'thumbnail_id', true);
@@ -154,7 +158,7 @@ if ($catProduct && is_array($catProduct)) {
                                     <?php endif; ?>
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex justify-content-center mt-5">
                                 <a href="<?php echo get_term_link($cat); ?>" class="btn-hightlight rounded-4">XEM TẤT CẢ</a>
                             </div>
                         </div>

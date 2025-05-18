@@ -27,7 +27,7 @@
       align-items: center;
       display: flex;
       justify-content: center;
-      @include resFont(1.4, 2);
+      @include resFont(1.4, 1.8);
       @include limitLine(2);
 
       @include maxWidth($md) {

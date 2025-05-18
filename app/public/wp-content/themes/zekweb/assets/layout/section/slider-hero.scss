@@ -2,93 +2,102 @@
 @use "../../utilities/mixin" as *;
 
 .banner-section {
-  .slider-hero {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
+  // .swiper-container {
+  //   position: relative;
+  //   width: 100%;
+  //   height: 100%;
+  //   margin: 0 auto;
+  //   overflow: hidden;
+  // }
 
-    .image-banner {
-      height: 100%;
-      
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        aspect-ratio: 16/9;
+  // .swiper {
+  //   width: 100%;
+  //   height: 100%;
+  // }
+
+  
+
+  .swiper-slide {
+    // height: 100% !important;
+    // position: relative;
+    // margin: 0 auto;
+    // overflow: hidden;
+
+    img {
+      width: 100%;
+      // height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .swiper-pagination {
+    position: absolute;
+    top: 0;
+    transform: translateX(-4rem);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+
+    @include maxWidth($lg) {
+      top: 95%;
+      flex-direction: row;
+      column-gap: 2rem;
+    }
+
+    .swiper-pagination-bullet {
+      position: relative;
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 50%;
+      border: 2px solid $primaryColor;
+      background-color: transparent;
+      opacity: 0.3;
+      margin: 5px 0;
+      transition: all 0.3s ease;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1px;
+        height: 5rem;
+        background-color: $primaryColor;
+        opacity: 0;
+        transition: all 0.3s ease;
+
+        @include maxWidth($lg) {
+          top: 50%;
+          left: 100%;
+          transform: translateY(-50%);
+          width: 4rem;
+          height: 1px;
+        }
       }
     }
 
-    .swiper-pagination {
-      position: absolute;
-      right: 2rem;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+      transform: scale(1.1);
+      margin-bottom: 5rem;
+      background: $primaryColor;
 
       @include maxWidth($lg) {
-        top: 95%;
-        flex-direction: row;
-        column-gap: 2rem;
+        margin-right: 3rem;
+        margin-top: 0;
+        margin-bottom: 0;
       }
 
-      .swiper-pagination-bullet {
-        position: relative;
-        width: 1.2rem;
-        height: 1.2rem;
-        border-radius: 50%;
-        border: 2px solid $primaryColor;
-        background-color: transparent;
-        opacity: 0.3;
-        margin: 5px 0;
-        transition: all 0.3s ease;
-
-        &::after {
-          content: "";
-          position: absolute;
-          top: 100%;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 1px;
-          height: 5rem;
-          background-color: $primaryColor;
-          opacity: 0;
-          transition: all 0.3s ease;
-
-          @include maxWidth($lg) {
-            top: 50%;
-            left: 100%;
-            transform: translateY(-50%);
-            width: 4rem;
-            height: 1px;
-          }
-        }
-      }
-
-      .swiper-pagination-bullet-active {
+      &::after {
         opacity: 1;
-        transform: scale(1.1);
-        margin-bottom: 5rem;
-        background: $primaryColor;
-
-        @include maxWidth($lg) {
-          margin-right: 3rem;
-          margin-top: 0;
-          margin-bottom: 0;
-        }
-
-        &::after {
-          opacity: 1;
-        }
       }
+    }
 
-      .swiper-pagination-bullet:last-child::after {
-        display: none;
-      }
+    .swiper-pagination-bullet:last-child::after {
+      display: none;
     }
   }
 }

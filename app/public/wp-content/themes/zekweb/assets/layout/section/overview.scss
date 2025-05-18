@@ -2,6 +2,7 @@
 @use '../../utilities/mixin' as *;
 
 .section-overview {
+  padding: 2.5rem 0;
   background-color: $primaryColor;
   box-shadow: 7px 7px 13px rgba(0, 0, 0, 0.75);
 

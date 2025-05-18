@@ -6,7 +6,7 @@ $title = get_field('sec5_title', 'option');
     <div class="container">
         <?php get_template_part('loop_template/loop', 'heading_section', ['title' => $title]) ?>
         
-        <div class="row g-4 justify-content-center">
+        <div class="row justify-content-center">
             <!-- get post CPT service -->
             <?php
             $args = array(

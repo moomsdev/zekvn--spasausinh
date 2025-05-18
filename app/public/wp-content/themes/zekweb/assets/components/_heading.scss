@@ -16,6 +16,10 @@
         @include maxWidth($lg) {
             width: 3rem;
         }
+
+        img {
+          cursor: none;
+        }
     }
 }
 

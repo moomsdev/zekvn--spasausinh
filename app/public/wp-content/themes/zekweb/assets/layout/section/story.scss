@@ -2,6 +2,7 @@
 @use '../../utilities/mixin' as *;
 
 .section-story {
+  padding: 2.5rem 0;
   position: relative;
 
   &::before {

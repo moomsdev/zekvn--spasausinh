@@ -23,7 +23,7 @@
     .post-title {
         font-weight: 600;
         text-transform: uppercase;
-        @include resFont(1.4, 2);
+        @include resFont(1.4, 1.8);
         @include limitLine(2);
 
         a {

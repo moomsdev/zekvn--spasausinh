@@ -7,3 +7,10 @@
     box-shadow: unset;
   }
 }
+
+.section-service {
+  .row>* {
+    padding-top: calc(var(--bs-gutter-x) * .5);
+    padding-bottom: calc(var(--bs-gutter-x) * .5);
+  }
+}

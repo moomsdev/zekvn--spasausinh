@@ -7,8 +7,9 @@ window.jQuery = jQuery;
 // Import CSS
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import './vendor/select2.min.css';
+// import './vendor/swiper-bundle.min.css';
 import './style.scss';
-import 'swiper/swiper-bundle.css';
+import 'swiper/swiper-bundle.css'
 
 // Import các file JS cơ bản
 import 'bootstrap/dist/js/bootstrap.bundle';
@@ -211,29 +212,26 @@ function initSwiperSliders() {
 
     // Slider banner
     new Swiper('.slider-hero', {
-        direction: "horizontal",
-        touchReleaseOnEdges: true,
-        effect: 'slide',
-        speed: 1000,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: true
-        },
-        allowTouchMove: window.innerWidth >= 991,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: false,
-        },
-        breakpoints: {
-            0: {
-                direction: "horizontal",
-                allowTouchMove: false,
-            },
-            991: {
-                direction: "vertical",
-                allowTouchMove: true
-            },
-        }
+      speed: 1000,
+      // allowTouchMove: window.innerWidth >= 991,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: true
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: false,
+      },
+      breakpoints: {
+        // 0: {
+        //   direction: "horizontal",
+        //   allowTouchMove: false,
+        // },
+        // 991: {
+        //   direction: "vertical",
+        //   allowTouchMove: true
+        // },
+      }
     });
 
 
@@ -248,7 +246,7 @@ function initSwiperSliders() {
             disableOnInteraction: false
         },
         pagination: {
-            el: '.swiper-pagination',
+            el: '.testimonials-pagination',
             clickable: true,
         },
     });

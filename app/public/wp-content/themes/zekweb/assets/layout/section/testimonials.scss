@@ -18,14 +18,20 @@
 
 .section-testimonials {
   position: relative;
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(206, 103, 112, 0.8);
+
+  .inner {
+    position: relative;
+    padding: 2.5rem 0;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(206, 103, 112, 0.8);
+    }
   }
 
   iframe {
@@ -38,44 +44,42 @@
   .testimonials-content {
     color: #fff;
     text-align: center;
-  }
 
-  .testimonials-title {
-    line-height: 1.4;
-    text-transform: uppercase;
-    font-weight: bold;
-    @include resFont(2, 3);
-    @include limitLine(2);
-  }
-
-  .testimonials-description {
-    margin-bottom: 1rem;
-    @include resFont(1.4, 1.8);
-    @include limitLine(5);
-  }
-
-  .testimonials-review {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 2rem;
-
-    img {
-      width: 20rem;
-    }
-  }
-
-  .testimonials-profile {
-    img {
-      max-width: 8rem;
-      margin-bottom: 1rem;
-      object-fit: cover;
-      border-radius: 50%;
-      @include aspectRatio(math.div(1, 1));
-    }
-
-    h3 {
+    .title {
+      line-height: 1;
       text-transform: uppercase;
       font-weight: bold;
+      @include resFont(2.5, 4);
+    }
+
+    .description {
+      margin-bottom: 1.5rem;
+      @include resFont(1.4, 1.8);
+    }
+
+    .review {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 2rem;
+
+      img {
+        width: 20rem;
+      }
+    }
+
+    .profile {
+      img {
+        max-width: 8rem;
+        margin-bottom: 1rem;
+        object-fit: cover;
+        border-radius: 50%;
+        @include aspectRatio(math.div(1, 1));
+      }
+
+      h3 {
+        text-transform: uppercase;
+        font-weight: bold;
+      }
     }
   }
 
@@ -86,6 +90,7 @@
 
     .testimonials-video {
       width: 40%;
+      line-height: 1;
     }
 
     .testimonials-content {
@@ -93,7 +98,7 @@
     }
   }
 
-  .swiper-pagination {
+  .testimonials-pagination {
     margin-top: 2rem;
     position: relative;
     display: block;
