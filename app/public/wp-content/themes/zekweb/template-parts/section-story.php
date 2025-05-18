@@ -1,5 +1,6 @@
 <?php
 $background = get_field('sec2_bg', 'option');
+$backgroundLeft = get_field('sec2_bg_left', 'option');
 $bgImg = get_field('sec2_bg_img', 'option');
 $img = get_field('sec2_img', 'option');
 $title = get_field('sec2_title', 'option');
@@ -7,7 +8,17 @@ $description = get_field('sec2_desc', 'option');
 $btn = get_field('sec2_btn', 'option');
 ?>
 
-<section class="section-story" style="background-image: url(<?php echo $background; ?>); background-repeat: no-repeat; background-size: cover;">
+<section class="section-story" >
+  <div class="section-story__bg">
+    <figure>
+      <img src="<?php echo $backgroundLeft; ?>" alt="" loading="lazy">
+    </figure>
+    <figure>
+      <img src="<?php echo $background; ?>" alt="" loading="lazy">
+    </figure>
+  </div>
+  <div class="story-main">
+<!-- <section class="section-story" style="background-image: url(<?php echo $background; ?>); background-repeat: no-repeat; background-size: cover;"> -->
     <div class="container">
         <div class="row align-items-center g-5">
             <div class="story-image col-12 col-lg-5" style="background-image: url(<?php echo $bgImg; ?>);"  data-aos="fade-right" data-aos-duration="1000">
@@ -33,5 +44,6 @@ $btn = get_field('sec2_btn', 'option');
                 ?>
             </div>
         </div>
+      </div>
     </div>
 </section>
