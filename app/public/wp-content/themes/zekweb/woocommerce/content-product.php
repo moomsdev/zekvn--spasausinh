@@ -34,7 +34,13 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
 		<div class="product-info-box">
 			<div class="product-name"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></div>
 			
-			<?php wc_get_template('loop/price.php'); ?>
+			<?php 
+         $price = get_post_meta(get_the_ID(), '_price', true);
+         if (!empty($price)) {
+             wc_get_template('loop/price.php');
+         } else {
+             echo '<span class="price">Liên hệ</span>';
+         } ?>
 		</div>
 	</div>
 	<!-- Add to cart -->

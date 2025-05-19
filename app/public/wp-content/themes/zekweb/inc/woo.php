@@ -46,7 +46,7 @@ add_action('woocommerce_thankyou_bacs', function($order_id){
 });
 
 // Sửa số lượng hiển thị ở mỗi chuyên mục
-add_filter( 'loop_shop_per_page', function($cols) { return 9; }, 20 );
+add_filter( 'loop_shop_per_page', function($cols) { return 8; }, 20 );
 // Thay đổi số lượng sản phẩm liên quan
 function woo_related_products_limit() {
 global $product;

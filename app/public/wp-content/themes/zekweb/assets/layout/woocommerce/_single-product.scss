@@ -5,6 +5,18 @@
 .woocommerce div.product .product_title {
   margin-bottom: 1.5rem;
   font-weight: 600;
+
+  @include maxWidth($lg) {
+    font-size: 2rem;
+  }
+
+  @include maxWidth($md) {
+    font-size: 1.8rem;
+  }
+
+  @include maxWidth($sm) {
+    font-size: 1.6rem;
+  }
 }
 
 .product-status {
@@ -90,7 +102,19 @@
     .quantity-label {
       font-weight: 600;
       text-transform: uppercase;
-      @include resFont(1.6, 2, true);
+      font-size: 2rem;
+      
+      @include maxWidth($lg) {
+        font-size: 2rem;
+      }
+    
+      @include maxWidth($md) {
+        font-size: 1.8rem;
+      }
+    
+      @include maxWidth($sm) {
+        font-size: 1.6rem;
+      }
     }
   }
 
@@ -130,6 +154,10 @@
   .tab-content {
     margin: 0 auto;
     max-width: 90rem;
+
+    ul {
+      padding-left: 2rem;
+    }
   }
 
   .head-related {
@@ -187,6 +215,8 @@
     margin-bottom: 0;
     width: 100%;
 
+    
+
     .woocommerce-product-gallery__wrapper {
       .woocommerce-product-gallery__image {
         &:first-child {
@@ -196,6 +226,14 @@
           overflow: hidden;
         }
       }
+    }
+  }
+
+  .woo-variation-product-gallery {
+    @include maxWidth($lg) {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-bottom: 0;
     }
   }
 }

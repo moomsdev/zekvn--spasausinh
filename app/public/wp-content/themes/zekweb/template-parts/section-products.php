@@ -44,7 +44,7 @@ if ($catProduct && is_array($catProduct)) {
                     ?>
                     <?php if ($child_cats && !is_wp_error($child_cats) && count($child_cats) > 0): ?>
                         <?php foreach ($child_cats as $child): ?>
-                            <div class="row g-4 align-items-start <?php echo array_search($child, $child_cats) % 2 == 1 ? 'flex-row-reverse' : ''; ?>">
+                            <div class="row g-4 align-items-start mb-3 mb-lg-5 <?php echo array_search($child, $child_cats) % 2 == 1 ? 'flex-row-reverse' : ''; ?>">
                                 <div class="col-md-4 col-lg-4 col-12 product-banner">
                                     <?php
                                     $thumbnail_id = get_term_meta($child->term_id, 'thumbnail_id', true);
@@ -55,7 +55,7 @@ if ($catProduct && is_array($catProduct)) {
                                     </figure>
                                 </div>
                                 <div class="col-md-8 col-lg-8 col-12">
-                                    <div class="row g-5">
+                                    <div class="row row-products">
                                         <?php
                                         $query = new WP_Query([
                                             'post_type' => 'product',
@@ -115,7 +115,7 @@ if ($catProduct && is_array($catProduct)) {
                                 </figure>
                             </div>
                             <div class="col-md-8 col-lg-8 col-12">
-                                <div class="row g-5">
+                                <div class="row row-products">
                                     <?php
                                     $query = new WP_Query([
                                         'post_type' => 'product',

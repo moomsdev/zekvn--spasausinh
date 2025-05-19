@@ -1,39 +1,41 @@
-@font-face {
-    font-family: "     ";
-    src: url("@/fonts/MYRIADPRO-REGULAR.OTF") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
-@font-face {
-    font-family: "MyriadPro";
-    src: url("@/fonts/MYRIADPRO-BOLD.OTF") format("opentype");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
+// @font-face {
+//     font-family: "     ";
+//     src: url("@/fonts/MYRIADPRO-REGULAR.OTF") format("opentype");
+//     font-weight: normal;
+//     font-style: normal;
+//     font-display: swap;
+// }
 
-@font-face {
-    font-family: "MyriadPro";
-    src: url("@/fonts/MYRIADPRO-LIGHT.OTF") format("opentype");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
+// @font-face {
+//     font-family: "MyriadPro";
+//     src: url("@/fonts/MYRIADPRO-BOLD.OTF") format("opentype");
+//     font-weight: 700;
+//     font-style: normal;
+//     font-display: swap;
+// }
 
-@font-face {
-    font-family: "MyriadPro";
-    src: url("@/fonts/MYRIADPRO-SEMIBOLD.OTF") format("opentype");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
+// @font-face {
+//     font-family: "MyriadPro";
+//     src: url("@/fonts/MYRIADPRO-LIGHT.OTF") format("opentype");
+//     font-weight: 300;
+//     font-style: normal;
+//     font-display: swap;
+// }
 
-@font-face {
-    font-family: "ArialCustom";
-    src: url("@/fonts/arialbd.ttf") format("truetype");
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
+// @font-face {
+//     font-family: "MyriadPro";
+//     src: url("@/fonts/MYRIADPRO-SEMIBOLD.OTF") format("opentype");
+//     font-weight: 600;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: "ArialCustom";
+//     src: url("@/fonts/arialbd.ttf") format("truetype");
+//     font-weight: bold;
+//     font-style: normal;
+//     font-display: swap;
+// }

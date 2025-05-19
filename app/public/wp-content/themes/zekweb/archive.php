@@ -3,6 +3,7 @@ $a = get_query_var('cat'); ?>
 <?php $term = get_queried_object(); ?>
 <main id="main">
     <div class="page-body">
+      <?php get_template_part('loop_template/breadcrums'); ?>
         <div class="container">
             <?php
             $all_categories = get_terms([
@@ -24,9 +25,11 @@ $a = get_query_var('cat'); ?>
                 <div class="col-lg-8 col-md-12 mb-4">
                     <?php
                     $cat_id = get_queried_object_id();
+                    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                     $args = [
                         'cat' => $cat_id,
-                        'posts_per_page' => 7, // lấy 7 bài, 1 bài đầu, 6 bài sau
+                        'posts_per_page' => 7, // Hiển thị 7 bài trên mỗi trang
+                        'paged' => $paged,
                     ];
                     $query = new WP_Query($args);
                     if ($query->have_posts()) :
@@ -64,6 +67,37 @@ $a = get_query_var('cat'); ?>
                                 </div>
                             <?php endwhile; ?>
                         </div>
+
+                        <!-- Pagination -->
+                        <div class="pagination-container mt-5">
+                            <?php
+                            // Calculating total pages based on found posts and posts per page
+                            $total_pages = ceil($query->found_posts / $args['posts_per_page']);
+                            
+                            if ($total_pages > 1) :
+                            ?>
+                                <div class="pagination-wrapper">
+                                    <?php
+                                    // Previous page arrow
+                                    if (get_query_var('paged') > 1) :
+                                        echo '<a href="' . get_pagenum_link(get_query_var('paged') - 1) . '" class="pagination-item pagination-prev">' . __('<<', 'zekweb') . '</a>';
+                                    endif;
+                                    
+                                    // Page numbers
+                                    for ($i = 1; $i <= $total_pages; $i++) :
+                                        $current_class = (get_query_var('paged', 1) == $i || (get_query_var('paged', 1) == 0 && $i == 1)) ? 'active' : '';
+                                        echo '<a href="' . get_pagenum_link($i) . '" class="pagination-item ' . $current_class . '">' . $i . '</a>';
+                                    endfor;
+                                    
+                                    // Next page arrow
+                                    if (get_query_var('paged', 1) < $total_pages) :
+                                        echo '<a href="' . get_pagenum_link(get_query_var('paged', 1) + 1) . '" class="pagination-item pagination-next">' . __('>>', 'zekweb') . '</a>';
+                                    endif;
+                                    ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        <!-- End Pagination -->
                     <?php
                         wp_reset_postdata();
                     endif;

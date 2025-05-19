@@ -11,7 +11,7 @@ $materials = get_field('materials', 'option');
             <?php echo $desc ?>
         </div>
     </div>
-    <div class="container-fluid materials-slider swiper" data-aos="fade-up">
+    <div class="container materials-slider swiper" data-aos="fade-up">
         <div class="materials-lists swiper-wrapper">
             <?php foreach ($materials as $material) : ?>
                 <div class="col-12 col-md-6 col-lg-3 materials-item swiper-slide">

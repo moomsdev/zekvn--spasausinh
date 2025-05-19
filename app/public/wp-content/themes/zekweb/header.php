@@ -44,8 +44,8 @@
 	<div id="zek-web">
 		<div class="line-dark"></div>
 
-		<header id="header" class="is-fixed">
-		<!-- <header id="header" class="<?php //echo is_home() || is_front_page() ? 'is-fixed' : ''; ?>"> -->
+		<!-- <header id="header" class="is-fixed"> -->
+		<header id="header" class="<?php echo is_home() || is_front_page() ? 'is-fixed' : ''; ?>">
 			<div class="container">
 				<?php
 				if (is_home() || is_front_page()) :
@@ -112,6 +112,13 @@
 								</button>
 								<input type="hidden" name="post_type" value="producdivt" />
 							</form>
+
+              <!-- <form role="search" autocomplete="off" action="<?php echo home_url('/'); ?>" method="get">
+                <input type="text" name="s" class="search-input" placeholder="Tìm từ khóa bạn mong muốn ...">
+                <button type="submit" class="submit-input">
+                  <img src="<?php bloginfo('template_url'); ?>/images/icon_search.png" alt="icon">
+                </button>
+              </form> -->
 						</div>
 					</div>
 				</div>

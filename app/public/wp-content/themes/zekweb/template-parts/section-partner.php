@@ -4,6 +4,8 @@ $partnerList = get_field('sec12_partner', 'option');
 ?>
 
 <section class="section-partner">
+  <div class="container">
+
     <?php get_template_part('loop_template/loop', 'heading_section', ['title' => $title]) ?>
     <div class="row g-3">
       <?php 
@@ -26,4 +28,5 @@ $partnerList = get_field('sec12_partner', 'option');
           </div>
       <?php endforeach; ?>
     </div>
+  </div> 
 </section>

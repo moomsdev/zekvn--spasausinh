@@ -13,20 +13,41 @@
     // height: 100%;
     background-color: $primaryColor;
     display: flex;
-    z-index: -1;
+
+    @include maxWidth($xl) {
+      flex-direction: column;
+    }
+    @include maxWidth($md) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  
 
     figure {
       &:first-child {
         padding: 2rem;
         width: 30%;
 
+        @include maxWidth($xl) {
+          display: none;
+        }
+
         img {
           width: 100%;
         }
       }
+
       &:last-child {
         position: relative;
         width: calc(100% - 30%);
+
+        @include maxWidth($xl) {
+          width: 100%;
+          height: 100%;
+        }
 
         &::before {
           content: "";
@@ -37,6 +58,14 @@
           height: 100%;
           background-color: #333;
           opacity: 0.8;
+        }
+
+        img {
+          height: 100%;
+
+          @include maxWidth($md) {
+            object-fit: cover;
+          }
         }
       }
     }
@@ -50,6 +79,11 @@
     transform: translateY(-50%);
     width: 100%;
     z-index: 1;
+
+    @include maxWidth($md) {
+      position: relative;
+      transform: unset;
+    }
   }
 
   .story-image {
@@ -59,6 +93,19 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    max-width: 100%;
+
+    @include maxWidth($xxl) {
+      max-width: 35%;
+    }
+
+    @include maxWidth($xl) {
+      max-width: 30%;
+    }
+
+    @include maxWidth($lg) {
+      display: none;
+    }
 
     @include maxWidth($md) {
       aspect-ratio: 5 / 4;
@@ -73,6 +120,10 @@
       max-height: 110%;
       object-fit: contain;
       border-radius: 16px;
+
+      @include maxWidth($xl) {
+        max-height: 100%;
+      }
     }
   }
 
@@ -86,13 +137,37 @@
     line-height: 1.2;
     text-transform: uppercase;
     font-weight: bold;
-    @include resFont(2, 3.5);
-    @include limitLine(3);
+    font-size: 3.5rem;
+
+    @include maxWidth($xxl) {
+      font-size: 2.5rem;
+    }
+
+    @include maxWidth($lg) {
+      font-size: 2rem;
+    }
+
+    @include maxWidth($md) {
+      font-size: 1.8rem;
+    }
+
   }
 
   .story-description {
     text-align: justify;
-    @include resFont(1.4, 1.6);
+    font-size: 1.6rem;
+
+    @include maxWidth($xxl) {
+      font-size: 1.5rem;
+    }
+
+    @include maxWidth($lg) {
+      font-size: 1.4rem;
+    }
+
+    @include maxWidth($md) {
+      font-size: 1.3rem;
+    }
   }
 
   .story-btn {

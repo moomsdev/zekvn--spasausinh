@@ -15,6 +15,10 @@
     }
   }
 
+  form .form-control {
+    padding: 0.5rem 1rem;
+  }
+
   ul.dropdown-menu {
     &.show {
       li a {

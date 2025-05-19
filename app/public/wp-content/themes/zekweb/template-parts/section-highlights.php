@@ -8,7 +8,7 @@ $i = 0;
     <div class="container">
         <?php get_template_part('loop_template/loop', 'heading_section', ['title' => $title]) ?>
 
-        <div class="row g-4 justify-content-center">
+        <div class="row justify-content-center">
             <?php
             foreach ($highlights as $article):
                 get_template_part('loop_template/loop', 'item_highlights', ['aos_delay' => $i * 250, 'article' => $article]);

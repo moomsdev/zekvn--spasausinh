@@ -12,5 +12,12 @@
   .row>* {
     padding-top: calc(var(--bs-gutter-x) * .5);
     padding-bottom: calc(var(--bs-gutter-x) * .5);
+
+    @include maxWidth($lg) {
+      padding-top: .8rem;
+      padding-bottom: .8rem;
+      padding-left: .8rem;
+      padding-right: .8rem;
+    }
   }
 }

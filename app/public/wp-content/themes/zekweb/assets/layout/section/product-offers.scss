@@ -49,14 +49,41 @@
         border-radius: 0;
         margin-bottom: 0;
 
+        .product-image {
+          img {
+              max-height: 4.5rem;
+              object-fit: contain;
+          }
+      }
+
         .product-item {
+
+          @include maxWidth($lg) {
+            justify-content: start;
+          }
             .product-name {
-                @include resFont(1.4, 1.5);
+                font-size: 1.2rem;
+                min-height: max-content;
             }
     
             .product-desc {
-                @include resFont(1.4, 1.5);
+              margin-bottom: 0;
+              font-size: 1.2rem;
             }
+        }
+
+        .row>* {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+          padding-left: .5rem;
+          padding-right: .5rem;
+
+          @include maxWidth($lg) {
+            padding-top: .5rem;
+            padding-bottom: .5rem;
+            padding-left: .5rem;
+            padding-right: .5rem;
+          }
         }
     }
 }

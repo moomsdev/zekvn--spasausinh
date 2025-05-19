@@ -27,7 +27,7 @@ $btn = get_field('sec2_btn', 'option');
             <div class="story-content col-12 col-lg-7" data-aos="fade-left" data-aos-duration="1000">
                 <?php
                 if ($title) :
-                    echo '<h3 class="story-title mb-4">' . $title . '</h3>';
+                    echo '<h3 class="story-title mb-1 mb-md-4">' . $title . '</h3>';
                 endif; 
                 ?>
 
@@ -39,7 +39,7 @@ $btn = get_field('sec2_btn', 'option');
 
                 <?php
                 if ($btn) :
-                    echo '<a href="' . $btn[0]['url'] . '" class="btn-hightlight bora-1 mt-5">' . $btn[0]['text'] . '</a>';
+                    echo '<a href="' . $btn[0]['url'] . '" class="btn-hightlight bora-1 mt-1 mt-md-5">' . $btn[0]['text'] . '</a>';
                 endif;
                 ?>
             </div>
