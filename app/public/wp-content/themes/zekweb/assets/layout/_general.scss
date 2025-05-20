@@ -104,7 +104,6 @@ p:empty {
 
 section {
   margin-bottom: 5rem;
-  // padding: 2.5rem 0;
 
   @include maxWidth($md) {
     margin-bottom: 3rem;

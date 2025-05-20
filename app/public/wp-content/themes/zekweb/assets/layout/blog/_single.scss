@@ -1,24 +1,57 @@
 @use "../../utilities/variables" as *;
 @use "../../utilities/mixin" as *;
 
-.single-blog {
-  max-width: 800px;
-  margin: 0 auto;
+.single-post {
+  .single-blog {
+    max-width: 800px;
+    margin: 0 auto;
+  }
 
   .category {
-      color: $primaryColor;
+    color: $primaryColor;
+    @include resFont(1.5, 1.8, true);
   }
+
+  .date {
+    @include resFont(1.5, 1.8, true);
+  }
+
   .post-image {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      img {
-          max-width: 700px;
-          border-radius: 30px;
-          aspect-ratio: 1/1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    img {
+      max-width: 700px;
+      border-radius: 30px;
+      aspect-ratio: 1/1;
+    }
+  }
+
+  .page-title {
+    @include resFont(1.6, 2, true);
+  }
+
+  .single-related {
+
+    .section-title {
+        color: $primaryColor;
+        font-weight: 600;
+        text-transform: uppercase;
+        @include resFont(1.6, 2, true);
+    }
+    .row>* {
+        padding-top: calc(var(--bs-gutter-x) * .5);
+        padding-bottom: calc(var(--bs-gutter-x) * .5);
+    
+        @include maxWidth($lg) {
+          padding-top: .8rem;
+          padding-bottom: .8rem;
+          padding-left: .8rem;
+          padding-right: .8rem;
+        }
       }
   }
 }
-

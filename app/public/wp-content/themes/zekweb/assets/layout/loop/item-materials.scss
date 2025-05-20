@@ -8,6 +8,14 @@
   color: #fff;
   text-align: center;
   background: #7a8537;
+
+  @include maxWidth($lg) {
+    height: 40rem;
+  }
+
+  @include maxWidth($sm) {
+    height: 30rem;
+  }
 }
 
 .materials-card-header {

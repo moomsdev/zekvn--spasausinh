@@ -17,7 +17,7 @@ header {
     nav.pc-menu { 
       li.menu-logo {
         img {
-          max-height: 5rem;
+          max-height: 7rem;
         }
       }
     }
@@ -84,7 +84,9 @@ header {
 
       &.menu-logo {
         img {
-          max-height: 5rem;
+          max-height: 6rem;
+          width: 100%;
+          object-fit: contain;
         }
       }
     }

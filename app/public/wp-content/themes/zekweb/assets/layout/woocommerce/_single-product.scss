@@ -209,6 +209,10 @@
     background-color: $primaryColor;
     font-weight: 600;
     color: #fff;
+
+    @include maxWidth($md) {
+      margin: 2rem auto 0;
+    }
   }
 
   div.images.woocommerce-product-gallery {

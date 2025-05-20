@@ -8,6 +8,11 @@
 }
 
 .section-materials {
+
+  .materials-slider {
+    position: relative;
+    overflow: hidden;
+  }
   .section-description {
     text-align: center;
     @include resFont(1.4, 2.2);

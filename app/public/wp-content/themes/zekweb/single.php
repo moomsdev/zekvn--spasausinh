@@ -5,13 +5,12 @@
   <?php get_template_part('loop_template/breadcrums'); ?>
     <div class="page-body single-blog">
         <div class="container">
-            <div class="row row-margin">
-                <div class="col-lg-12 col-md-12">
-                    <div class="category text-center mt-5 mb-3 text-uppercase"><?php echo get_the_category(get_the_ID())[0]->name; ?></div>
-                    <h1 class="page-title text-center mb-5"><?php the_title();?></h1>
-                    <div class="date text-center mb-5"><strong><?php echo get_the_date('M d, Y'); ?></strong></div>
+                <div class="main-content">
+                    <div class="category text-center mt-2 mt-lg-4 text-uppercase"><?php echo get_the_category(get_the_ID())[0]->name; ?></div>
+                    <h1 class="page-title text-center mt-2 mt-lg-4"><?php the_title();?></h1>
+                    <div class="date text-center mt-2 mt-lg-4"><strong><?php echo get_the_date('M d, Y'); ?></strong></div>
                     
-                    <figure class="post-image">
+                    <figure class="post-image mt-2 mt-lg-4">
                         <?php the_post_thumbnail('full'); ?>
                     </figure>
 
@@ -29,10 +28,11 @@
                         foreach($categories as $individual_category) {
                             $category_ids[] = $individual_category->term_id;
                         }
+                        $posts_per_page = wp_is_mobile() ? 4 : 3;
                         $args=array(
                             'category__in' => $category_ids,
                             'post__not_in' => array(get_the_ID()),
-                            'posts_per_page' => 3,
+                            'posts_per_page' => $posts_per_page,
                         );
                         $my_query = new wp_query($args);
                         if( $my_query->have_posts() ): 

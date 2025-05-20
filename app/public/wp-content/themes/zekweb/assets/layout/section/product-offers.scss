@@ -1,89 +1,122 @@
-@use "../../utilities/variables" as *;
-@use "../../utilities/mixin" as *;
+@use '../../utilities/variables' as *;
+@use '../../utilities/mixin' as *;
 
 .section-product-offers {
+  .inner-product-offers {
+    margin-bottom: 5rem;
+    padding: 3rem;
+    position: relative;
+    top: -3rem;
+    border-radius: 3rem;
+    box-shadow: 0 0 0.8rem 1.6rem rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    z-index: 998;
 
-    .inner-product-offers {
-        margin-bottom: clamp(3rem, 5vw, 5rem);
-        padding: 3rem;
-        position: relative;
-        top: -3rem;
-        border-radius: 3rem;
-        box-shadow: 0 0 .8rem 1.6rem rgba(0, 0, 0, 0.3);
-        background-color: #fff;
-        z-index: 998;
+    @include maxWidth($lg) {
+      margin-bottom: 3rem;
     }
 
     @include maxWidth($md) {
-        padding:2rem 1rem;
+      margin-bottom: 0;
+    }
+  }
+
+  @include maxWidth($md) {
+    padding: 2rem 1rem;
+  }
+
+  .product-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    @include maxWidth($sm) {
+      flex-wrap: wrap;
+    }
+
+    .product-image {
+      img {
+        max-height: 7.5rem;
+        object-fit: contain;
+
+        @include maxWidth($md) {
+          max-height: 5rem;
+        }
+      }
+    }
+
+    .product-name {
+      color: $primaryColor;
+      font-weight: 600;
+      @include resFont(1.4, 1.6);
+
+      @include maxWidth($sm) {
+        text-align: center;
+      }
+    }
+
+    .product-desc {
+      @include resFont(1.4, 1.6);
+
+      @include maxWidth($sm) {
+        text-align: justify;
+      }
+    }
+  }
+
+  &.detail-product-offers {
+    padding: 0;
+    box-shadow: none;
+    top: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+
+    .product-image {
+
+      @include maxWidth($sm) {
+        width: 100%;
+      }
+
+      img {
+        max-height: 4.5rem;
+        object-fit: contain;
+      }
     }
 
     .product-item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-
-
-        .product-image {
-            img {
-                max-height: 7.5rem;
-            }
-        }
-        
-        .product-name {
-            color: $primaryColor;
-            font-weight: 600;
-            @include resFont(1.4, 1.6);
-        }
-
-        .product-desc {
-            @include resFont(1.4, 1.6);
-        }
-    }
-
-    &.detail-product-offers {
-        padding: 0;
-        box-shadow: none;
-        top: 0;
-        border-radius: 0;
-        margin-bottom: 0;
-
-        .product-image {
-          img {
-              max-height: 4.5rem;
-              object-fit: contain;
-          }
+      @include maxWidth($lg) {
+        justify-content: start;
       }
 
-        .product-item {
+      @include maxWidth($sm) {
+        justify-content: center;
+      }
 
-          @include maxWidth($lg) {
-            justify-content: start;
-          }
-            .product-name {
-                font-size: 1.2rem;
-                min-height: max-content;
-            }
-    
-            .product-desc {
-              margin-bottom: 0;
-              font-size: 1.2rem;
-            }
+      .product-name {
+        font-size: 1.2rem;
+        min-height: max-content;
+
+        @include maxWidth($lg) {
+          font-size: 1rem;
         }
+      }
 
-        .row>* {
-          padding-top: 1rem;
-          padding-bottom: 1rem;
-          padding-left: .5rem;
-          padding-right: .5rem;
-
-          @include maxWidth($lg) {
-            padding-top: .5rem;
-            padding-bottom: .5rem;
-            padding-left: .5rem;
-            padding-right: .5rem;
-          }
-        }
+      .product-desc {
+        margin-bottom: 0;
+        font-size: 1.2rem;
+      }
     }
+
+    .row > * {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+
+      @include maxWidth($lg) {
+        padding: .8rem;
+      }
+    }
+  }
 }

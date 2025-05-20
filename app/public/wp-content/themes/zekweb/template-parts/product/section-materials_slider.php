@@ -6,12 +6,10 @@ $materials = get_field('materials', 'option');
 
 <section class="section-materials full-width">
     <?php get_template_part('loop_template/loop', 'heading_section', array('title' => $title)) ?>
-    <div class="container">
-        <div class="section-description">
-            <?php echo $desc ?>
-        </div>
+    <div class="section-description">
+        <?php echo $desc ?>
     </div>
-    <div class="container materials-slider swiper" data-aos="fade-up">
+    <div class="materials-slider swiper" data-aos="fade-up">
         <div class="materials-lists swiper-wrapper">
             <?php foreach ($materials as $material) : ?>
                 <div class="col-12 col-md-6 col-lg-3 materials-item swiper-slide">

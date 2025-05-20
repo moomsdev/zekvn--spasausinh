@@ -5,6 +5,12 @@
   .section-service.frame-shadow {
     background-color: unset;
     box-shadow: unset;
+    margin-bottom: 3.5rem;
+    padding-top: 0;
+
+    @include maxWidth($md) {
+      margin-bottom: 1.5rem;
+    }
   }
 }
 

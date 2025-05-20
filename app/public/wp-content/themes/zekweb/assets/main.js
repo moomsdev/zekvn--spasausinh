@@ -105,11 +105,11 @@ function initStickyHeader() {
         let scrollTop = $(this).scrollTop();
 
         // Fixed header khi cuộn xuống vượt qua chiều cao của header
-        // if (scrollTop > headerHeight) {
-        //     $header.addClass('is-fixed');
-        // } else {
-        //     $header.removeClass('is-fixed');
-        // }
+        if (scrollTop > headerHeight) {
+            $header.addClass('is-fixed');
+        } else {
+            $header.removeClass('is-fixed');
+        }
 
         // Add is-hidden class when scrolling in any direction
         $header.addClass('is-hidden');
@@ -266,9 +266,11 @@ function initSwiperSliders() {
         },
         breakpoints: {
             0: {
+                spaceBetween: 8,
                 slidesPerView: 2
             },
             768: {
+                spaceBetween: 20,
                 slidesPerView: 3
             },
             1200: {
@@ -292,9 +294,11 @@ function initSwiperSliders() {
         },
         breakpoints: {
             0: {
-                slidesPerView: 1
+                spaceBetween: 10,
+                slidesPerView: 2
             },
             991: {
+                spaceBetween: 20,
                 slidesPerView: 2
             },
             1200: {

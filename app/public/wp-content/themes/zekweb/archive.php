@@ -48,7 +48,7 @@ $a = get_query_var('cat'); ?>
                                 <?php echo get_the_excerpt(); ?>
                             </p>
                         </div>
-                        <div class="row g-3 g-md-5">
+                        <div class="row g-3 g-md-5 row-archive-blog">
                             <?php while ($query->have_posts()) : $query->the_post(); ?>
                                 <div class="col-lg-4 col-6">
                                     <div class="momneadknow-blog">

@@ -2,7 +2,11 @@
 @use "../../utilities/mixin" as *;
 
 .product-slider-section {
-    margin: 5rem 0;
+  margin: 5rem 0;
+
+  @include maxWidth($md) {
+    margin: 3rem 0;
+  }
 
   .section-heading {
     position: relative;
