@@ -29,6 +29,13 @@ footer {
                 color: #fff;
                 @include resFont(1.6, 1.8);
             }
+
+            .bct_dmca  {
+                img {
+                    max-height: 6.5rem;
+                    object-fit: contain;
+                }
+            }
         }
 
         .footer-nav {

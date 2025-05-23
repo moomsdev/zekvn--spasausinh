@@ -25,13 +25,21 @@ import './js/qty.js';
 import './js/ytdefer.min.js';
 import Swup from 'swup';
 
+
+
 jQuery(function($) {
     const swup = new Swup();
     swup.hooks.on('page:view', () => {
         initializePageFeatures();
+        
     });
 
     initializePageFeatures();
+
+    $(window).on('resize', updateStickyRelatedBoxTop);
+    $(document).on('scroll', function() {
+        updateStickyRelatedBoxTop();
+    });
 });
 
 function initializePageFeatures() {
@@ -45,6 +53,19 @@ function initializePageFeatures() {
     initAccountUI();
     initSwiperSliders();
     initFancybox();
+    initProductCategoryMobileSelect();
+    updateStickyRelatedBoxTop();
+}
+
+function updateStickyRelatedBoxTop() {
+    var $header = $('#header.is-fixed');
+    var $relatedBox = $('.single-related-box');
+    if ($header.length && $relatedBox.length) {
+        var headerHeight = $header.outerHeight();
+        $relatedBox.each(function() {
+            this.style.setProperty('top', headerHeight + 'px', 'important');
+        });
+    }
 }
 
 // 1. Hiệu ứng
@@ -319,5 +340,39 @@ function initFancybox() {
         Thumbs: {
             autoStart: true,
         },
+    });
+}
+
+// 11. Xử lý select dropdown cho danh mục sản phẩm trên mobile
+function initProductCategoryMobileSelect() {
+    var select = document.getElementById('products-cat-mobile');
+    if (!select) return;
+
+    // Xoá các listener cũ nếu có (tránh nhân đôi khi dùng swup)
+    select.onchange = null;
+    select.addEventListener('change', function(){
+        var termId = this.value;
+        var tabBtn = document.getElementById('products-tab-' + termId);
+        if(tabBtn) {
+            tabBtn.click();
+            // Scroll to tab content on mobile nếu cần
+            var tabContent = document.getElementById('products-' + termId);
+            if(tabContent) {
+                setTimeout(function(){
+                    tabContent.scrollIntoView({behavior:'smooth', block:'start'});
+                }, 200);
+            }
+        }
+    });
+
+    // Xoá các listener cũ trên tabBtns nếu có
+    var tabBtns = document.querySelectorAll('#products-tab button.nav-link');
+    tabBtns.forEach(function(btn){
+        btn.removeEventListener('shown.bs.tab', btn._catMobileSync);
+        btn._catMobileSync = function(e){
+            var id = btn.id.replace('products-tab-', '');
+            select.value = id;
+        };
+        btn.addEventListener('shown.bs.tab', btn._catMobileSync);
     });
 }

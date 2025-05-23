@@ -9,7 +9,7 @@
     text-align: center;
     color: $primaryColor;
     font-weight: bold;
-    margin-bottom: 2rem;
+    // margin-bottom: 2rem;
     position: relative;
   }
 
@@ -51,8 +51,8 @@
           border-radius: 1rem;
           padding: 0.75rem 1rem;
           width: 100%;
-          font-size: 1.4rem;
           resize: none;
+          @include resFont(1.6, 1.8);
 
           &:focus {
             border-color: #1baabf;
@@ -80,6 +80,7 @@
           font-weight: bold;
           transition: 0.3s ease;
           margin-top: auto;
+          @include resFont(1.6, 1.8);
 
           &:hover {
             background-color: #3aa3b4;

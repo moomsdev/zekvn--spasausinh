@@ -42,10 +42,11 @@
   }
 }
 
+// Cart page
 .woocommerce-cart {
-    .quantity-label {
-        display: none;
-    }
+  .quantity-label {
+      display: none;
+  }
 
   .quantity {
     padding: 0.1rem 1rem;
@@ -90,9 +91,14 @@
   .checkout-button {
     background-color: $primaryColor!important;
   }
+
+  .woocommerce table.cart td.actions .input-text {
+    min-width: fit-content;
+  }
 }
 
 
+// Checkout page
 .woocommerce-checkout {
     label {
         font-weight: 600;
@@ -102,8 +108,8 @@
     textarea,
     span.select2-selection {
         border-radius: 10px !important;
-        border: 1px solid #c1c1c1 !important;
-        color: #c1c1c1 !important;
+        border: 1px solid #212121 !important;
+        color: #212121 !important;
     }
 
     .woocommerce-checkout-review-order-table {
@@ -123,12 +129,14 @@
 
     .select2-container--default .select2-selection--single .select2-selection__rendered {
         line-height: 1em;
+        color: #212121 !important;
     }
     .select2-container--default .select2-selection--single .select2-selection__arrow {
         top: 50%;
     }
 }
 
+// Order received page
 .woocommerce-order-received {
     .woocommerce-order {
         .woocommerce-order-details,

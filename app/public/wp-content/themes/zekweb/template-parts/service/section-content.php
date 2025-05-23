@@ -16,8 +16,12 @@ $content_only = $args['content_only'];
         <?php endif; ?>
 
         <div class="content-description">
-            <?php echo $short_description; ?>
-            <?php echo $content_only; ?>
+            <div class="description mb-3">
+                <?php echo $short_description; ?>
+            </div>
+            <div class="content-only">
+                <?php echo $content_only; ?>
+            </div>
         </div>
     </div>
 </section>

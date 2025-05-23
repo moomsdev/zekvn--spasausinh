@@ -31,7 +31,9 @@ $content_media = $args['content_media'];
             <div class="row">
                 <div class="col-lg-7 col-12 mb-3">
                     <h4 class="section-title"><?php echo $item['title']; ?></h4>
-                    <?php echo $item['content']; ?>
+                    <div class="content">
+                        <?php echo $item['content']; ?>
+                    </div>
                 </div>
                 
                 <div class="col-lg-5 col-12 text-center">

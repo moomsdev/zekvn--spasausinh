@@ -68,16 +68,16 @@ if ( post_password_required() ) {
 
 	<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 		<li class="nav-item" role="presentation">
-			<button class="nav-link active" id="pills-desc-tab" data-bs-toggle="pill" data-bs-target="#pills-desc" type="button" role="tab" aria-controls="pills-desc" aria-selected="true">Mô tả sản phẩm</button>
+			<button class="nav-link active" id="pills-desc-tab" data-bs-toggle="pill" data-bs-target="#pills-desc" type="button" role="tab" aria-controls="pills-desc" aria-selected="true">Mô tả</button>
 		</li>
 		<li class="nav-item" role="presentation">
-			<button class="nav-link" id="pills-uses-tab" data-bs-toggle="pill" data-bs-target="#pills-uses" type="button" role="tab" aria-controls="pills-uses" aria-selected="false">Công dụng sản phẩm</button>
+			<button class="nav-link" id="pills-uses-tab" data-bs-toggle="pill" data-bs-target="#pills-uses" type="button" role="tab" aria-controls="pills-uses" aria-selected="false">Công dụng</button>
 		</li>
 		<li class="nav-item" role="presentation">
-			<button class="nav-link" id="pills-manual-tab" data-bs-toggle="pill" data-bs-target="#pills-manual" type="button" role="tab" aria-controls="pills-manual" aria-selected="false">Hướng dẫn sử dụng</button>
+			<button class="nav-link" id="pills-manual-tab" data-bs-toggle="pill" data-bs-target="#pills-manual" type="button" role="tab" aria-controls="pills-manual" aria-selected="false">Cách dùng</button>
 		</li>
 		<li class="nav-item" role="presentation">
-			<button class="nav-link" id="pills-note-tab" data-bs-toggle="pill" data-bs-target="#pills-note" type="button" role="tab" aria-controls="pills-note" aria-selected="false">Lưu ý sử dụng</button>
+			<button class="nav-link" id="pills-note-tab" data-bs-toggle="pill" data-bs-target="#pills-note" type="button" role="tab" aria-controls="pills-note" aria-selected="false">Lưu ý</button>
 		</li>
 	</ul>
 

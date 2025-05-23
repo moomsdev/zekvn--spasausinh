@@ -25,6 +25,12 @@
       @include resFont(2, 2.8);
     }
 
+    .content {
+      @include maxWidth($md) {
+        text-align: justify;
+      }
+    }
+
     p {
       position: relative;
       line-height: 1.5;

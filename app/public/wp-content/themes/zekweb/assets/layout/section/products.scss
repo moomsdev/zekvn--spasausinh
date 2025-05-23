@@ -102,4 +102,20 @@
       padding-right: .8rem;
     }
   }
+
+  #products-cat-mobile {
+    padding: .8rem 3rem;
+    margin: 2rem auto;
+    width: max-content;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #000;
+    box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.2);
+    @include resFont(1.4, 1.6);
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+    }
+  }
 }

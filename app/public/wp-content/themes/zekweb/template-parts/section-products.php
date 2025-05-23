@@ -22,7 +22,16 @@ if ($catProduct && is_array($catProduct)) {
           <?php echo esc_html($desc); ?>
         </div>
 
-        <ul class="nav mt-5 mb-5 justify-content-center" id="products-tab" role="tablist">
+        <!-- Dropdown for mobile -->
+        <div class="d-block d-md-none mb-3">
+            <select class="form-select" id="products-cat-mobile">
+                <?php foreach ($categories as $i => $cat): ?>
+                    <option value="<?php echo $cat->term_id; ?>" <?php if($i==0) echo 'selected'; ?>><?php echo esc_html($cat->name); ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <!-- Tabs for desktop -->
+        <ul class="nav mt-5 mb-5 justify-content-center d-none d-md-flex" id="products-tab" role="tablist">
             <?php foreach ($categories as $i => $cat): ?>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link <?php if($i==0) echo 'active'; ?>" id="products-tab-<?php echo $cat->term_id; ?>" data-bs-toggle="pill" data-bs-target="#products-<?php echo $cat->term_id; ?>" type="button" role="tab" aria-controls="products-<?php echo $cat->term_id; ?>" aria-selected="<?php echo $i==0 ? 'true' : 'false'; ?>">

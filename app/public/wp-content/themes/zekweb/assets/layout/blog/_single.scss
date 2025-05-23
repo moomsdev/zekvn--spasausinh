@@ -2,18 +2,18 @@
 @use "../../utilities/mixin" as *;
 
 .single-post {
-  .single-blog {
-    max-width: 800px;
-    margin: 0 auto;
-  }
+  // .single-blog {
+  //   max-width: 800px;
+  //   margin: 0 auto;
+  // }
 
-  .category {
-    color: $primaryColor;
-    @include resFont(1.5, 1.8, true);
-  }
+  // .category {
+  //   color: $primaryColor;
+  //   @include resFont(1.5, 1.8, true);
+  // }
 
   .date {
-    @include resFont(1.5, 1.8, true);
+    @include resFont(1.5, 1.6, true);
   }
 
   .post-image {
@@ -31,10 +31,18 @@
   }
 
   .page-title {
+    font-weight: 800;
     @include resFont(1.6, 2, true);
   }
 
   .single-related {
+
+    .single-related-box {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
 
     .section-title {
         color: $primaryColor;
@@ -42,16 +50,40 @@
         text-transform: uppercase;
         @include resFont(1.6, 2, true);
     }
-    .row>* {
-        padding-top: calc(var(--bs-gutter-x) * .5);
-        padding-bottom: calc(var(--bs-gutter-x) * .5);
+
+    // .row>* {
+    //     padding-top: calc(var(--bs-gutter-x) * .5);
+    //     padding-bottom: calc(var(--bs-gutter-x) * .5);
     
-        @include maxWidth($lg) {
-          padding-top: .8rem;
-          padding-bottom: .8rem;
-          padding-left: .8rem;
-          padding-right: .8rem;
+    //     @include maxWidth($lg) {
+    //       padding-top: .8rem;
+    //       padding-bottom: .8rem;
+    //       padding-left: .8rem;
+    //       padding-right: .8rem;
+    //     }
+    //   }
+
+    .post-related {
+      .item {
+        padding: 1rem 0;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: .8em;
+
+        img {
+          object-fit: cover;
+          aspect-ratio: 1/1;
+        }
+
+        .title {
+          @include resFont(1.4, 1.6);
+          @include limitLine(2);
+
+          &:hover {
+            color: $primaryColor;
+          }
         }
       }
+    }
   }
 }

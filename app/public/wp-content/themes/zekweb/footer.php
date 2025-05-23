@@ -27,6 +27,15 @@
                         <div class="info-extra">
                             <?php the_field('info_ext', 'option'); ?>
                         </div>
+
+                        <div class="bct_dmca d-flex gap-4 align-items-center">
+                            <figure>
+                                <img src="<?php echo get_field('bct_img', 'option'); ?>" alt="Bộ công thương">
+                            </figure>
+                            <figure>
+                                <img src="<?php echo get_field('dmca_img', 'option'); ?>" alt="DMCA">
+                            </figure>
+                        </div>
                     </div>
 
                     <nav class="footer-nav">

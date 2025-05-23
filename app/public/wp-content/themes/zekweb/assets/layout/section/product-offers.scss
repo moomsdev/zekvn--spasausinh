@@ -98,13 +98,17 @@
         min-height: max-content;
 
         @include maxWidth($lg) {
-          font-size: 1rem;
+          font-size: 1.4rem;
         }
       }
 
       .product-desc {
         margin-bottom: 0;
         font-size: 1.2rem;
+
+        @include maxWidth($lg) {
+          font-size: 1.4rem;
+        }
       }
     }
 

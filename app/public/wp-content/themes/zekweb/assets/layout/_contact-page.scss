@@ -1,9 +1,10 @@
 @use '../utilities/variables' as *;
 @use '../utilities/mixin' as *;
 
-.contact-container {
-    iframe {
-        width: 100%;
-        height: 70rem;
+.google-map {
+    margin-bottom: 5rem;
+
+    @include maxWidth($md) {
+        margin-bottom: 3rem;
     }
 }

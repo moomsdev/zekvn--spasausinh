@@ -8,12 +8,16 @@
     .icon-image {
         margin: 0 auto;
         position: relative;
-        width: 4rem;
+        width: 5.5rem;
         height: auto;
         transform: translateY(-50%);
         z-index: 3;
 
         @include maxWidth($lg) {
+            width: 4rem;
+        }
+
+        @include maxWidth($md) {
             width: 3rem;
         }
 
@@ -27,12 +31,16 @@
     margin: 0 auto;
     position: relative;
     display: inline-block;
-    padding-bottom: clamp(1.5rem, 2vw, 2.5rem);
+    padding-bottom: 3rem;
     color: $primaryColor;
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
     @include breakText;
+
+    @include maxWidth($lg) {
+        padding-bottom: 2rem;
+    }
 
     &:after,
     &:before {
