@@ -16,6 +16,7 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import { Fancybox } from "@fancyapps/ui";
+import 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js';
 import Swiper from 'swiper';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
@@ -233,8 +234,9 @@ function initSwiperSliders() {
 
     // Slider banner
     new Swiper('.slider-hero', {
+      direction: 'vertical',
       speed: 1000,
-      // allowTouchMove: window.innerWidth >= 991,
+      allowTouchMove: window.innerWidth >= 991,
       autoplay: {
         delay: 5000,
         disableOnInteraction: true
@@ -244,14 +246,14 @@ function initSwiperSliders() {
         clickable: false,
       },
       breakpoints: {
-        // 0: {
-        //   direction: "horizontal",
-        //   allowTouchMove: false,
-        // },
-        // 991: {
-        //   direction: "vertical",
-        //   allowTouchMove: true
-        // },
+        0: {
+          direction: "horizontal",
+          allowTouchMove: false,
+        },
+        991: {
+          direction: "vertical",
+          allowTouchMove: true
+        },
       }
     });
 

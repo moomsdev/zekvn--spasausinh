@@ -17,7 +17,7 @@ if (!(is_home() || is_front_page())) {
 }
 ?>
 <div class="banner-section"<?php echo $margin_style; ?>>
-  <!-- <div class="swiper-container"> -->
+  <div class="swiper-container">
     <div class="swiper slider-hero">
         <div class="swiper-wrapper">
             <?php foreach ($banners as $banner) : ?>
@@ -29,5 +29,5 @@ if (!(is_home() || is_front_page())) {
         </div>
         <div class="swiper-pagination"></div>
     </div>
-  <!-- </div> -->
+  </div>
 </div>
