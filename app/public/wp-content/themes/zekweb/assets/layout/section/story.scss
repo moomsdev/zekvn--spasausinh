@@ -158,15 +158,11 @@
     font-size: 1.6rem;
 
     @include maxWidth($xxl) {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
     }
 
     @include maxWidth($lg) {
-      font-size: 1.4rem;
-    }
-
-    @include maxWidth($md) {
-      font-size: 1.3rem;
+      font-size: 1.6rem;
     }
   }
 

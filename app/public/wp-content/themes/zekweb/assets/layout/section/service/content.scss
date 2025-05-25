@@ -5,4 +5,8 @@
     width: 80%;
     margin: auto;
     text-align: justify;
+
+    @include maxWidth($lg) {
+        width: 100%;
+    }
 }

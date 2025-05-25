@@ -56,7 +56,12 @@ if ( $product->is_in_stock() ) : ?>
 	</form>
 
 	<?php do_action( 'woocommerce_after_add_to_cart_form' ); ?>
-
+	<?php
+	$cart_url = wc_get_cart_url();
+	$add_to_cart_url = esc_url( add_query_arg( array(
+		'add-to-cart' => $product->get_id()
+	), $cart_url ) );
+	?>
 	<div class="button-buy-now d-block d-md-none">
 		<a href="<?php echo $add_to_cart_url; ?>" class="btn-buy-now">Mua ngay</a>
 	</div>
@@ -102,12 +107,7 @@ if ( $product->is_in_stock() ) : ?>
 <?php endif; ?>
 
 	<!-- button buy now add to cart redirect to cart -->
-	<?php
-	$cart_url = wc_get_cart_url();
-	$add_to_cart_url = esc_url( add_query_arg( array(
-		'add-to-cart' => $product->get_id()
-	), $cart_url ) );
-	?>
+	
 	<div class="button-buy-now d-none d-md-block">
 		<a href="<?php echo $add_to_cart_url; ?>" class="btn-buy-now">Mua ngay</a>
 	</div>

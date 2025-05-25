@@ -95,6 +95,10 @@
   .woocommerce table.cart td.actions .input-text {
     min-width: fit-content;
   }
+
+  table.cart td.actions .coupon {
+    display: flex;
+  }
 }
 
 

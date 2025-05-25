@@ -8,7 +8,7 @@
         <div class="container">
                 <div class="main-content">
                     <div class="row">
-                        <div class="col-12 col-lg-3 single-related">
+                        <div class="col-12 d-none d-lg-block col-lg-3 single-related">
                             <?php 
                             $products_related = get_field('products_related', get_the_ID());
                             if($products_related) : ?>

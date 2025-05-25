@@ -2,7 +2,7 @@
 $faqsTitle = isset($args['faqs_title']) ? $args['faqs_title'] : 'Tiêu đề mặc định';
 $faqs = isset($args['faqs']) ? $args['faqs'] : '';
 ?>
-<div class="faq-card p-4">
+<div class="faq-card p-0 p-lg-4">
   <div class="container">
     <h3 class="mb-4 fw-bold"><?php echo $faqsTitle; ?></h3>
 

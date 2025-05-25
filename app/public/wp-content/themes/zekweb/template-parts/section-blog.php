@@ -1,12 +1,13 @@
 <?php
 $title = get_field('sec4_title', 'option');
+$title_mb = get_field('sec4_title_mb', 'option');
 $postFeatured = get_field('sec4_post_featured', 'option');
 $btn = get_field('sec4_btn', 'option');
 ?>
 
 <section class="section-blog text-center">
     <div class="container">
-        <?php get_template_part('loop_template/loop', 'heading_section', ['title' => $title]) ?>
+        <?php get_template_part('loop_template/loop', 'heading_section', ['title' => $title, 'title_mb' => $title_mb]) ?>
 
         <div class="row justify-content-center">
             <!-- loop post -->
