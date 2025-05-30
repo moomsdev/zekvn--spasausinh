@@ -62,26 +62,29 @@ if ( $product->is_in_stock() ) : ?>
 		'add-to-cart' => $product->get_id()
 	), $cart_url ) );
 	?>
-	<div class="button-buy-now d-block d-md-none">
-		<a href="<?php echo $add_to_cart_url; ?>" class="btn-buy-now">Mua ngay</a>
+	<div class="group-buy-mobile">
+		<div class="button-buy-now d-block d-md-none">
+			<a href="<?php echo $add_to_cart_url; ?>" class="btn-buy-now">Mua ngay</a>
+		</div>
+
+		<!-- ajax add to cart -->
+		<div class="button-add-to-cart-mobile d-block d-md-none">
+			<?php
+			$product_id = $product->get_id();
+			$product_sku = $product->get_sku();
+			?>
+			<a href="?add-to-cart=<?php echo $product_id; ?>" 
+			data-quantity="1" 
+			class="button product_type_simple add_to_cart_button ajax_add_to_cart custom-add-to-cart" 
+			data-product_id="<?php echo $product_id; ?>" 
+			data-product_sku="<?php echo $product_sku; ?>" 
+			aria-label="Thêm sản phẩm vào giỏ hàng" 
+			rel="nofollow">
+			Thêm vào giỏ hàng
+			</a>
+		</div>
 	</div>
 
-	<!-- ajax add to cart -->
-	<div class="button-add-to-cart-mobile d-block d-md-none">
-		<?php
-		$product_id = $product->get_id();
-		$product_sku = $product->get_sku();
-		?>
-		<a href="?add-to-cart=<?php echo $product_id; ?>" 
-		data-quantity="1" 
-		class="button product_type_simple add_to_cart_button ajax_add_to_cart custom-add-to-cart" 
-		data-product_id="<?php echo $product_id; ?>" 
-		data-product_sku="<?php echo $product_sku; ?>" 
-		aria-label="Thêm sản phẩm vào giỏ hàng" 
-		rel="nofollow">
-		Thêm vào giỏ hàng
-		</a>
-	</div>
 
 	<?php
 	$product_offers = get_field('product_offers', 'option');

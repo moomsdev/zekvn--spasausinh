@@ -2,7 +2,7 @@
 $product_offers = get_field('product_offers', 'option');
 $i = 0;
 ?>
-<div class="section-product-offers">
+<div class="section-product-offers d-none d-lg-block">
     <div class="container">
         <div class="inner-product-offers">
             <div class="row">

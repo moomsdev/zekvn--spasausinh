@@ -137,6 +137,7 @@
     @include maxWidth($md) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
+      background-color:  #eeeec8;
     }
 
     li {
@@ -263,4 +264,22 @@
       margin-bottom: 0;
     }
   }
+}
+
+.group-buy-mobile {
+  display: flex;
+  align-items: space-around;
+  column-gap: 1rem;
+
+  .button-buy-now {
+    a {
+      background-color: #4cc0d3;
+      width: max-content !important;
+    }
+  }
+}
+
+.woocommerce div.product .button-add-to-cart-mobile a.custom-add-to-cart {
+  background-color: #006fc4 !important;
+  width: max-content !important;
 }

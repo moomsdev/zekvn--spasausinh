@@ -2,7 +2,7 @@
 $title = get_field('brand_title', 'option');
 $brand_slider = get_field('exclusive_brand', 'option');
 ?>
-<div class="brand-section">
+<div class="brand-section mt-5 mt-lg-0">
     <div class="container">
         <?php get_template_part('loop_template/loop', 'heading_section', array('title' => $title)) ?>
         <div class="swiper logo-slider">

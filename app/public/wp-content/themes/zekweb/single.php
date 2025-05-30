@@ -42,7 +42,27 @@
                         <div class="col-12 col-lg-6">
                             <!-- <div class="category text-center mt-2 mt-lg-4 text-uppercase"><?php //echo get_the_category(get_the_ID())[0]->name; ?></div> -->
                             <h1 class="page-title mt-2 mt-lg-4 text-uppercase"><?php the_title();?></h1>
-                            <div class="date mt-1 mt-lg-2">Ngày đăng: <?php echo get_the_date('d/m/Y'); ?></div>
+                            <div class="info-post">
+                                <div class="info-post-inner">
+                                    <div class="author">
+                                        <figure>
+                                            <?php echo get_avatar(get_the_author_meta('ID'), 50); ?>
+                                        </figure>
+                                        <div>   
+                                            <span><?php echo get_the_author(); ?></span>
+                                            <div class="date mt-1 mt-lg-2 mb-5"><?php echo get_the_date('d/m/Y'); ?></div>
+                                        </div>
+                                    </div>
+                                    <div class="social-share">
+                                        <div class="social-icons">
+                                            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+                                            <a href="https://twitter.com/intent/tweet?text=<?php the_title(); ?>&url=<?php the_permalink(); ?>" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
+                                            <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink(); ?>&title=<?php the_title(); ?>" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+                                            <a href="https://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>&description=<?php the_title(); ?>" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-pinterest"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             
                             <!-- <figure class="post-image mt-2 mt-lg-4">
                                 <?php //the_post_thumbnail('full'); ?>

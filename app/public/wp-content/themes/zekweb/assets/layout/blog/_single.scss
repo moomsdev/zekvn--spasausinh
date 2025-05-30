@@ -11,7 +11,14 @@
   //   color: $primaryColor;
   //   @include resFont(1.5, 1.8, true);
   // }
-
+  .info-post {
+    .info-post-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+  }
   .date {
     @include resFont(1.5, 1.6, true);
   }
