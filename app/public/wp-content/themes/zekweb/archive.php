@@ -71,27 +71,39 @@ $a = get_query_var('cat'); ?>
                         <!-- Pagination -->
                         <div class="pagination-container mt-5">
                             <?php
-                            // Calculating total pages based on found posts and posts per page
                             $total_pages = ceil($query->found_posts / $args['posts_per_page']);
-                            
+                            $current_page = max(1, get_query_var('paged', 1));
                             if ($total_pages > 1) :
                             ?>
                                 <div class="pagination-wrapper">
                                     <?php
                                     // Previous page arrow
-                                    if (get_query_var('paged') > 1) :
-                                        echo '<a href="' . get_pagenum_link(get_query_var('paged') - 1) . '" class="pagination-item pagination-prev">' . __('<<', 'zekweb') . '</a>';
+                                    if ($current_page > 1) :
+                                        echo '<a href="' . get_pagenum_link($current_page - 1) . '" class="pagination-item pagination-prev">' . __('<<', 'zekweb') . '</a>';
                                     endif;
-                                    
-                                    // Page numbers
-                                    for ($i = 1; $i <= $total_pages; $i++) :
-                                        $current_class = (get_query_var('paged', 1) == $i || (get_query_var('paged', 1) == 0 && $i == 1)) ? 'active' : '';
-                                        echo '<a href="' . get_pagenum_link($i) . '" class="pagination-item ' . $current_class . '">' . $i . '</a>';
-                                    endfor;
-                                    
+
+                                    $range = 2; // số trang lân cận hiện tại
+                                    $show_items = ($range * 2) + 1;
+
+                                    // Always show first 1-2 pages, last 1-2 pages, current page +/- range
+                                    for ($i = 1; $i <= $total_pages; $i++) {
+                                        if (
+                                            $i <= 2 || // 2 trang đầu
+                                            $i > $total_pages - 2 || // 2 trang cuối
+                                            ($i >= $current_page - $range && $i <= $current_page + $range) // trang hiện tại và lân cận
+                                        ) {
+                                            $current_class = ($current_page == $i) ? 'active' : '';
+                                            echo '<a href="' . get_pagenum_link($i) . '" class="pagination-item ' . $current_class . '">' . $i . '</a>';
+                                            $dot = true;
+                                        } elseif ($dot) {
+                                            echo '<span class="pagination-item dots">...</span>';
+                                            $dot = false;
+                                        }
+                                    }
+
                                     // Next page arrow
-                                    if (get_query_var('paged', 1) < $total_pages) :
-                                        echo '<a href="' . get_pagenum_link(get_query_var('paged', 1) + 1) . '" class="pagination-item pagination-next">' . __('>>', 'zekweb') . '</a>';
+                                    if ($current_page < $total_pages) :
+                                        echo '<a href="' . get_pagenum_link($current_page + 1) . '" class="pagination-item pagination-next">' . __('>>', 'zekweb') . '</a>';
                                     endif;
                                     ?>
                                 </div>
