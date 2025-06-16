@@ -12,23 +12,13 @@
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-
-	<!-- Nhúng CSS -->
-	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/dist/main.css?v=<?php echo time(); ?>">
-	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/dist/style.css?v=<?php echo time(); ?>">
-	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css?v=<?php echo time(); ?>">
-	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-	<!-- Nhúng JS -->
-	<?php
-	$jsFiles = glob(get_template_directory() . '/dist/assets/main-*.js');
-	if ($jsFiles) {
-		$jsFile = str_replace(get_template_directory(), get_template_directory_uri(), $jsFiles[0]);
-		echo '<script type="module" src="' . $jsFile . '?v=' . time() . '" defer></script>';
-	}
-	?>
-
+  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/select2.min.css">
+  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/aos.css">
+  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/fancybox.css">
+  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/dist/style.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css?v=<?php echo time(); ?>">
 	<?php
 	$value = get_field('code_header', 'option');
 	echo $value;
@@ -44,7 +34,6 @@
 	<div id="zek-web">
 		<div class="line-dark"></div>
 
-		<!-- <header id="header" class="is-fixed"> -->
 		<header id="header" class="<?php echo is_home() || is_front_page() ? 'is-fixed' : ''; ?>">
 			<div class="container">
 				<?php
@@ -56,7 +45,14 @@
 				<div class="header-inner">
 					<!-- Navbar -->
 					<nav class="d-none d-lg-block pc-menu">
-						<?php wp_nav_menu(array('container' => '', 'theme_location' => 'main', 'menu_class' => 'menu')); ?>
+            <?php 
+						wp_nav_menu(array(
+							'container' => '', 
+							'theme_location' => 'main', 
+							'menu_class' => 'menu',
+							'walker' => new Menu_Middle_Logo()
+						)); 
+						?>
 					</nav>
 
 					<!-- Menu mobile -->
@@ -112,13 +108,6 @@
 								</button>
 								<input type="hidden" name="post_type" value="producdivt" />
 							</form>
-
-              <!-- <form role="search" autocomplete="off" action="<?php echo home_url('/'); ?>" method="get">
-                <input type="text" name="s" class="search-input" placeholder="Tìm từ khóa bạn mong muốn ...">
-                <button type="submit" class="submit-input">
-                  <img src="<?php bloginfo('template_url'); ?>/images/icon_search.png" alt="icon">
-                </button>
-              </form> -->
 						</div>
 					</div>
 				</div>

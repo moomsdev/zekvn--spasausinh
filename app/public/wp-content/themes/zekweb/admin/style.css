@@ -1,80 +1,61 @@
 html {
-    background: #fff;
+   background: #fff ;
     background-size: contain;
-    position: relative;
+    position: relative
 }
 body {
+        
     background: none;
     width: 950px;
     margin-left: auto;
-    margin-right: auto;
-    padding: 5% 20px;
+    margin-right: auto;padding: 5% 20px;
 }
-.language-switcher {
-    padding: 24px 0;
-}
+.language-switcher{padding: 24px 0;}
 .login h1 {
     text-align: center;
     padding: 0;
 }
 #login {
-    padding: 0 50% 20px 0;
-    width: 100%;
-    width: auto;
-    background-image: url(../admin/img/background.png);
-    background-size: cover;
-    background-repeat: no-repeat;
+    padding:0 50% 20px 0;width: 100%;width: auto;background-image: url(../admin/img/background.png);background-size: cover;background-repeat: no-repeat;
 }
-.login #backtoblog,
-.login #nav {
-    padding: 0;
-    margin: 10px 0 0;
-}
+.login #backtoblog, .login #nav{padding: 0;margin: 10px 0 0;}
 
 #login h1 a {
     background-image: url(../admin/img/logo-zeka.png);
-    background-size: contain;
-    position: relative;
-    overflow: inherit;
-    height: 150px;
-    width: 100%;
+    background-size: contain;position: relative; overflow: inherit;height: 150px;width: 100%;
     margin: 0 auto;
 }
+
+
 
 .wp-core-ui .button-primary {
     height: 46px;
     padding: 0 93px;
-    background: -webkit-gradient(linear, left top, left bottom, from(#08f), to(#4697fe));
-    background: linear-gradient(to bottom, #4697fe, #08f);
+    background: -webkit-gradient(linear,left top,left bottom,from(#08f),to(#4697fe));
+    background: linear-gradient(to bottom,#4697fe,#08f);
     border-color: #08f;
     -webkit-box-shadow: inset 0 1px 0 0 #08f;
     box-shadow: inset 0 1px 0 0 #549cf9;
     color: #fff;
+    
 }
 
 .login form {
     margin-left: 0;
-    padding: 20px;
-    margin-top: 0;
+    padding: 20px;margin-top: 0;
     background: transparent;
     box-shadow: none;
 }
-.reseller-infos {
-    clear: left;
-    margin-left: 0;
-    text-align: center;
+.reseller-infos{    clear: left;
+    margin-left: 0;text-align: center;
     padding: 20px;
     background: transparent;
-    box-shadow: none;
-}
-.reseller-infos p {
-    margin-bottom: 5px;
-}
-.login form .input,
-.login input[type="text"] {
+    box-shadow: none;}
+.reseller-infos p{margin-bottom: 5px;}
+.login form .input, .login input[type=text] {
     background: #3333335e !important;
     border-color: #c4cdd5;
-
+    
     box-shadow: inset 0 0 0 1000px #fff;
     padding: 10px 10px;
     font-size: 16px;
@@ -88,28 +69,25 @@ body {
     width: 100%;
 }
 .login label {
+   
     font-size: 14px;
 }
-.login #backtoblog a,
-.login #nav a {
+.login #backtoblog a, .login #nav a {
     text-decoration: none;
+    
 }
 
-@media (max-width: 768px) {
-    #login {
-        width: 100%;
-        height: auto;
-        background: none;
-        padding: 0;
-    }
+@media(max-width:768px) {
+#login {
+    
+    width: 100%;height: auto;background: none;padding: 0;}
     body {
-        margin-top: 0;
-
-        max-height: inherit;
-
-        height: auto;
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
+    margin-top: 0;
+    
+    max-height: inherit;
+    
+    height: auto;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;}
     }
-}

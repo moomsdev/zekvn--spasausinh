@@ -1,0 +1,183 @@
+@use '../utilities/variables' as *;
+@use '../utilities/mixin' as *;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+	height: 100%;
+  font-size: 62.5%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  font-family: $primaryFont;
+  font-size: 1.8rem;
+  font-weight: normal;
+  line-height: 1.2;
+  color: #000;
+  @include resFont(1.6, 1.8);
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.5);
+  border-radius: 2rem;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 2rem;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
+h6::selection,
+a::selection,
+p::selection,
+span::selection,
+img::selection,
+label::selection,
+li::selection,
+button::selection,
+input::selection,
+bdi::selection {
+  color: #fff;
+  background-color: $primaryColor;
+}
+
+a,
+p {
+  @include breakText();
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+figure,
+blockquote {
+  margin: 0;
+  padding: 0;
+  @include breakText();
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  transition: all 0.25s linear;
+  cursor: pointer;
+}
+
+p:empty {
+  display: none;
+}
+
+.full-width {
+  width: calc(100vw - 3px);
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.no-gap-row {
+  margin-right: 0;
+  margin-left: 0;
+
+  > [class*='col-'] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+section {
+  margin-bottom: 5rem;
+
+  @include maxWidth($md) {
+    margin-bottom: 3rem;
+  }
+
+  &.frame-shadow {
+    background-color: #fff;
+    border-radius: 3rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+    padding: 3rem 2rem;
+    margin: 4rem 0;
+
+    @include maxWidth($md) {
+      padding: 1.5rem 0;
+    }
+  }
+}
+
+.container {
+  max-width: 132rem !important;
+}
+
+.pagination-container {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.pagination-wrapper {
+  display: inline-flex;
+  gap: 0.5rem;
+}
+
+.pagination-item {
+  padding: 0.5rem 1rem;
+  border: 1px solid #65BDD2;
+  color: #333;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.pagination-item.active {
+  background-color: #65BDD2;
+  color: white;
+}
+
+.pagination-item:hover:not(.active) {
+  background-color: #f0f0f0;
+}
+
+/* breadcrumb */
+.breadcrumbs {
+  padding: 1rem 0;
+  background-color: #d4d4d4;
+  margin-bottom: 3rem;
+
+  @include maxWidth($md) {
+    margin-bottom: 2rem;
+  }
+
+  nav {
+    a,
+    span {
+      @include resFont(1.4, 1.8);
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+

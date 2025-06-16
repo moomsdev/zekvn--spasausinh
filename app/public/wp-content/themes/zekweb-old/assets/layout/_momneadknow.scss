@@ -1,0 +1,140 @@
+@use '../utilities/variables' as *;
+@use '../utilities/mixin' as *;
+
+.row-archive-blog >* {
+  padding-top: calc(var(--bs-gutter-x) * .5);
+  padding-bottom: calc(var(--bs-gutter-x) * .5);
+
+  @include maxWidth($lg) {
+    padding-top: .8rem;
+    padding-bottom: .8rem;
+    padding-left: .8rem;
+    padding-right: .8rem;
+  }
+}
+
+.momneadknow-banner {
+  color: #000;
+
+  .momneadknow-banner__image {
+    margin-bottom: 2rem;
+    figure {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2rem;
+    }
+
+    img {
+      object-fit: cover;
+      aspect-ratio: 16 / 9;
+      width: 100%;
+    }
+  }
+
+  .momneadknow-banner__title {
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: $primaryColor;
+    @include resFont(1.6, 1.8);
+    @include limitLine(2);
+    
+    &:hover {
+        color: #000;
+    }
+  }
+
+  .momneadknow-banner__description {
+    text-align: justify;
+    @include resFont(1.4, 1.6);
+    @include limitLine(2);
+  }
+}
+
+.momneadknow-sidebar {
+  border-radius: 20px;
+  box-shadow: 6px 6px 20px 3px #656565;
+  background: #fff;
+  padding: 2rem;
+
+  .momneadknow-sidebar__header {
+    font-weight: bold;
+    color: #000;
+    @include resFont(1.6, 2.3);
+    @include limitLine(1);
+  }
+
+  .momneadknow-item__item {
+    &:not(:last-child) {
+      margin-bottom: 1.2rem;
+    }
+
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+
+    img {
+      object-fit: cover;
+      aspect-ratio: 16 / 12;
+      width: 100%;
+      border-radius: 16px;
+    }
+  }
+
+  .momneadknow-sidebar__title {
+    color: $primaryColor;
+    margin-bottom: .4rem;
+    font-weight: 600;
+    line-height: 1.2;
+    @include resFont(1.4, 1.5);
+    @include limitLine(2);
+    @include breakText;
+    
+    &:hover {
+      color: #000;
+    }
+  }
+
+  .momneadknow-sidebar__description {
+    margin-bottom: 0;
+    font-weight: 400;
+    color: #000;
+    line-height: 1.2;
+    @include resFont(1.3, 1.4);
+    @include limitLine(2);
+  }
+}
+
+.momneadknow-blog {
+  img {
+    object-fit: cover;
+    aspect-ratio: 16 / 12;
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  .momneadknow-blog__body {
+    color: #000;
+  }
+
+  .momneadknow-blog__title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    text-transform: capitalize;
+    color: $primaryColor;
+    @include resFont(1.4, 1.6);
+    @include limitLine(2);
+
+    &:hover {
+        color: #000;
+    }
+  }
+
+  .momneadknow-blog__description {
+    font-weight: 500;
+    @include resFont(1.3, 1.6);
+    @include limitLine(2);
+  }
+}

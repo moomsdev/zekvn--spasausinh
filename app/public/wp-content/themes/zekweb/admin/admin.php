@@ -1,44 +1,47 @@
 <?php 
-/**
- * ===============================
- * Tuỳ chỉnh giao diện trang đăng nhập WordPress
- * ===============================
- */
+function my_custom_login()
+{
+echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/admin/style.css" />';
+echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/fonts/font-awesome.min.css" />';
+}
+add_action('login_head', 'my_custom_login');
 
-// Đổi URL logo trên trang đăng nhập về trang chủ
+
 function the_url( $url ) {
     return get_bloginfo( 'url' );
 }
 add_filter( 'login_headerurl', 'the_url' );
 
-// Đổi tiêu đề khi hover vào logo trên trang đăng nhập
 function my_url_login_hover(){
-    return 'Tiêu đề'; // Sửa lại tiêu đề tuỳ ý
+     return 'Tiêu đề';
 }
 add_filter('login_headertitle', 'my_url_login_hover');
 
-// Tuỳ chỉnh thông báo trên trang đăng nhập
+
 function custom_login_message($message)
 {
-    $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
-    if($action == 'register') {
+    $action = $_REQUEST['action'];
+    if($action == 'register')
+    {
         $message = '<p class="message register">Đăng ký làm thành viên.</p>';
     }
-    elseif($action == 'lostpassword') {
+    elseif($action == 'lostpassword')
+    {
         $message = '<p class="message">Hãy điền vào địa chỉ email của bạn để lấy lại mật khẩu.</p>';
     }
     return $message;
 }
 add_filter('login_message', 'custom_login_message');
-
-// Tuỳ chỉnh thông báo lỗi trên trang đăng nhập
+ 
 function custom_login_error($error)
 {
-    if(isset($_REQUEST['action']) && $_REQUEST['action'] == 'lostpassword') {
+    if(isset($_REQUEST['action']) && $_REQUEST['action'] == 'lostpassword')
+    {
         $error = '<strong>Lỗi:</strong> Xin vui lòng nhập chính xác địa chỉ email.';
     }
-    elseif(isset($_REQUEST['registration']) && $_REQUEST['registration'] == 'disabled') {
-        $error = '<strong>Lỗi:</strong> Đăng ký thành viên hiện đã bị tắt.';
+    elseif(isset($_REQUEST['registration']) && $_REQUEST['registration'] == 'disabled')
+    {
+        $error = '<strong>Lỗi:</strong> Hệ thống không cho phép đăng ký tài khoản.';
     }
     else
     {
@@ -47,16 +50,7 @@ function custom_login_error($error)
     return $error;
 }
 add_filter( 'login_errors', 'custom_login_error' );
-
-// Thêm CSS cho trang đăng nhập
-function my_custom_login()
-{
-echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/admin/style.css" />';
-echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/fonts/font-awesome.min.css" />';
-}
-add_action('login_head', 'my_custom_login');
-
-// Đổi text trên trang đăng nhập
+ 
 function change_form_text( $translation, $text )
 {
     if ( 'Username' == $text ) { return 'Tài khoản'; }
@@ -75,7 +69,7 @@ function change_form_text( $translation, $text )
 }
 add_filter( 'gettext', 'change_form_text', 10, 2 );
 
-// Thêm thông tin hỗ trợ vào chân trang đăng nhập
+
 add_action('login_footer', 'my_addition_to_login_footer');
 function my_addition_to_login_footer() {
      echo '<div class="reseller-infos">
@@ -97,7 +91,9 @@ function my_addition_to_login_footer() {
                             </div>';
 }
 
-// Tắt chức năng lấy lại mật khẩu
 function disable_password_reset() {
               return false;
               }
+
+
+?>

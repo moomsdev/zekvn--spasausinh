@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <main id="main">
-    <?php get_template_part('loop_template/breadcrums'); ?>
+    <?php get_template_part('breadcrums'); ?>
     <div id="content_pages">
         <div class="container">
             <div class="all_box">

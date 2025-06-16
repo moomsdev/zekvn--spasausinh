@@ -6,3 +6,32 @@ Author URI: https://zek.vn/
 Version: 1.0
 Description: ZEK AGENCY sở hữu hơn 500+ mẫu giao diện về tất cả các lĩnh vực và ngành hàng khác nhau, đáp ứng mọi nhu cầu của khách hàng với từng phân khúc giá. Cập nhật những mẫu thiết kế mới chuẩn xu hướng.
 */
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url(./fonts/Quicksand-Bold.ttf);
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Quicksand';
+  src: url(./fonts/Quicksand-Light.ttf);
+  font-style: light;
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Quicksand';
+  src: url(./fonts/Quicksand-Regular.ttf);
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Quicksand';
+  src: url(./fonts/Quicksand-Medium.ttf);
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Quicksand';
+  src: url(./fonts/Quicksand-SemiBold.ttf);
+  font-style: normal;
+}

@@ -1,0 +1,166 @@
+@use '../utilities/variables' as *;
+@use '../utilities/mixin' as *;
+
+.heading-wrapper {
+  position: relative;
+  text-align: center;
+
+  .icon-image {
+      margin: 0 auto;
+      position: relative;
+      width: 5.5rem;
+      height: auto;
+      transform: translateY(-50%);
+      z-index: 3;
+
+      @include maxWidth($lg) {
+          width: 4rem;
+      }
+
+      @include maxWidth($md) {
+          width: 3rem;
+      }
+
+      img {
+        cursor: none;
+      }
+  }
+}
+
+.section-heading {
+  margin: 0 auto;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 3rem;
+  color: $primaryColor;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  @include breakText;
+
+  @include maxWidth($lg) {
+      padding-bottom: 2rem;
+  }
+
+  &:after,
+  &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 1px;
+      background-color: $primaryColor;
+  }
+  &:after {
+      width: 80%;
+  }
+  &:before {
+      width: 8%;
+      min-width: 8rem;
+      background-color: #fff;
+      z-index: 1;
+  }
+
+  &.fs-36 {
+      @include resFont(2, 3);
+  }
+
+  &.fs-48 {
+      @include resFont(2, 4);
+  }
+}
+
+.loop-heading {
+  text-transform: uppercase;
+  color: $primaryColor;
+  @include breakText;
+  @include limitLine(2);
+
+  &.fs-16 {
+      @include resFont(1.3, 1.6);
+  }
+
+  &.fs-24 {
+      @include resFont(1.8, 2.4);
+  }
+
+  &.fs-32 {
+      @include resFont(2, 3.2);
+  }
+
+}
+
+
+.btn-hightlight {
+  display: inline-block;
+  padding: 1.5rem 3rem 1.3rem;
+  background-color: #65bdd2;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+  line-height: normal;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  cursor: pointer;
+  
+
+  &:hover {
+    background-color: #fff;
+    color: $primaryColor;
+    border: 1px solid $primaryColor;
+  }
+
+  &.bora-1 {
+    border-radius: 1rem;
+  }
+
+  &.bora-2 {
+    border-radius: 2rem;
+  }
+
+  @include maxWidth($xl) {
+    padding: 1rem 2rem 0.8rem;
+    font-size: 1.6rem;
+  }
+
+  @include maxWidth($lg) {
+    padding: 0.8rem 1rem 0.6rem;
+    font-size: 1.4rem;
+  }
+
+
+}
+
+.custom-add-to-cart {
+  margin: 1.5rem auto 2.5rem !important;
+  padding: 0.8rem 3rem !important;
+  display: inline-block !important;
+  background-color: $secondaryColor !important;
+  color: #fff !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+  border-radius: 1rem !important;
+  border: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+  position: relative;
+  @include resFont(1.3, 1.6 ,true);
+
+  @include maxWidth($lg) {
+    padding: 0.6rem 1.5rem !important;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: -1rem;
+    width: 100%;
+    height: 100%;
+    border: 2px dashed #658080;
+    border-radius: 1rem !important;
+    z-index: -1;
+  }
+}
