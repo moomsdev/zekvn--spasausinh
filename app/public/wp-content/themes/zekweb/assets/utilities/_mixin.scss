@@ -1,4 +1,16 @@
 @use "./variables" as *;
+@use 'sass:math';
+
+@mixin limitLine($lines) {
+  & {
+    display: -webkit-box;
+    line-clamp: $lines;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
 
 @mixin minWidth($min-width) {
   @media only screen and (min-width: $min-width) {
@@ -12,32 +24,6 @@
   }
 }
 
-@mixin ulReset {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-}
-
-@mixin limitLine($number) {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: $number;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-@mixin breakText {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  -ms-word-break: break-all;
-  word-break: break-all;
-  word-break: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
-}
-
 @mixin resFont($min-size, $max-size, $important: false) {
   $font-size: #{$max-size}rem;
 
@@ -45,7 +31,9 @@
     $font-size: #{$max-size}rem !important;
   }
 
-  font-size: $font-size;
+  & {
+    font-size: $font-size;
+  }
 
   @include maxWidth($lg) {
     $font-size: calc(#{$max-size}rem - ((#{$max-size}rem - #{$min-size}rem)) / 2);
@@ -54,7 +42,9 @@
       $font-size: calc(#{$max-size}rem - ((#{$max-size}rem - #{$min-size}rem)) / 2) !important;
     }
 
-    font-size: $font-size;
+    & {
+      font-size: $font-size;
+    }
   }
 
   @include maxWidth($sm) {
@@ -64,6 +54,43 @@
       $font-size: #{$min-size}rem !important;
     }
 
-    font-size: $font-size;
+    & {
+      font-size: $font-size;
+    }
+  }
+}
+
+@mixin breakText {
+  & {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    word-break: break-word;
+    hyphens: auto;
+    -ms-word-break: break-all;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+}
+
+@mixin aspectRatio($ratio: 16/9) {
+  height: 0;
+  padding-bottom: math.div(100%, $ratio);
+  
+  @supports (aspect-ratio: 16/9) {
+    aspect-ratio: $ratio;
+    height: initial;
+    padding-bottom: initial;
+  }
+}
+
+@mixin transition {
+  & {
+    transition: all 0.25s ease-in-out 0s;
+    -moz-transition: all 0.25s ease-in-out 0s;
+    -o-transition: all 0.25s ease-in-out 0s;
+    -webkit-transition: all 0.25s ease-in-out 0s;
+    -ms-transition: all 0.25s ease-in-out 0s;
   }
 }

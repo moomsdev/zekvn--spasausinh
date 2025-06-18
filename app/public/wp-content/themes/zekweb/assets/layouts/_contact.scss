@@ -1,2 +1,10 @@
 @use '../utilities/variables' as *;
 @use '../utilities/mixin' as *;
+
+.google-map {
+  margin-bottom: 5rem;
+
+  @include maxWidth($md) {
+      margin-bottom: 3rem;
+  }
+}

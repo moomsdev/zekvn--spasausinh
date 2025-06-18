@@ -2,13 +2,13 @@
 $title = get_field('sec5_title', 'option');
 $services = get_field('sec5_post_service', 'option');
 ?>
+<?php if ($services) : ?>
 
 <section class="section-service frame-shadow">
     <div class="container">
         <?php get_template_part('loop_template/loop', 'heading_section', ['title' => $title]) ?>
         
         <div class="row justify-content-center">
-            <!-- get post CPT service -->
             <?php
             $i = 0;
             foreach ($services as $post) :
@@ -16,8 +16,8 @@ $services = get_field('sec5_post_service', 'option');
               <div class="col-6 col-lg-3 loop-service">
                 <div class="loop-inner h-100 d-flex flex-column">
                     <figure class="loop-image">
-                        <a href="<?php echo get_the_permalink($post); ?>">  
-                          <img src="<?php echo get_the_post_thumbnail_url($post); ?>" alt="<?php echo get_the_title($post); ?>" loading="lazy">
+                        <a href="<?php echo get_the_permalink(); ?>">  
+                          <img src="<?php echo get_the_post_thumbnail_url($post); ?>" alt="<?php echo get_the_title(); ?>" loading="lazy">
                       </a>
                   </figure>
                   <div class="heading-wrapper flex-grow-1 d-flex align-items-center">
@@ -34,3 +34,4 @@ $services = get_field('sec5_post_service', 'option');
         </div>
     </div>
 </section>
+<?php endif; ?>

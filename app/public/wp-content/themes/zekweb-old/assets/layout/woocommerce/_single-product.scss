@@ -17,7 +17,6 @@
 
   @include maxWidth($sm) {
     font-size: 1.6rem;
-
   }
 }
 
@@ -26,7 +25,6 @@
   margin-bottom: 1.5rem;
   column-gap: 3rem;
   align-items: center;
- 
 
   .status {
     span {
@@ -154,9 +152,7 @@
           color: $primaryColor;
         }
       }
-      
     }
-      
   }
 
   .tab-content {
