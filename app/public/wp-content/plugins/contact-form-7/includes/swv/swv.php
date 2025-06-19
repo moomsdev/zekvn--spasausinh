@@ -34,7 +34,6 @@ function wpcf7_swv_available_rules() {
 		'maxdate' => 'Contactable\SWV\MaxDateRule',
 		'minfilesize' => 'Contactable\SWV\MinFileSizeRule',
 		'maxfilesize' => 'Contactable\SWV\MaxFileSizeRule',
-		'stepnumber' => 'Contactable\SWV\StepNumberRule',
 		'all' => 'Contactable\SWV\AllRule',
 		'any' => 'Contactable\SWV\AnyRule',
 	);
@@ -116,13 +115,6 @@ function wpcf7_swv_get_meta_schema() {
 								'type' => 'string',
 							),
 						),
-						'base' => array(
-							'type' => 'string',
-						),
-						'interval' => array(
-							'type' => 'number',
-							'minimum' => 0,
-						),
 						'threshold' => array(
 							'type' => 'string',
 						),
@@ -143,7 +135,7 @@ class WPCF7_SWV_Schema extends \Contactable\SWV\CompositeRule {
 	/**
 	 * The human-readable version of the schema.
 	 */
-	const version = 'Contact Form 7 SWV Schema 2024-10';
+	const version = 'Contact Form 7 SWV Schema 2024-02';
 
 
 	/**

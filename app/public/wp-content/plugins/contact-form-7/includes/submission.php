@@ -51,7 +51,7 @@ class WPCF7_Submission {
 	 * Returns true if this submission is created via WP REST API.
 	 */
 	public static function is_restful() {
-		return wp_is_serving_rest_request();
+		return defined( 'REST_REQUEST' ) && REST_REQUEST;
 	}
 
 
@@ -416,7 +416,6 @@ class WPCF7_Submission {
 		} elseif ( is_string( $value ) ) {
 			$value = wp_check_invalid_utf8( $value );
 			$value = wp_kses_no_null( $value );
-			$value = wpcf7_strip_whitespaces( $value );
 		}
 
 		return $value;
@@ -536,7 +535,8 @@ class WPCF7_Submission {
 		if ( self::is_restful() ) {
 			$referer = trim( $_SERVER['HTTP_REFERER'] ?? '' );
 
-			if ( $referer and str_starts_with( $referer, $home_url ) ) {
+			if ( $referer
+			and 0 === strpos( $referer, $home_url ) ) {
 				return sanitize_url( $referer );
 			}
 		}

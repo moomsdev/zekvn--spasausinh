@@ -47,9 +47,10 @@ class WPCF7_Validation implements ArrayAccess {
 		}
 
 		if ( $this->is_valid( $name ) ) {
-			$id = (string) $tag->get_option( 'id', 'id', true );
+			$id = $tag->get_id_option();
 
-			if ( ! wpcf7_is_name( $id ) or str_starts_with( $id, 'wpcf7' ) ) {
+			if ( empty( $id )
+			or ! wpcf7_is_name( $id ) ) {
 				$id = null;
 			}
 
@@ -100,7 +101,7 @@ class WPCF7_Validation implements ArrayAccess {
 			$this->container[$offset] = $value;
 		}
 
-		if ( 'reason' === $offset
+		if ( 'reason' == $offset
 		and is_array( $value ) ) {
 			foreach ( $value as $k => $v ) {
 				$this->invalidate( $k, $v );

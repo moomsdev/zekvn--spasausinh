@@ -25,8 +25,6 @@ function wpcf7_delete_plugin() {
 		"DROP TABLE IF EXISTS %s",
 		$wpdb->prefix . 'contact_form_7'
 	) );
-
-	return true;
 }
 
 if ( ! defined( 'WPCF7_VERSION' ) ) {

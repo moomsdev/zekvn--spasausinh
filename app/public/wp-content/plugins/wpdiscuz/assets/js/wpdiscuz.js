@@ -106,7 +106,6 @@ jQuery(document).ready(function ($) {
     var isLoadOnlyParentComments = parseInt(wpdiscuzAjaxObj.isLoadOnlyParentComments);
     var enableDropAnimation = parseInt(wpdiscuzAjaxObj.enableDropAnimation) ? 500 : 0;
     var isNativeAjaxEnabled = parseInt(wpdiscuzAjaxObj.isNativeAjaxEnabled);
-    var userInteractionCheck = parseInt(wpdiscuzAjaxObj.userInteractionCheck, 10);
     var bubbleEnabled = parseInt(wpdiscuzAjaxObj.enableBubble);
     var bubbleLiveUpdate = parseInt(wpdiscuzAjaxObj.bubbleLiveUpdate);
     var bubbleHintTimeout = parseInt(wpdiscuzAjaxObj.bubbleHintTimeout);
@@ -121,27 +120,13 @@ jQuery(document).ready(function ($) {
     var bubbleNewCommentIds = [];
     var addingComment = false;
     var wpdiscuzLoadCount = 1;
-    var userInteractedAt = 0;
 
     var htmlScrollBehavior = $('html').css('scroll-behavior');
     var bodyScrollBehavior = $('body').css('scroll-behavior');
 
-    if (userInteractionCheck) {
-        document.addEventListener('mousedown', wpdEventTriggered);
-        document.addEventListener('mousemove', wpdEventTriggered);
-        document.addEventListener('touchstart', wpdEventTriggered);
-        document.addEventListener('scroll', wpdEventTriggered);
-        document.addEventListener('keydown', wpdEventTriggered);
-    }
-
-    function wpdEventTriggered(evt) {
-        userInteractedAt = Math.ceil(Date.now() / 1000);
-    }
-
-
     $("#wp-admin-bar-wpdiscuz > .ab-item").prepend("<img src='" + wpdiscuzAjaxObj.menu_icon + "' style='width:22px;height:22px;vertical-align:middle;'>");
     $(document).on('mouseover', '#wp-admin-bar-wpdiscuz', function () {
-        $(this).find('> .ab-item img').attr('src', wpdiscuzAjaxObj.menu_icon_hover);
+       $(this).find('> .ab-item img').attr('src', wpdiscuzAjaxObj.menu_icon_hover);
     });
     $(document).on('mouseleave', '#wp-admin-bar-wpdiscuz', function () {
         $(this).find('> .ab-item img').attr('src', wpdiscuzAjaxObj.menu_icon);
@@ -567,8 +552,6 @@ jQuery(document).ready(function ($) {
             depth = getCommentDepth($(this).parents('.wpd-comment'));
         }
 
-        $(document.body).trigger('wpdiscuz_new_comment', [currentSubmitBtn, wcForm, depth]);
-
         wpdValidateFieldRequired(wcForm, '#wpd-editor-' + $('.wpdiscuz_unique_id', wcForm).val());
         wcForm.on('submit', function (e) {
             e.preventDefault();
@@ -577,39 +560,19 @@ jQuery(document).ready(function ($) {
             addingComment = true;
             addAgreementInCookie(wcForm);
             $(currentSubmitBtn).removeClass('wpd_not_clicked');
-            const data = new FormData();
+            var data = new FormData();
             data.append('action', 'wpdAddComment');
-            const inputs = $(":input", wcForm);
-            let filesSize = 0;
+            var inputs = $(":input", wcForm);
             inputs.each(function () {
-                let elem = this;
-
-                if (elem.name !== '') {
-                    if (elem.type == 'file') {
-                        const files = elem.files;
-                        $.each(files, function (i, file) {
-                            data.append(elem.name + '[' + i + ']', file);
-                            filesSize += file.size;
-                        });
-                    } else if (elem.type != 'checkbox' && elem.type != 'radio') {
-                        data.append(elem.name + '', $(elem).val().trim());
-                    } else if (elem.type == 'checkbox' || elem.type == 'radio') {
-                        if ($(elem).is(':checked')) {
-                            data.append(elem.name + '', $(elem).val());
-                        }
+                if (this.name != '' && this.type != 'checkbox' && this.type != 'radio') {
+                    data.append(this.name + '', $(this).val().trim());
+                }
+                if (this.type == 'checkbox' || this.type == 'radio') {
+                    if ($(this).is(':checked')) {
+                        data.append(this.name + '', $(this).val());
                     }
                 }
             });
-
-            if (filesSize > parseInt(wpdiscuzAjaxObj.wmuMaxFileSize, 10)) {
-                wpdiscuzAjaxObj.setCommentMessage(wpdiscuzAjaxObj.applyFilterOnPhrase(wpdiscuzAjaxObj.wmuPhraseMaxFileSize, 'wmuPhraseMaxFileSize', wcForm), 'error', 3000);
-                $(currentSubmitBtn).addClass('wpd_not_clicked');
-                return false;
-            } else if (filesSize > parseInt(wpdiscuzAjaxObj.wmuPostMaxSize, 10)) {
-                wpdiscuzAjaxObj.setCommentMessage(wpdiscuzAjaxObj.applyFilterOnPhrase(wpdiscuzAjaxObj.wmuPhrasePostMaxSize, 'wmuPhrasePostMaxSize', wcForm), 'error', 3000);
-                $(currentSubmitBtn).addClass('wpd_not_clicked');
-                return false;
-            }
 
             data.append('wpd_comment_depth', depth);
 
@@ -652,7 +615,6 @@ jQuery(document).ready(function ($) {
     });
 
     function wpdiscuzSendComment(wcForm, data, currentSubmitBtn) {
-        $(document.body).trigger('wpdiscuz_before_comment_post', data, currentSubmitBtn);
         getAjaxObj(isNativeAjaxEnabled, false, data)
             .done(function (r) {
                 $(currentSubmitBtn).addClass('wpd_not_clicked');
@@ -702,7 +664,7 @@ jQuery(document).ready(function ($) {
                             }, animateDelay);
                         }
                         runCallbacks(r, wcForm);
-                        $(document.body).trigger('wpdiscuz_comment_posted', [currentSubmitBtn, wcForm, r.data.new_comment_id, r.data.wc_all_comments_count_new]);
+                        $(document.body).trigger('wpdiscuz_comment_posted', [r.data.new_comment_id, r.data.wc_all_comments_count_new]);
                     } else if (r.data) {
                         wpdiscuzAjaxObj.setCommentMessage(wpdiscuzAjaxObj.applyFilterOnPhrase(wpdiscuzAjaxObj[r.data], r.data, wcForm), 'error');
                         runCallbacks(r, wcForm);
@@ -720,7 +682,7 @@ jQuery(document).ready(function ($) {
             });
     }
 
-    $(document.body).on('wpdiscuz_comment_posted', function (e, currentSubmitBtn, wcForm, commentID, commentsCount) {
+    $(document.body).on('wpdiscuz_comment_posted', function (e, commentID, commentsCount) {
         const threadFilter = $('.wpd-thread-filter');
 
         if (isNaN(commentsCount) || (typeof commentsCount === 'undefined') || !commentsCount) {
@@ -1903,19 +1865,6 @@ jQuery(document).ready(function ($) {
     }
 
     function bubbleAjax() {
-
-        if (userInteractionCheck) {
-            const now = Math.ceil(Date.now() / 1000);
-            const difference = (now - userInteractedAt);
-            const halfTimer = Math.floor((commentListUpdateTimer / 1000) / 2);
-
-            if (difference > halfTimer) {
-                setTimeout(bubbleAjax, commentListUpdateTimer);
-                console.log('You are not interacted with the website, the request has been blocked!');
-                return false;
-            }
-        }
-
         $.ajax({
             type: 'GET',
             url: wpdiscuzAjaxObj.bubbleUpdateUrl,

@@ -2,7 +2,7 @@
  * Variation Gallery for WooCommerce
  *
  * Author: Emran Ahmed ( emran.bd.08@gmail.com )
- * Date: 3/5/2025, 2:39:49 PM
+ * Date: 12/11/2024, 5:52:41 PM
  * Released under the GPLv3 license.
  */
 /******/ (function() { // webpackBootstrap
@@ -104,18 +104,16 @@ var WooVariationGalleryAdmin = function ($) {
             var images = frame.state().get('selection').toJSON();
             var html = images.map(function (image) {
               if (image.type === 'image') {
-                var _thumbnail$url;
-
                 var id = image.id,
                     _image$sizes = image.sizes;
                 _image$sizes = _image$sizes === void 0 ? {} : _image$sizes;
                 var thumbnail = _image$sizes.thumbnail,
-                    url = image.url;
-                var imageUrl = (_thumbnail$url = thumbnail === null || thumbnail === void 0 ? void 0 : thumbnail.url) !== null && _thumbnail$url !== void 0 ? _thumbnail$url : url;
+                    full = _image$sizes.full;
+                var url = thumbnail ? thumbnail.url : full.url;
                 var template = wp.template('woo-variation-gallery-image');
                 return template({
                   id: id,
-                  url: imageUrl,
+                  url: url,
                   product_variation_id: product_variation_id,
                   loop: loop
                 });

@@ -3,9 +3,9 @@ if (!defined("ABSPATH")) {
     exit();
 }
 
-global $post;
-$wpdiscuz      = wpDiscuz();
 $loadStartTime = WpdiscuzHelper::getMicrotime();
+global $post;
+$wpdiscuz = wpDiscuz();
 
 $currentUser = $wpdiscuz->helper->getCurrentUser();
 do_action("wpdiscuz_before_load", $post, $currentUser);

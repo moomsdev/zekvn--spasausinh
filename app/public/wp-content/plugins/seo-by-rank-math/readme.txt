@@ -5,7 +5,7 @@ Tags: seo, WordPress SEO, google search console, schema, redirection,
 Tested up to: 6.8
 Requires at least: 6.3
 Requires PHP: 7.4
-Stable tag: 1.0.243
+Stable tag: 1.0.245
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -339,11 +339,15 @@ Please drop us an email at support@rankmath.com, and we will be more than happy 
 
 == Changelog ==
 
-= 1.0.243 [Apr 10, 2025] =
-- Fixed: PHP error in [Version Control](https://rankmath.com/kb/version-control/#native-rollback) on sites hosted on WPEngine
-- Fixed: Terms from all languages were added to the [Sitemap](https://rankmath.com/kb/sitemaps-seo-benefits/) even when the Multi-domain option was selected in the WPML plugin
-- Fixed: Missing [Purge Analytics Cache](https://rankmath.com/kb/rank-math-status-and-tools/#purge-analytics-cache) and [Rebuild Index for Analytics](https://rankmath.com/kb/rank-math-status-and-tools/#rebuild-index-for-analytics) tools after the last update
-- Fixed: PHP warning on the [SEO Analysis page](https://rankmath.com/kb/seo-analysis/) when the Analysis API did not return any data on certain setups
-- Fixed: Typo in the [Restaurant Schema field](https://rankmath.com/kb/restaurant-schema/#geo-coordinates)
+= 1.0.245 [May 21, 2025] =
+- Improved: Moved [Rank Math Setup Wizard page](https://rankmath.com/kb/how-to-setup/) code to React to load blazing fast. We will gradually enhance the performance of other modules
+- Improved: [Analytics page](https://rankmath.com/kb/analytics/) will now show a warning notice when CRON is not working on the site to fetch the data from Google Search Console
+- Fixed: [Fix with AI tool](https://rankmath.com/kb/fix-seo-tests-with-content-ai/) was not working in the Elementor editor
+- Fixed: HTML tags supported by search engines were getting removed when added in [FAQ Schema with the Advanced Schema Generator](https://rankmath.com/kb/faq-schema-block/#schema-generator)
+- Fixed: `%term_description%` variable was showing `undefined` in the SERP Preview when multiple WYSIWYG editors exist on the Taxonomy page
+- Fixed: [Instant Indexing](https://rankmath.com/kb/how-to-use-indexnow/) was not working on secondary language posts created using WPML
+- Fixed: Updated [Status & Tools page](https://rankmath.com/kb/rank-math-status-and-tools/) code to prevent it from loading unnecessarily on other pages
+- Fixed: Update Button state on Custom Post types was not changing to active after editing content in the Rank Math SEO fields
+- Fixed: Analytics issues on sites with Unicode characters in the domain name
 
 Full changelog can be found here - **[Rank Math changelog](https://rankmath.com/changelog/?utm_source=Plugin&utm_medium=Changelog&utm_campaign=WP)**
