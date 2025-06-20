@@ -31,9 +31,6 @@ Template Name: Trang chủ
   //testimonials
   get_template_part('template-parts/section', 'testimonials');
 
-  //products
- //  get_template_part('template-parts/section', 'products');
-
   //highlights
   get_template_part('template-parts/section', 'highlights');
 
@@ -45,14 +42,7 @@ Template Name: Trang chủ
 
   //partner
   get_template_part('template-parts/section', 'partner');
-
-  //  //products slider
-  //  get_template_part('template-parts/section','products_slider');
-  //  //logo slider
-  //  get_template_part('template-parts/section','logo_slider');
-  //  //materials slider
-  //  get_template_part('template-parts/section','materials_slider');
-   ?>
+  ?>
 </main>
 
 <?php get_footer(); ?>

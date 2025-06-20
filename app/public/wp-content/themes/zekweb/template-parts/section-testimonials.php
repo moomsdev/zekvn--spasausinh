@@ -26,7 +26,7 @@ $testimonials = get_field('sec7_testimanial', 'option');
                     <p><?php echo $content; ?></p>
                 </div>
                 <figure class="review">
-                    <img src="<?php bloginfo('template_url'); ?>/assets/images/review-star.png" alt="review star Image">
+                    <img src="<?php bloginfo('template_url'); ?>/images/review-star.png" alt="review star Image">
                 </figure>
                 <div class="profile">
                   <figure>
@@ -38,7 +38,8 @@ $testimonials = get_field('sec7_testimanial', 'option');
             </div>
             <?php endforeach; ?>
         </div>
-
+        <div class="testimonials-next swiper-button-next d-flex d-md-none"></div>
+        <div class="testimonials-prev swiper-button-prev d-flex d-md-none"></div>
       </div>
     </div>
   </div>

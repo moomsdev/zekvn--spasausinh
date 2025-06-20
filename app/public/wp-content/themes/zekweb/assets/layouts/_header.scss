@@ -31,6 +31,7 @@ header {
 
     @include maxWidth($md) {
       padding: 1rem 0;
+      padding-right: 1rem;
     }
   }
 
@@ -79,6 +80,53 @@ header {
         max-height: 6rem;
         width: 100%;
         object-fit: contain;
+      }
+
+      &.menu-item-has-children:hover ul.sub-menu {
+        display: block;
+      }
+
+      &.menu-item-has-children {
+        position: relative;
+
+        ul.sub-menu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: max-content;
+          background-color: #fff;
+          box-shadow: 0 0 10px #000c;
+
+          li a {
+            padding: 5px 20px 0 10px;
+            display: block;
+            font-size: 1.6rem;
+          }
+
+          li:last-child a {
+            padding-bottom: 5px;
+          }
+        }
+
+        &.menu-item-has-children:hover ul.sub-menu {
+          display: block;
+        }
+      }
+
+      ul.sub-menu {
+        display: none;
+      }
+    }
+
+    li.current-menu-item.menu-item-has-children ul.sub-menu li a {
+      color: #000;
+
+      &:hover {
+        color: $primaryColor;
+      }
+
+      &:after {
+        content: none;
       }
     }
   }
@@ -134,15 +182,17 @@ header {
           }
         }
 
-        i {
-          @include resFont(2, 2.4);
+        svg {
+          width: 2.7rem;
+          height: auto;
+          object-fit: contain;
         }
 
         .cart-count {
           position: absolute;
           top: -1rem;
-          right: -1rem;
-          color: red;
+          right: -1.3rem;
+          color: $primaryColor;
           font-weight: 500;
         }
       }

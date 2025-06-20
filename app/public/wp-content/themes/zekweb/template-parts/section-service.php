@@ -16,8 +16,8 @@ $services = get_field('sec5_post_service', 'option');
               <div class="col-6 col-lg-3 loop-service">
                 <div class="loop-inner h-100 d-flex flex-column">
                     <figure class="loop-image">
-                        <a href="<?php echo get_the_permalink(); ?>">  
-                          <img src="<?php echo get_the_post_thumbnail_url($post); ?>" alt="<?php echo get_the_title(); ?>" loading="lazy">
+                      <a href="<?php echo get_the_permalink($post); ?>">  
+                        <img src="<?php echo get_the_post_thumbnail_url($post); ?>" alt="<?php echo get_the_title($post); ?>" loading="lazy">
                       </a>
                   </figure>
                   <div class="heading-wrapper flex-grow-1 d-flex align-items-center">

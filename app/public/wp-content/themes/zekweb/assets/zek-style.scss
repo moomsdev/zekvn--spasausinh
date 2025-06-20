@@ -1,3 +1,5 @@
+@use './utilities/variables' as *;
+@use './utilities/mixin' as *;
 
 /* Option */
 body {
@@ -289,7 +291,7 @@ input[type='submit'] {
   font-weight: 500;
   padding: 12px 24px;
   color: #f2f2f2;
-  background-color: #5BA7DB;
+  background-color: $primaryColor;
   border-radius: 4px;
   text-align: center;
   border: none;
@@ -650,21 +652,21 @@ a img.aligncenter {
 .supports {
   position: fixed;
   z-index: 999;
-  bottom: 40px;
-  left: 20px;
+  bottom: 8rem;
+  right: 2rem;
 }
 .supports .item:not(:first-child) {
   margin-top: 10px;
 }
 .supports .item a {
-  width: 100%;
-  min-width: 62px;
+  height: 48px;
+  width: 48px;
   background: #fff;
-  border-radius: 10px;
-  box-shadow: 0px 0px 5px 0px #00000033;
+  border-radius: 50%;
+  box-shadow: 0 0 5px #0003;
   display: flex;
   align-items: center;
-  border: 2px solid #0056b3;
+  justify-content: center;
 }
 
 .supports .item a .text {
@@ -688,8 +690,8 @@ a img.aligncenter {
 
 .supports .item a img {
   object-fit: contain;
-  max-width: 50px;
-  max-height: 50px;
+  max-width: 30px;
+  max-height: 30px;
 }
 
 .supports .item a:hover {
@@ -697,8 +699,8 @@ a img.aligncenter {
 }
 .backtop {
   position: fixed;
-  right: 20px;
-  bottom: 40px;
+  right: 2rem;
+  bottom: 2rem;
   transition: 0.5s;
   z-index: 999;
 }
@@ -744,7 +746,7 @@ a img.aligncenter {
 .pagination ul li span,
 .pagination ul li a {
   font-size: 16px;
-  color: #5BA7DB;
+  color: $primaryColor;
   font-weight: 600;
   display: inline-block;
   width: 40px;
@@ -760,7 +762,7 @@ a img.aligncenter {
 .pagination ul li .current,
 .pagination ul li span:hover,
 .pagination ul li a:hover {
-  background: #00adef;
+  background: $primaryColor;
   color: #fff;
 }
 
@@ -1145,7 +1147,7 @@ a img.aligncenter {
 .woocommerce-page .woocommerce-pagination ul.page-numbers li a,
 .woocommerce-page .woocommerce-pagination ul.page-numbers li span {
   font-size: 16px;
-  color: #5BA7DB;
+  color: $primaryColor;
   font-weight: 600;
   display: inline-block;
   width: 40px;
@@ -1166,7 +1168,7 @@ a img.aligncenter {
 .woocommerce-page .woocommerce-pagination ul.page-numbers li span.current,
 .woocommerce-page .woocommerce-pagination ul.page-numbers li span:hover {
   color: #fff;
-  background-color: #5BA7DB;
+  background-color: $primaryColor;
 }
 .woocommerce .woocommerce-pagination ul.page-numbers li .next,
 .woocommerce .woocommerce-pagination ul.page-numbers li .prev,
@@ -2107,10 +2109,6 @@ a img.aligncenter {
   }
 }
 @media (max-width: 767px) {
-  .supports {
-    bottom: 20px;
-    left: 10px;
-  }
   /* Cart-mb */
   .woocommerce table.shop_table.cart td {
     padding: 8px 8px;

@@ -15,35 +15,49 @@
  * @version    1.6.4
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+if (!defined('ABSPATH')) {
+  exit; // Exit if accessed directly.
 }
 
-the_title( '<h1 class="product_title entry-title">', '</h1>' );
+global $product;
+?>
+
+<div class="price-mobile d-block d-md-none mb-3">
+  <?php 
+    if($product->get_price()) {
+      echo $product->get_price_html();
+    } else {
+      echo 'Liên hệ';
+    }
+  ?>
+</div>
+<?php 
+
+the_title('<h1 class="product_title entry-title">', '</h1>');
 ?>
 <div class="product-status">
-	<div class="status">
-			<span class="status-label">Tình trạng:</span>
-			<span class="status-value">
-				<!-- kiểm tra kho còn hàng hay hết hàng -->
-				<?php
-				$product_id = get_the_ID();
-				$product = wc_get_product(get_the_ID());
-if ($product->is_in_stock()) {
-    echo 'Còn hàng';
-} else {
-    echo 'Hết hàng';
-}
+  <div class="status">
+    <span class="status-label">Tình trạng:</span>
+    <span class="status-value">
+      <!-- kiểm tra kho còn hàng hay hết hàng -->
+      <?php
+      $product_id = get_the_ID();
+      $product = wc_get_product(get_the_ID());
+      if ($product->is_in_stock()) {
+        echo 'Còn hàng';
+      } else {
+        echo 'Hết hàng';
+      }
+      ?>
 
-				?>
+    </span>
+  </div>
 
-			</span>
-	</div>
-
-	<div class="star-review">
-		<figure>
-			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/star-review-product.png" alt="star" loading="lazy">
-		</figure>
-	</div>
+  <div class="star-review">
+    <figure>
+      <img
+        src="<?php echo get_template_directory_uri(); ?>/images/star-review-product.png"
+        alt="star" loading="lazy">
+    </figure>
+  </div>
 </div>
-

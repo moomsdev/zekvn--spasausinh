@@ -10,6 +10,12 @@
       height: auto;
       object-fit: contain;
     }
+
+    iframe {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16/9;
+    }
   }
 
   .info-post {
@@ -139,6 +145,11 @@
   }
 }
 
+.woocommerce div.product .price-mobile .amount {
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
 .product-status {
   display: inline-flex;
   margin-bottom: 1.5rem;
@@ -186,6 +197,10 @@
 .woocommerce div.product form.cart {
   display: flex;
   align-items: center;
+
+  @include maxWidth($md) {
+    margin-bottom: 0;
+  }
 
   .quantity {
     padding: .1rem 1rem;
@@ -241,6 +256,11 @@
 }
 
 .woocommerce div.product {
+  margin-bottom: 5rem;
+  @include maxWidth($md) {
+    margin-bottom: 3rem;
+  }
+
   ul.nav-pills {
     margin-top: 3rem;
     margin-bottom: 3rem !important;
@@ -254,7 +274,7 @@
     @include maxWidth($md) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      background-color:  #eeeec8;
+//       background-color:  #eeeec8;
     }
 
     li {
@@ -334,7 +354,16 @@
     color: #fff;
 
     @include maxWidth($md) {
+      min-width: 215px;
+      background-color: #e67e22;
       width: max-content !important;
+    }
+
+    svg {
+      margin-right: 1rem;
+      width: 2rem;
+      height: 2rem;
+      fill: #fff;
     }
   }
 
@@ -399,8 +428,16 @@
 }
 
 .woocommerce div.product .button-add-to-cart-mobile a.custom-add-to-cart {
-  background-color: #006fc4 !important;
+  background-color: #006FC4 !important;
   width: max-content !important;
+  min-width: 215px;
+}
+
+.woocommerce div.product .button-add-to-cart-mobile a.custom-add-to-cart svg {
+  margin-right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  fill: #fff;
 }
 
 .tab-pane.collapse-content {
@@ -408,7 +445,23 @@
   overflow: hidden;
   position: relative;
   transition: max-height 0.3s;
+
+  h2 > * {
+    font-size: 2rem;
+
+    @include maxWidth($md) {
+      font-size: 1.8rem;
+    }
+  }
+
+  img {
+    margin-bottom: 1rem;
+  }
 }
+// .tab-pane.collapse-content * :not(h1, h2, h3, h4, h5, h6) {
+//   font-size: 1.6rem;
+// }
+
 .tab-pane.expanded {
   max-height: none !important;
 }

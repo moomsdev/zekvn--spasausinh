@@ -15,7 +15,9 @@ $btn = get_field('sec4_btn', 'option');
             <div class="col-6 col-md-4 loop-post">
                 <div class="post-item h-100 d-flex flex-column">
                     <figure class="post-image">
+                      <a href="<?php echo get_the_permalink($post); ?>">
                         <img src="<?php echo get_the_post_thumbnail_url($post, 'full'); ?>" alt="<?php the_title(); ?>" loading="lazy">
+                      </a>
                     </figure>
                     <div class="post-content flex-grow-1">
                         <h3 class="post-title">

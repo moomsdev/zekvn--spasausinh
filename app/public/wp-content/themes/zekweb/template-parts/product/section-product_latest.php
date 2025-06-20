@@ -3,9 +3,9 @@
 ?>
 <div class="product-slider-section">
     <div class="heading-wrapper" data-aos="fade-in" data-aos-duration="1000">
-        <figure class="icon-image">
-            <img src="<?php bloginfo('template_url'); ?>/assets/images/twinkle.png" alt="">
-        </figure>
+        <!-- <figure class="icon-image">
+            <img src="<?php //bloginfo('template_url'); ?>/images/twinkle.png" alt="">
+        </figure> -->
         <h2 class="section-heading fs-48"><?= esc_html($title) ?></h2>
     </div>
 

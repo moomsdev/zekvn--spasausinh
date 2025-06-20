@@ -1,6 +1,7 @@
 <?php
 $title = get_field('sec11_title', 'option');
 $image = get_field('sec11_img', 'option');
+$image_mb = get_field('sec11_img_mb', 'option');
 $branchList = get_field('sec11_branch', 'option');
 ?>
 
@@ -9,8 +10,15 @@ $branchList = get_field('sec11_branch', 'option');
 
     <div class="container">
         <div class="branch-inner">
-            <figure>
+            <figure class="d-none d-md-block">
                 <img src="<?php echo $image; ?>" alt="<?php echo $title; ?>" loading="lazy">
+            </figure>
+            <figure class="d-block d-md-none">
+                <?php if ($image_mb): ?>
+                    <img src="<?php echo $image_mb; ?>" alt="<?php echo $title; ?>" loading="lazy">
+                <?php else: ?>
+                    <img src="<?php echo $image; ?>" alt="<?php echo $title; ?>" loading="lazy">
+                <?php endif; ?>
             </figure>
             <div class="branch-list">
                 <select name="" id="">
