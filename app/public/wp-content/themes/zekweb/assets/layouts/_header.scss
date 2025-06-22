@@ -24,7 +24,6 @@ header {
   }
 
   .header-inner {
-    padding: 1.2rem 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -48,6 +47,12 @@ header {
     }
 
     li {
+      padding: 2.5rem 0;
+
+      &.menu-logo {
+        padding: 0;
+      }
+
       a {
         text-decoration: none;
         color: #000;
@@ -95,12 +100,22 @@ header {
           left: 0;
           width: max-content;
           background-color: #fff;
-          box-shadow: 0 0 10px #000c;
+          border-radius: 0 0 1rem 1rem;
 
-          li a {
-            padding: 5px 20px 0 10px;
-            display: block;
-            font-size: 1.6rem;
+          li {
+            padding: 0;
+            a {
+              padding: 1rem 2rem 1rem 1rem;
+              display: block;
+              font-size: 1.6rem;
+              border-bottom: 1px dashed $primaryColor;
+            }
+
+            &:last-child {
+              a {
+                border-bottom: none;
+              }
+            }
           }
 
           li:last-child a {

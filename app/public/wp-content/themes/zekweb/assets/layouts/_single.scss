@@ -359,6 +359,10 @@
       width: max-content !important;
     }
 
+    @include maxWidth($sm) {
+      min-width: 150px;
+    }
+
     svg {
       margin-right: 1rem;
       width: 2rem;
@@ -419,6 +423,9 @@
   align-items: space-around;
   column-gap: 1rem;
 
+  @include maxWidth($sm) {
+    justify-content: center;
+  }
   .button-buy-now {
     a {
       background-color: #4cc0d3;
@@ -431,6 +438,10 @@
   background-color: #006FC4 !important;
   width: max-content !important;
   min-width: 215px;
+
+  @include maxWidth($sm) {
+    min-width: 150px;
+  }
 }
 
 .woocommerce div.product .button-add-to-cart-mobile a.custom-add-to-cart svg {
@@ -438,6 +449,11 @@
   width: 2rem;
   height: 2rem;
   fill: #fff;
+
+  @include maxWidth($sm) {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 }
 
 .tab-pane.collapse-content {

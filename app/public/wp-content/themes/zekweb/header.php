@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/swiper-bundle.min.css">
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/select2.min.css">
-  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/aos.css">
+  <!-- <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/aos.css"> -->
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/fancybox.css">
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/dist/style.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css?v=<?php echo time(); ?>">
@@ -34,7 +34,7 @@
 	<div id="zek-web">
 		<div class="line-dark"></div>
 
-		<header id="header" class="<?php echo is_home() || is_front_page() ? 'is-fixed' : ''; ?>">
+		<header id="header">
 			<div class="container">
 				<?php
 				if (is_home() || is_front_page()) :

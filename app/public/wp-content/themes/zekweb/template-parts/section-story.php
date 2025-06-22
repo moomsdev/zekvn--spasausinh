@@ -46,7 +46,7 @@ $btn = get_field('sec2_btn', 'option');
 
                 <?php
                 if ($btn) :
-                    echo '<a href="' . $btn[0]['url'] . '" class="btn-hightlight bora-1 mt-1 mt-md-5">' . $btn[0]['text'] . '</a>';
+                    echo '<div class="d-flex justify-content-center justify-content-md-start"><a href="' . $btn[0]['url'] . '" class="btn-hightlight bora-1 mt-1 mt-md-5">' . $btn[0]['text'] . '</a></div>';
                 endif;
                 ?>
             </div>

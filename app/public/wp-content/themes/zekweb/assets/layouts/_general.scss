@@ -116,15 +116,15 @@ section {
   }
 
   &.frame-shadow {
-    background-color: #fff;
-    border-radius: 3rem;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
-    padding: 3rem 2rem;
-    margin: 4rem 0;
+    // background-color: #fff;
+    // border-radius: 3rem;
+    // box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+    // padding: 3rem 2rem;
+    // margin: 4rem 0;
 
-    @include maxWidth($md) {
-      padding: 1.5rem 0;
-    }
+    // @include maxWidth($md) {
+    //   padding: 1.5rem 0;
+    // }
   }
 }
 

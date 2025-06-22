@@ -7,17 +7,19 @@ Template Name: Liên hệ
 <?php
 $title = get_field('sec13_title', 'option');
 $image = get_field('sec13_img_sidebar', 'option');
+$desc_pc = get_field('desc_pc');
+$desc_mb = get_field('desc_mb');
 ?>
 
 <main id="main">
   <section class="section-contact">
     <div class="container">
       <?php get_template_part('loop_template/loop', 'heading_section', ['title' => $title]) ?>
-      <div class="contact-content text-center">
-        <?php 
-        $content = get_the_content();
-        echo apply_filters('the_content', $content);
-        ?>
+      <div class="contact-content text-center d-none d-md-block">
+        <?php echo apply_filters('the_content', $desc_pc); ?>
+      </div>
+      <div class="contact-content text-center d-md-none">
+        <?php echo apply_filters('the_content', $desc_mb); ?>
       </div>
       <div class="row">
         <div class="col-12 d-none d-lg-block col-lg-3">

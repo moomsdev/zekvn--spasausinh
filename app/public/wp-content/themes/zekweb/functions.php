@@ -861,41 +861,41 @@ add_action('wp_enqueue_scripts', 'enqueue_jquery_script');
 
 /* =============================== */
 /* Tạo custom post type Dịch vụ */
-function tao_custom_post_type() {
-  $label = array(
-      'name' => 'Dịch vụ',
-      'singular_name' => 'Dịch vụ'
-  );
-  $args = array(
-      'labels' => $label,
-      'description' => 'Post type đăng dịch vụ',
-      'supports' => array(
-          'title',
-          'editor',
-          'excerpt',
-          'author',
-          'thumbnail',
-          'comments',
-          'trackbacks',
-          'revisions',
-          'custom-fields'
-      ),
-      'public' => true,
-      'show_ui' => true,
-      'show_in_menu' => true,
-      'show_in_nav_menus' => true,
-      'show_in_admin_bar' => true,
-      'menu_position' => 5,
-      'menu_icon' => 'dashicons-admin-tools',
-      'can_export' => true,
-      'has_archive' => true,
-      'exclude_from_search' => false,
-      'publicly_queryable' => true,
-      'rewrite' => array('slug' => 'dich-vu'),
-  );
-  register_post_type('service', $args);
-}
-add_action('init', 'tao_custom_post_type');
+// function tao_custom_post_type() {
+//   $label = array(
+//       'name' => 'Dịch vụ',
+//       'singular_name' => 'Dịch vụ'
+//   );
+//   $args = array(
+//       'labels' => $label,
+//       'description' => 'Post type đăng dịch vụ',
+//       'supports' => array(
+//           'title',
+//           'editor',
+//           'excerpt',
+//           'author',
+//           'thumbnail',
+//           'comments',
+//           'trackbacks',
+//           'revisions',
+//           'custom-fields'
+//       ),
+//       'public' => true,
+//       'show_ui' => true,
+//       'show_in_menu' => true,
+//       'show_in_nav_menus' => true,
+//       'show_in_admin_bar' => true,
+//       'menu_position' => 5,
+//       'menu_icon' => 'dashicons-admin-tools',
+//       'can_export' => true,
+//       'has_archive' => true,
+//       'exclude_from_search' => false,
+//       'publicly_queryable' => true,
+//       'rewrite' => array('slug' => 'dich-vu'),
+//   );
+//   register_post_type('service', $args);
+// }
+// add_action('init', 'tao_custom_post_type');
 
 /* =============================== */
 /* register_nav_menu */
@@ -981,3 +981,64 @@ function getYoutubeVideoId($url) {
   }
   return $video_id;
 }
+
+/* =============================== */
+/* province  connect api viettelpost */
+add_action('wp_ajax_nopriv_province', 'province');
+add_action('wp_ajax_province', 'province');
+
+function province(){
+    $tinh_thanh = file_get_contents('https://partner.viettelpost.vn/v2/categories/listProvince');
+    $tinh_thanh = json_decode($tinh_thanh);
+    wp_send_json_success($tinh_thanh);
+}
+
+add_action('wp_footer', function(){
+  ?>
+      <script>
+          jQuery(document).ready(function($){
+              $.ajax({
+                  url: '<?php echo admin_url('admin-ajax.php') ?>',
+                  data: {
+                      action: 'province'
+                  },
+                  success(res) {
+                      var province = res.data.data
+
+                      var html = '<option value="">Chọn tỉnh thành</option>';
+
+                      $.each(province, function(i, v) {
+                          html += `<option value="${v.PROVINCE_NAME}" data-id="${v.PROVINCE_ID}">${v.PROVINCE_NAME}</option>`;
+                      });
+
+                      $('#tinh_thanh').html(html)
+                  }
+              });
+
+              $(document).on('change', '#tinh_thanh', function(){
+                  var id = $(this).find(':selected').attr('data-id')
+                  
+                  $.ajax({
+                      url: '<?php echo admin_url('admin-ajax.php') ?>',
+                      data: {
+                          action: 'district',
+                          id: id
+                      },
+                      success(res) {
+                          console.log(res)
+                          var district = res.data.data
+
+                          var html = '<option value="">Chọn quận huyện</option>';
+
+                          $.each(district, function(i, v) {
+                              html += `<option value="${v.DISTRICT_NAME}" data-id="${v.DISTRICT_ID}">${v.DISTRICT_NAME}</option>`;
+                          });
+
+                          $('#quan_huyen').html(html)
+                      }
+                  });
+              })
+          });
+      </script>
+  <?php
+});

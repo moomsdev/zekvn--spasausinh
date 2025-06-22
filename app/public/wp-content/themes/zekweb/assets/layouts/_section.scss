@@ -45,8 +45,8 @@
 
 /* Section contact */
 .section-contact {
-  padding: 3rem 0;
-  margin: 2.5rem 0;
+  // padding: 3rem 0;
+  // margin: 2.5rem 0;
   
   .section-heading {
     text-align: center;
@@ -57,6 +57,7 @@
 
   .contact-content {
     margin-bottom: 2rem;
+    @include resFont(1.8, 3.6);
   }
 
   .contact-image {
@@ -92,7 +93,8 @@
         input[type="email"],
         input[type="number"],
         input[type=tel],
-        textarea {
+        textarea,
+        select {
           border: 1px solid $primaryColor;
           border-radius: 1rem;
           padding: 0.75rem 1rem;
@@ -371,10 +373,28 @@
 
 /* Section partner */
 .section-partner {
-  padding: 2.5rem 0;
-  box-shadow: 0px 0px 10px 0px #2d2c2c;
-  border-radius: 3rem;
-  background: #fff;
+  // padding: 2.5rem 0;
+  // box-shadow: 0px 0px 10px 0px #2d2c2c;
+  // border-radius: 3rem;
+  // background: #fff;
+
+  .swiper-button-next, .swiper-button-prev {
+    margin-top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    top: 0;
+    color: $primaryColor;
+    background: #fff;
+  }
+
+  .swiper-button-next {
+    right: 0;
+  }
+
+  .swiper-button-prev {
+    left: 0;
+  }
 }
 
 .partner-logo {
@@ -383,6 +403,10 @@
     height: 100%;
     max-height: 20rem;
     object-fit: contain;
+
+    @include maxWidth($sm) {
+      max-height: 12rem;
+    }
   }
 }
 
@@ -656,6 +680,11 @@
         line-height: 1.2;
         @include resFont(1.2, 1.6);
         @include limitLine(2);
+
+        @include maxWidth($md) {
+          line-clamp: unset;
+          -webkit-line-clamp: unset;
+        }
       }
 
       .product-btn {
@@ -883,6 +912,9 @@
       &:first-child {
         padding: 2rem;
         width: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         @include maxWidth($xl) {
           display: none;
@@ -890,6 +922,7 @@
 
         img {
           width: 100%;
+          opacity: .3;
         }
       }
 
@@ -1197,10 +1230,10 @@
 
 /* Section video library */
 .section-video-library {
-  padding: 2.5rem 0;
-  box-shadow: 0px 0px 10px 0px #2d2c2c;
-  border-radius: 3rem;
-  background: #fff;
+  // padding: 2.5rem 0;
+  // box-shadow: 0px 0px 10px 0px #2d2c2c;
+  // border-radius: 3rem;
+  // background: #fff;
 
   .video-thumbnail iframe, .video-thumbnail img {
     width: 100%;
@@ -1356,7 +1389,7 @@
     margin-bottom: 25px;
     position: relative;
     border-radius: 2rem;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
   }
 
   figure {
@@ -1384,6 +1417,10 @@
     @include limitLine(2);
     @include transition;
 
+    @include maxWidth($md) {
+      line-clamp: unset;
+      -webkit-line-clamp: unset;
+    }
     a:hover {
       color: $primaryColor;
     }
@@ -1508,6 +1545,11 @@
     line-height: 1.2;
     @include limitLine(2);
     @include resFont(1.4, 1.6);
+
+    @include maxWidth($md) {
+      line-clamp: unset;
+      -webkit-line-clamp: unset;
+    }
   }
 
   .product-btn {
@@ -1658,5 +1700,64 @@
               color: $primaryColor;
           }
       }
+  }
+}
+
+// Section showroom
+.section-showroom {
+  margin-bottom: 0;
+
+  .title-showroom {
+    margin-bottom: 2.5rem;
+    color: #bf1e2e;
+    font-weight: 600;
+    text-transform: uppercase;
+    @include resFont(2, 2.5);
+  }
+
+  .loop-heading-wrapper {
+    .loop-desc {
+      font-size: 1.4rem;
+      font-weight: 400;
+      @include limitLine(3);
+    }
+  }
+
+  .swiper-wrapper {
+    padding-bottom: 5rem;
+    @include maxWidth($md) {
+      padding-bottom: 3rem;
+    }
+  }
+
+  .swiper-pagination {
+    display: flex;
+    justify-content: end;
+    bottom: 0;
+  }
+
+  span.swiper-pagination-bullet {
+    opacity: 1;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: #B9C5C5 !important;
+    color: #fff !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.swiper-pagination-bullet-active {
+      background-color: $primaryColor !important;
+    }
+  }
+
+  .swiper-button-next, .swiper-button-prev {
+    top: 100% !important;
+
+    &::after {
+      font-size: 2rem;
+      color: $primaryColor;
+    }
   }
 }

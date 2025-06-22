@@ -21,12 +21,40 @@ $branchList = get_field('sec11_branch', 'option');
                 <?php endif; ?>
             </figure>
             <div class="branch-list">
-                <select name="" id="">
-                    <?php foreach ($branchList as $branch) : ?>
-                        <option value="<?php echo $branch['branch_address']; ?>"><?php echo $branch['branch_address']; ?></option>
-                    <?php endforeach; ?>
+                <select name="branch-select" id="branch-select">
+                    <option value="">Chọn chi nhánh</option>
+                    <?php
+                    if ($branchList) :
+                        foreach ($branchList as $branch) :
+                            $branch_address = $branch['branch_address'];
+                            $branch_post = $branch['showroom_post'];
+                            $post_url = '';
+                            
+                            if ($branch_post) {
+                                $post_url = get_permalink($branch_post);
+                            }
+                    ?>
+                        <option value="<?php echo $post_url; ?>"><?php echo $branch_address; ?></option>
+                    <?php 
+                        endforeach; 
+                    endif;
+                    ?>
                 </select>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const branchSelect = document.getElementById('branch-select');
+    
+    branchSelect.addEventListener('change', function() {
+        const selectedUrl = this.value;
+        
+        if (selectedUrl) {
+            window.location.href = selectedUrl;
+        }
+    });
+});
+</script>

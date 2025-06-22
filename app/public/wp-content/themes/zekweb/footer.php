@@ -18,8 +18,12 @@
             </div>
             <!-- hotline -->
             <div class="hotline">
-              Hotline: <?php echo get_field('hotline_1', 'option') ?>
+              Hotline dịch vụ: <?php echo get_field('hotline_1', 'option') ?>
               - <?php echo get_field('hotline_2', 'option'); ?>
+            </div>
+            <!-- hotline san pham -->
+            <div class="hotline-product">
+              Hotline sản phẩm: <?php echo get_field('hotline_product', 'option') ?>
             </div>
             <!-- email -->
             <div class="email">
@@ -123,7 +127,7 @@
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/fancybox.umd.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/select2.min.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/aos.js"></script>
+<!-- <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/aos.js"></script> -->
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/custom.js?v=<?php echo time(); ?>"></script>
 <?php
 $value = get_field('code_footer', 'option');

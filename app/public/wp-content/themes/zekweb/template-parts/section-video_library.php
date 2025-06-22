@@ -1,6 +1,7 @@
 <?php
 $title = get_field('sec10_title', 'option');
 $articles = get_field('sec10_articles', 'option');
+$read_all = get_field('sec10_read_all', 'option');
 $main_article = $articles[0] ?? null;
 $other_articles = array_slice($articles, 1);
 ?>
@@ -65,7 +66,7 @@ $other_articles = array_slice($articles, 1);
             </div>
         </div>
         <div class="mt-5 d-flex justify-content-center">
-            <a href="/blog" class="btn-hightlight rounded-4">XEM TẤT CẢ</a>
+            <a href="<?php echo esc_url($read_all); ?>" class="btn-hightlight rounded-4">XEM TẤT CẢ</a>
         </div>
     </div>
 </section>
