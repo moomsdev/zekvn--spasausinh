@@ -993,6 +993,126 @@ function province(){
     wp_send_json_success($tinh_thanh);
 }
 
+/* =============================== */
+/* AJAX handler for product filtering */
+add_action('wp_ajax_filter_products', 'handle_filter_products');
+add_action('wp_ajax_nopriv_filter_products', 'handle_filter_products');
+
+function handle_filter_products() {
+    $orderby = isset($_POST['orderby']) ? sanitize_text_field($_POST['orderby']) : '';
+    $product_cat = isset($_POST['product_cat']) ? sanitize_text_field($_POST['product_cat']) : '';
+    $product_brand = isset($_POST['product_brand']) ? sanitize_text_field($_POST['product_brand']) : '';
+    $search = isset($_POST['s']) ? sanitize_text_field($_POST['s']) : '';
+    
+    $args = array(
+        'post_type' => 'product',
+        'post_status' => 'publish',
+        'posts_per_page' => get_option('posts_per_page'),
+        'paged' => 1
+    );
+    
+    // Handle search
+    if (!empty($search)) {
+        $args['s'] = $search;
+    }
+    
+    // Handle ordering
+    if (!empty($orderby)) {
+        switch ($orderby) {
+            case 'popularity':
+                $args['meta_key'] = 'total_sales';
+                $args['orderby'] = 'meta_value_num';
+                $args['order'] = 'DESC';
+                break;
+            case 'rating':
+                $args['meta_key'] = '_wc_average_rating';
+                $args['orderby'] = 'meta_value_num';
+                $args['order'] = 'DESC';
+                break;
+            case 'date':
+                $args['orderby'] = 'date';
+                $args['order'] = 'DESC';
+                break;
+            case 'price':
+                $args['meta_key'] = '_price';
+                $args['orderby'] = 'meta_value_num';
+                $args['order'] = 'ASC';
+                break;
+            case 'price-desc':
+                $args['meta_key'] = '_price';
+                $args['orderby'] = 'meta_value_num';
+                $args['order'] = 'DESC';
+                break;
+            default:
+                $args['orderby'] = 'menu_order';
+                $args['order'] = 'ASC';
+        }
+    }
+    
+    // Handle taxonomy filters
+    $tax_query = array();
+    
+    if (!empty($product_cat)) {
+        $tax_query[] = array(
+            'taxonomy' => 'product_cat',
+            'field' => 'slug',
+            'terms' => $product_cat
+        );
+    }
+    
+    if (!empty($product_brand)) {
+        $tax_query[] = array(
+            'taxonomy' => 'product_brand',
+            'field' => 'slug',
+            'terms' => $product_brand
+        );
+    }
+    
+    if (!empty($tax_query)) {
+        $tax_query['relation'] = 'AND';
+        $args['tax_query'] = $tax_query;
+    }
+    
+    // Execute query
+    $products_query = new WP_Query($args);
+    
+    // Start output buffering
+    ob_start();
+    
+    if ($products_query->have_posts()) {
+        woocommerce_product_loop_start();
+        while ($products_query->have_posts()) {
+            $products_query->the_post();
+            wc_get_template_part('content', 'product');
+        }
+        woocommerce_product_loop_end();
+        
+        // Pagination
+        if ($products_query->max_num_pages > 1) {
+            echo '<nav class="woocommerce-pagination">';
+            echo paginate_links(array(
+                'base' => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
+                'format' => '?paged=%#%',
+                'current' => 1,
+                'total' => $products_query->max_num_pages,
+                'prev_text' => '&larr;',
+                'next_text' => '&rarr;',
+            ));
+            echo '</nav>';
+        }
+    } else {
+        echo '<div class="no-products-found">';
+        echo '<p>Không tìm thấy sản phẩm nào phù hợp với bộ lọc của bạn.</p>';
+        echo '</div>';
+    }
+    
+    wp_reset_postdata();
+    
+    $html = ob_get_clean();
+    
+    wp_send_json_success(array('html' => $html));
+}
+
 add_action('wp_footer', function(){
   ?>
       <script>

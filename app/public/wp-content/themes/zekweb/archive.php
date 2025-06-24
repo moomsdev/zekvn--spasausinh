@@ -2,7 +2,16 @@
 $a = get_query_var('cat'); ?>
 <?php $term = get_queried_object(); ?>
 <?php $category = get_field('category', "option"); ?>
+<?php 
+$cat_service = get_field('cat_service', $term);
+?>
 <main id="main">
+  <?php if ($cat_service == true): ?>
+    <div class="service-page">
+        <?php get_template_part('template-parts/section', 'slider_hero'); ?>
+        <?php get_template_part('template-parts/section', 'service'); ?>
+    </div>
+  <?php else: ?>
   <div class="page-body">
     <?php get_template_part('loop_template/breadcrums'); ?>
     <div class="container">
@@ -147,6 +156,7 @@ $a = get_query_var('cat'); ?>
       </div>
     </div>
   </div>
+  <?php endif; ?>
 </main>
 
 <?php get_footer(); ?>

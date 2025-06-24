@@ -104,6 +104,13 @@
     $('.woocommerce-product-details__short-description').addClass('content-post clearfix');
     $('.page-description').addClass('term-description');
     $('.term-description').addClass('content-post clearfix');
+    
+    // Thêm container bên trong term-description
+    $('.term-description').each(function() {
+        if (!$(this).find('.container').length) {
+            $(this).wrapInner('<div class="container"></div>');
+        }
+    });
     $('.woocommerce-MyAccount-content').addClass('content-post clearfix');
     $(".link-move").click(function (a) {
         var i = this.getAttribute("href");
@@ -270,6 +277,31 @@
         }
     });
 
+    // Slider blog
+    new Swiper('.blog-slider', {
+      slidesPerView: 3,
+      spaceBetween: 20,
+      loop: true,
+      autoplay: {
+          delay: 4000,
+          disableOnInteraction: false
+      },
+      pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+      },
+      breakpoints: {
+        0: {
+            spaceBetween: 10,
+            slidesPerView: 2
+        },
+        991: {
+            spaceBetween: 20,
+            slidesPerView: 3
+        },
+      }
+    });
+
     // Slider partner
     new Swiper('.partner-slider', {
         slidesPerView: 4,
@@ -299,10 +331,10 @@
         slidesPerGroup: 4,
         spaceBetween: 20,
         loop: false,
-        // autoplay: {
-        //     delay: 4000,  
-        //     disableOnInteraction: false
-        // },
+        autoplay: {
+            delay: 4000,  
+            disableOnInteraction: false
+        },
         pagination: {
           el: '.swiper-pagination',
           clickable: true,
