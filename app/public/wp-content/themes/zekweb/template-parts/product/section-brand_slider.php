@@ -11,8 +11,8 @@ $brand_slider = get_field('exclusive_brand', 'option');
                     <div class="swiper-slide">
                         <div class="slider-content">
                         <figure class="loop-image">
-                            <a href="#">
-                                <img src="<?php echo $brand['logo'] ?>" alt="<?php echo $brand['brand_name'] ?>">
+                            <a href="<?php echo $brand['url'] ?>" target="_blank">
+                              <img src="<?php echo $brand['logo'] ?>" alt="<?php echo $brand['brand_name'] ?>">
                             </a>
                         </figure>
                         </div>

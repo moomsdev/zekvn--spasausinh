@@ -60,7 +60,7 @@
           <?php echo get_field('gg_map', 'option'); ?>
         </div>
         <div class="socials">
-          <h3 class="social-title">Kết nối</h3>
+          <h3 class="social-title">Mạng xã hội</h3>
           <div class="social-list">
             <!-- facebook -->
             <a href="<?php the_field('facebook', 'option'); ?>" target="_blank" class="facebook">

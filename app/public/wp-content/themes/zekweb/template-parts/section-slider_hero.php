@@ -15,14 +15,18 @@ if (!(is_home() || is_front_page())) {
         <div class="swiper-wrapper d-none d-md-flex">
             <?php foreach ($banners_pc as $banner) : ?>
             <div class="swiper-slide">
+              <a href="<?php echo $banner['url']; ?>">
                 <img class="img-desktop" src="<?php echo $banner['img']; ?>" alt="slider-hero-<?php echo $i; ?>" loading="lazy">
+              </a>
             </div>
             <?php $i++; endforeach; ?>
         </div>
         <div class="swiper-wrapper d-md-none">
             <?php foreach ($banners_mb as $banner) : ?>
             <div class="swiper-slide">
+              <a href="<?php echo $banner['url']; ?>">
                 <img class="img-mobile" src="<?php echo $banner['img']; ?>" alt="slider-hero-<?php echo $i; ?>" loading="lazy">
+              </a>
             </div>
             <?php $i++; endforeach; ?>
         </div>

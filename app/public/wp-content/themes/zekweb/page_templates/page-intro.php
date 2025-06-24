@@ -18,22 +18,20 @@ Template Name: Giới Thiệu
 
   <?php get_template_part('template-parts/section', 'overview') ?>
 
-  <section class="intro-section">
-    <figure class="background-intro">
-      <img src="<?php echo get_field('background') ?>" alt="background-image">
-    </figure>
+  <section class="intro-section full-width">
     <div class="intro-content">
-      <div class="heading-wrapper">
-        <div class="container">
-          <h2 class="section-heading fs-48 text-white">
-            <?php echo get_field('title_story') ?></h2>
-          <div class="heading-icon">
-            <figure class="icon-image">
-              <img
-                src="<?php bloginfo('template_url'); ?>/images/logo-white.png"
-                alt="">
-            </figure>
-          </div>
+      <figure class="background-intro d-none d-lg-block">
+        <img src="<?php echo get_field('background') ?>" alt="background-image">
+      </figure>
+      <figure class="background-intro d-lg-none">
+        <img src="<?php echo get_field('background_mb') ?>" alt="background-image">
+      </figure>
+
+      <div class="container">
+        <div class="heading-wrapper">
+          <h2 class="section-heading fs-48">
+            <?php echo get_field('title_story') ?>
+          </h2>
           <?php echo wpautop(get_field('story_content')); ?>
         </div>
       </div>

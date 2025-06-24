@@ -1,12 +1,13 @@
 <?php
 $title = get_field('sec11_title', 'option');
+$title_mb = get_field('sec11_title_mb', 'option');
 $image = get_field('sec11_img', 'option');
 $image_mb = get_field('sec11_img_mb', 'option');
 $branchList = get_field('sec11_branch', 'option');
 ?>
 
 <section class="section-branch">
-    <?php get_template_part('loop_template/loop', 'heading_section', ['title' => $title]) ?>
+    <?php get_template_part('loop_template/loop', 'heading_section', ['title' => $title, 'title_mb' => $title_mb]) ?>
 
     <div class="container">
         <div class="branch-inner">

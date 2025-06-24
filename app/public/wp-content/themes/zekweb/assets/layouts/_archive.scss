@@ -172,6 +172,25 @@
   }
 }
 
+/* Home page */
+.page-template-page-home {
+  .section-overview {
+    margin-bottom: 0;
+    box-shadow: none;
+  }
+}
+
+/* Showroom page */
+.page-template-page-showroom {
+  .banner-section {
+    margin-bottom: 5rem;
+
+    @include maxWidth($md) {
+      margin-bottom: 3rem;
+    }
+  }
+}
+
 /* intro page */
 .page-introduce {
   position: relative;
@@ -239,32 +258,35 @@
   }
 }
 
-.intro-section {
-  position: relative;
-  border-radius: 0 0 4rem 4rem;
-  box-shadow: 0 1.4rem 2rem rgba(0, 0, 0, 0.8);
-  overflow: hidden;
-
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.6;
-    background: #000;
-    z-index: 1;
+.page-template-page-intro {
+  .page-introduce {
+    margin-bottom: 0;
   }
+}
+
+.intro-section {
 
   .intro-content {
-    padding: 2rem 1rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    z-index: 2;
+    position: relative;
+    padding: 5rem 0;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.4;
+      background: #000;
+      z-index: -1;
+    }
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    // width: 100%;
+    // z-index: 2;
   }
 
   .heading-wrapper {
@@ -273,30 +295,43 @@
     }
 
     .section-heading {
-      &::before,
-      &::after {
-        width: 35%;
-        background-color: #fff;
-        transform: unset;
-      }
+     color: #fff;
 
-      &::before {
-        right: 60%;
-        left: unset;
-      }
-
-      &::after {
-        left: 60%;
-      }
+     &::before,
+     &::after {
+      content: none;
+     }
     }
   }
 
-  img {
-    @include maxWidth($sm) {
-      aspect-ratio: 16 / 15;
+  .background-intro {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.2;
+      background: #000;
+      z-index: 1;
+    }
+
+    img {
       object-fit: cover;
+      object-position: bottom right;
+      width: 100%;
+      height: 100%;
     }
   }
+
 }
 
 .intro-story {
@@ -346,6 +381,7 @@
 .page-template-page-intro {
   .section-overview {
       margin-bottom: 0 !important;
+      box-shadow: none;
   }
 }
 

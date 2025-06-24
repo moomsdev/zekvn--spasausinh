@@ -9,27 +9,29 @@ $btn = get_field('sec4_btn', 'option');
     <div class="container">
         <?php get_template_part('loop_template/loop', 'heading_section', ['title' => $title, 'title_mb' => $title_mb]) ?>
 
-        <div class="row justify-content-center">
-            <!-- loop post -->
+        <div class="swiper blog-slider">
+          <div class="swiper-wrapper">
             <?php foreach ($postFeatured as $post) : ?>
-            <div class="col-6 col-md-4 loop-post">
-                <div class="post-item h-100 d-flex flex-column">
-                    <figure class="post-image">
-                      <a href="<?php echo get_the_permalink($post); ?>">
-                        <img src="<?php echo get_the_post_thumbnail_url($post, 'full'); ?>" alt="<?php the_title(); ?>" loading="lazy">
-                      </a>
-                    </figure>
-                    <div class="post-content flex-grow-1">
-                        <h3 class="post-title">
-                            <a href="<?php echo get_the_permalink($post); ?>"><?php echo get_the_title($post); ?></a>
-                        </h3>
-                    </div>
+            <div class="swiper-slide loop-post">
+              <div class="post-item h-100 d-flex flex-column">
+                <figure class="post-image">
+                  <a href="<?php echo get_the_permalink($post); ?>">
+                    <img src="<?php echo get_the_post_thumbnail_url($post, 'full'); ?>" alt="<?php the_title(); ?>" loading="lazy">
+                  </a>
+                </figure>
+                <div class="post-content flex-grow-1">
+                    <h3 class="post-title">
+                        <a href="<?php echo get_the_permalink($post); ?>"><?php echo get_the_title($post); ?></a>
+                    </h3>
                 </div>
+              </div>
             </div>
             <?php endforeach; ?>
+          </div>
+          <div class="blog-pagination swiper-pagination"></div>
         </div>
 
-         <?php
+        <?php
         if ($btn) :
             echo '
             <div class="text-center">
@@ -41,4 +43,3 @@ $btn = get_field('sec4_btn', 'option');
     </div>
 
 </section>
-   

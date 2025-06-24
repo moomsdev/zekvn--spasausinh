@@ -88,35 +88,41 @@ do_action( 'woocommerce_before_main_content' );
 					<div class="col-12 col-md-9 mb-3 mb-md-0">
 						<div class="d-flex gap-2">
 							<div class="dropdown">
-								<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+								<button class="btn btn-outline-secondary dropdown-toggle filter-btn" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-filter-type="orderby" data-default-text="Sắp xếp">
 									Sắp xếp
 								</button>
-								<ul class="dropdown-menu">
+								<ul class="dropdown-menu" aria-labelledby="sortDropdown">
+									<li><a class="dropdown-item filter-item" href="#" data-value="" data-text="Sắp xếp">Tất cả</a></li>
 									<?php foreach($catalog_orderby_options as $id => $name): ?>
-										<li><a class="dropdown-item" href="?orderby=<?php echo esc_attr($id); ?>"><?php echo esc_html($name); ?></a></li>
+										<li><a class="dropdown-item filter-item" href="#" data-value="<?php echo esc_attr($id); ?>" data-text="<?php echo esc_html($name); ?>"><?php echo esc_html($name); ?></a></li>
 									<?php endforeach; ?>
 								</ul>
 							</div>
 							<div class="dropdown">
-								<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+								<button class="btn btn-outline-secondary dropdown-toggle filter-btn" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-filter-type="product_cat" data-default-text="Danh mục">
 									Danh mục
 								</button>
-								<ul class="dropdown-menu">
+								<ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+									<li><a class="dropdown-item filter-item" href="#" data-value="" data-text="Danh mục">Tất cả</a></li>
 									<?php foreach($categories as $cat): ?>
-										<li><a class="dropdown-item" href="<?php echo get_term_link($cat); ?>"><?php echo $cat->name; ?></a></li>
+										<li><a class="dropdown-item filter-item" href="#" data-value="<?php echo esc_attr($cat->slug); ?>" data-text="<?php echo esc_html($cat->name); ?>"><?php echo esc_html($cat->name); ?></a></li>
 									<?php endforeach; ?>
 								</ul>
 							</div>
 							<div class="dropdown">
-								<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+								<button class="btn btn-outline-secondary dropdown-toggle filter-btn" type="button" id="brandDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-filter-type="product_brand" data-default-text="Thương hiệu">
 									Thương hiệu
 								</button>
-								<ul class="dropdown-menu">
+								<ul class="dropdown-menu" aria-labelledby="brandDropdown">
+									<li><a class="dropdown-item filter-item" href="#" data-value="" data-text="Thương hiệu">Tất cả</a></li>
 									<?php foreach($brands as $brand): ?>
-										<li><a class="dropdown-item" href="<?php echo get_term_link($brand); ?>"><?php echo $brand->name; ?></a></li>
+										<li><a class="dropdown-item filter-item" href="#" data-value="<?php echo esc_attr($brand->slug); ?>" data-text="<?php echo esc_html($brand->name); ?>"><?php echo esc_html($brand->name); ?></a></li>
 									<?php endforeach; ?>
 								</ul>
 							</div>
+							<button class="btn btn-warning clear-filters" style="display: none;">
+								<i class="fas fa-times"></i> Xóa bộ lọc
+							</button>
 						</div>
 					</div>
 					<div class="col-12 col-md-3">
@@ -128,6 +134,12 @@ do_action( 'woocommerce_before_main_content' );
 				</div>
 			</div>
 			<div class="container">
+				<div id="loading-overlay" style="display: none; text-align: center; padding: 20px;">
+					<div class="spinner-border" role="status">
+						<span class="visually-hidden">Đang tải...</span>
+					</div>
+				</div>
+				<div id="products-container">
 			<?php
 			if ( woocommerce_product_loop() ) {
 				/**
@@ -163,6 +175,7 @@ do_action( 'woocommerce_before_main_content' );
 				do_action( 'woocommerce_no_products_found' );
 			}
 			?>
+				</div>
 			</div>
 		</div>
 		<?php
@@ -180,4 +193,271 @@ do_action( 'woocommerce_before_main_content' );
 		</div>
 	</div>
 </main>
+
+<style>
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    min-width: 200px;
+    padding: 0;
+    margin: 2px 0 0;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.dropdown-menu .container {
+    padding: 10px 15px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    color: #262626;
+    text-decoration: none;
+    background-color: #f5f5f5;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Initializing product filters...');
+    
+    // State để lưu trữ tất cả filters
+    const filterState = {
+        orderby: '',
+        product_cat: '',
+        product_brand: '',
+        search: ''
+    };
+    
+    // Elements
+    const loadingOverlay = document.getElementById('loading-overlay');
+    const productsContainer = document.getElementById('products-container');
+    const clearFiltersBtn = document.querySelector('.clear-filters');
+    
+    // Lấy tất cả dropdown buttons và filter items
+    const dropdownButtons = document.querySelectorAll('.dropdown-toggle');
+    const filterItems = document.querySelectorAll('.filter-item');
+    
+    // Khởi tạo dropdowns
+    initDropdowns();
+    
+    // Khởi tạo filter handlers
+    initFilterHandlers();
+    
+    function initDropdowns() {
+        dropdownButtons.forEach(function(button) {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Đóng tất cả dropdown khác
+                dropdownButtons.forEach(function(otherButton) {
+                    if (otherButton !== button) {
+                        const otherDropdown = otherButton.nextElementSibling;
+                        if (otherDropdown && otherDropdown.classList.contains('dropdown-menu')) {
+                            otherDropdown.classList.remove('show');
+                            otherButton.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+                
+                // Toggle dropdown hiện tại
+                const dropdownMenu = this.nextElementSibling;
+                if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
+                    const isShown = dropdownMenu.classList.contains('show');
+                    
+                    if (isShown) {
+                        dropdownMenu.classList.remove('show');
+                        this.setAttribute('aria-expanded', 'false');
+                    } else {
+                        dropdownMenu.classList.add('show');
+                        this.setAttribute('aria-expanded', 'true');
+                    }
+                }
+            });
+        });
+        
+        // Đóng dropdown khi click outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.dropdown')) {
+                dropdownButtons.forEach(function(button) {
+                    const dropdownMenu = button.nextElementSibling;
+                    if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
+                        dropdownMenu.classList.remove('show');
+                        button.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+        });
+    }
+    
+    function initFilterHandlers() {
+        // Handle filter item clicks
+        filterItems.forEach(function(item) {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const value = this.getAttribute('data-value');
+                const text = this.getAttribute('data-text');
+                const dropdown = this.closest('.dropdown');
+                const button = dropdown.querySelector('.filter-btn');
+                const filterType = button.getAttribute('data-filter-type');
+                
+                // Cập nhật filter state
+                filterState[filterType] = value;
+                
+                // Cập nhật button text
+                button.textContent = text;
+                
+                // Đóng dropdown
+                const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+                dropdownMenu.classList.remove('show');
+                button.setAttribute('aria-expanded', 'false');
+                
+                // Apply filters
+                applyFilters();
+                
+                // Show/hide clear button
+                updateClearButton();
+                
+                console.log('Filter applied:', filterType, value);
+            });
+        });
+        
+        // Handle clear filters
+        if (clearFiltersBtn) {
+            clearFiltersBtn.addEventListener('click', function() {
+                clearAllFilters();
+            });
+        }
+        
+        // Handle search form
+        const searchForm = document.querySelector('.woocommerce-product-search');
+        if (searchForm) {
+            searchForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const searchInput = this.querySelector('input[name="s"]');
+                filterState.search = searchInput.value;
+                applyFilters();
+                updateClearButton();
+            });
+        }
+    }
+    
+    function applyFilters() {
+        // Show loading
+        loadingOverlay.style.display = 'block';
+        productsContainer.style.opacity = '0.5';
+        
+        // Build URL parameters
+        const params = new URLSearchParams();
+        
+        Object.keys(filterState).forEach(function(key) {
+            if (filterState[key]) {
+                if (key === 'search') {
+                    params.append('s', filterState[key]);
+                    params.append('post_type', 'product');
+                } else {
+                    params.append(key, filterState[key]);
+                }
+            }
+        });
+        
+        // AJAX request
+        const ajaxUrl = '<?php echo admin_url('admin-ajax.php'); ?>';
+        
+        fetch(ajaxUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'action=filter_products&' + params.toString()
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                productsContainer.innerHTML = data.data.html;
+                
+                // Update URL without reloading
+                const newUrl = window.location.pathname + '?' + params.toString();
+                window.history.pushState({}, '', newUrl);
+                
+                console.log('Products filtered successfully');
+            } else {
+                console.error('Filter error:', data.data);
+            }
+        })
+        .catch(error => {
+            console.error('AJAX error:', error);
+        })
+        .finally(() => {
+            // Hide loading
+            loadingOverlay.style.display = 'none';
+            productsContainer.style.opacity = '1';
+        });
+    }
+    
+    function clearAllFilters() {
+        // Reset filter state
+        Object.keys(filterState).forEach(function(key) {
+            filterState[key] = '';
+        });
+        
+        // Reset button texts
+        document.querySelectorAll('.filter-btn').forEach(function(btn) {
+            const defaultText = btn.getAttribute('data-default-text');
+            btn.textContent = defaultText;
+        });
+        
+        // Clear search input
+        const searchInput = document.querySelector('input[name="s"]');
+        if (searchInput) {
+            searchInput.value = '';
+        }
+        
+        // Apply filters (will load all products)
+        applyFilters();
+        
+        // Hide clear button
+        clearFiltersBtn.style.display = 'none';
+        
+        console.log('All filters cleared');
+    }
+    
+    function updateClearButton() {
+        const hasActiveFilters = Object.values(filterState).some(value => value !== '');
+        clearFiltersBtn.style.display = hasActiveFilters ? 'inline-block' : 'none';
+    }
+    
+    console.log('Product filters initialized');
+});
+</script>
+
 <?php get_footer( 'shop' );?>
