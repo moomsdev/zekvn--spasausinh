@@ -1708,11 +1708,20 @@
   margin-bottom: 0;
 
   .title-showroom {
-    margin-bottom: 2.5rem;
-    color: #bf1e2e;
-    font-weight: 600;
+    margin: 0 auto;
+    position: relative;
+    display: block;
+    padding-bottom: 3rem;
+    color: $primaryColor;
+    font-weight: bold;
+    text-align: center;
     text-transform: uppercase;
-    @include resFont(2, 2.5);
+    @include breakText;
+    @include resFont(2, 4);
+
+    @include maxWidth($lg) {
+        padding-bottom: 2rem;
+    }
   }
 
   .loop-heading-wrapper {

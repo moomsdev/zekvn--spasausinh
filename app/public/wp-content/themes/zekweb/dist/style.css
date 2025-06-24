@@ -5081,22 +5081,42 @@ footer .social-list a:hover {
   margin-bottom: 0;
 }
 .section-showroom .title-showroom {
-  margin-bottom: 2.5rem;
-  color: #bf1e2e;
-  font-weight: 600;
+  margin: 0 auto;
+  position: relative;
+  display: block;
+  padding-bottom: 3rem;
+  color: #4cc0d3;
+  font-weight: bold;
+  text-align: center;
   text-transform: uppercase;
 }
 .section-showroom .title-showroom {
-  font-size: 2.5rem;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  word-break: break-word;
+  hyphens: auto;
+  -ms-word-break: break-all;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+}
+.section-showroom .title-showroom {
+  font-size: 4rem;
 }
 @media only screen and (max-width: 992px) {
   .section-showroom .title-showroom {
-    font-size: calc(2.5rem - (2.5rem - 2rem) / 2);
+    font-size: calc(4rem - (4rem - 2rem) / 2);
   }
 }
 @media only screen and (max-width: 576px) {
   .section-showroom .title-showroom {
     font-size: 2rem;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .section-showroom .title-showroom {
+    padding-bottom: 2rem;
   }
 }
 .section-showroom .loop-heading-wrapper .loop-desc {
