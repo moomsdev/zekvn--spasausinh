@@ -1157,6 +1157,12 @@ a img.aligncenter {
 
 .woocommerce nav.woocommerce-pagination {
   padding-top: 16px;
+  margin-bottom: 5rem;
+}
+@media only screen and (max-width: 992px) {
+  .woocommerce nav.woocommerce-pagination {
+    margin-bottom: 3rem;
+  }
 }
 
 .woocommerce .woocommerce-pagination ul.page-numbers,
@@ -1315,6 +1321,10 @@ a img.aligncenter {
   font-size: 13px;
 }
 
+.woocommerce table.shop_table.cart .product-quantity .quantity input[type=number] {
+  border: none !important;
+}
+
 .woocommerce table.my_account_orders .product-quantity .quantity .qty,
 .woocommerce table.shop_table.cart .product-quantity .quantity .qty {
   width: 130px;
@@ -1396,9 +1406,8 @@ a img.aligncenter {
 }
 
 .woocommerce .cart-collaterals .wc-proceed-to-checkout a.checkout-button {
-  font-size: 1rem;
-  line-height: 2.75rem;
-  padding: 0 2.1875rem;
+  line-height: normal;
+  padding: 1rem;
 }
 
 #add_payment_method .wc-proceed-to-checkout a.checkout-button,
@@ -4135,6 +4144,7 @@ footer .social-list a:hover {
   display: grid;
   grid-template-columns: 1fr 3fr;
   z-index: -1;
+  overflow: hidden;
 }
 @media only screen and (max-width: 1200px) {
   .section-story .section-story__bg {
@@ -4181,6 +4191,11 @@ footer .social-list a:hover {
 .section-story .story-image {
   position: relative;
   z-index: 2;
+}
+.section-story .story-image .story-image__bg {
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
 }
 @media only screen and (max-width: 992px) {
   .section-story .story-image .story-image__bg {
@@ -4248,12 +4263,13 @@ footer .social-list a:hover {
 }
 @media only screen and (max-width: 992px) {
   .section-story .story-title {
-    font-size: 2rem;
+    text-align: center;
+    font-size: 2.2rem;
   }
 }
 @media only screen and (max-width: 768px) {
   .section-story .story-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 }
 .section-story .story-description {
@@ -4734,25 +4750,6 @@ footer .social-list a:hover {
   transform: translateY(50%);
 }
 
-.materials-card {
-  border-radius: 2rem;
-  padding: 2.5rem 2rem;
-  height: 50rem;
-  color: #fff;
-  text-align: center;
-  background: #7a8537;
-}
-@media only screen and (max-width: 992px) {
-  .materials-card {
-    height: 40rem;
-  }
-}
-@media only screen and (max-width: 576px) {
-  .materials-card {
-    height: 30rem;
-  }
-}
-
 .materials-card-header {
   margin: 3rem 0;
 }
@@ -4807,17 +4804,6 @@ footer .social-list a:hover {
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   overflow: hidden;
-}
-
-.materials-card-image {
-  position: absolute;
-  bottom: -50px;
-  left: 0;
-  right: 0;
-}
-.materials-card-image img {
-  aspect-ratio: 6/3;
-  object-fit: contain;
 }
 
 .momneadknow-blog img {
@@ -6404,14 +6390,6 @@ footer .social-list a:hover {
   position: relative;
   transition: max-height 0.3s;
 }
-.tab-pane.collapse-content h2 > * {
-  font-size: 2rem;
-}
-@media only screen and (max-width: 768px) {
-  .tab-pane.collapse-content h2 > * {
-    font-size: 1.8rem;
-  }
-}
 .tab-pane.collapse-content img {
   margin-bottom: 1rem;
 }
@@ -6452,7 +6430,53 @@ footer .social-list a:hover {
 
 /* Search results */
 .search-results .loop-highlight img {
-  aspect-ratio: 1/1;
+  aspect-ratio: 800/500;
+}
+
+.single-product .detail-body h2,
+.single-product .detail-body h2 > *,
+.single-blog .page-content h2,
+.single-blog .page-content h2 > * {
+  font-size: 2.8rem !important;
+}
+@media only screen and (max-width: 992px) {
+  .single-product .detail-body h2,
+  .single-product .detail-body h2 > *,
+  .single-blog .page-content h2,
+  .single-blog .page-content h2 > * {
+    font-size: calc(2.8rem - (2.8rem - 2rem) / 2) !important;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .single-product .detail-body h2,
+  .single-product .detail-body h2 > *,
+  .single-blog .page-content h2,
+  .single-blog .page-content h2 > * {
+    font-size: 2rem !important;
+  }
+}
+
+.single-product .detail-body h3,
+.single-product .detail-body h3 > *,
+.single-blog .page-content h3,
+.single-blog .page-content h3 > * {
+  font-size: 2.2rem !important;
+}
+@media only screen and (max-width: 992px) {
+  .single-product .detail-body h3,
+  .single-product .detail-body h3 > *,
+  .single-blog .page-content h3,
+  .single-blog .page-content h3 > * {
+    font-size: calc(2.2rem - (2.2rem - 1.8rem) / 2) !important;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .single-product .detail-body h3,
+  .single-product .detail-body h3 > *,
+  .single-blog .page-content h3,
+  .single-blog .page-content h3 > * {
+    font-size: 1.8rem !important;
+  }
 }
 
 .google-map {

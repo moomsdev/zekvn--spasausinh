@@ -1126,6 +1126,11 @@ a img.aligncenter {
 }
 .woocommerce nav.woocommerce-pagination {
   padding-top: 16px;
+  margin-bottom: 5rem;
+
+  @include maxWidth($lg) {
+    margin-bottom: 3rem;
+  }
 }
 .woocommerce .woocommerce-pagination ul.page-numbers,
 .woocommerce-page .woocommerce-pagination ul.page-numbers {
@@ -1276,6 +1281,9 @@ a img.aligncenter {
   font-weight: 500;
   font-size: 13px;
 }
+.woocommerce table.shop_table.cart .product-quantity .quantity input[type=number] {
+  border: none!important;
+}
 .woocommerce table.my_account_orders .product-quantity .quantity .qty,
 .woocommerce table.shop_table.cart .product-quantity .quantity .qty {
   width: 130px;
@@ -1349,9 +1357,8 @@ a img.aligncenter {
   padding: 16px 0 0;
 }
 .woocommerce .cart-collaterals .wc-proceed-to-checkout a.checkout-button {
-  font-size: 1rem;
-  line-height: 2.75rem;
-  padding: 0 2.1875rem;
+  line-height: normal;
+  padding: 1rem;
 }
 #add_payment_method .wc-proceed-to-checkout a.checkout-button,
 .woocommerce-cart .wc-proceed-to-checkout a.checkout-button,

@@ -959,6 +959,7 @@
     display: grid;
     grid-template-columns: 1fr 3fr;
     z-index: -1;
+    overflow: hidden;
 
     @include maxWidth($xl) {
       grid-template-columns: 1fr;
@@ -1011,6 +1012,10 @@
     z-index: 2;
 
     .story-image__bg {
+      position: relative;
+      border-radius: 2rem;
+      overflow: hidden;
+
       @include maxWidth($lg) {
         height: auto;
         width: 100%;
@@ -1075,13 +1080,13 @@
     }
 
     @include maxWidth($lg) {
-      font-size: 2rem;
+      text-align: center;
+      font-size: 2.2rem;
     }
 
     @include maxWidth($md) {
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
-
   }
 
   .story-description {
@@ -1479,20 +1484,19 @@
 }
 
 .materials-card {
-  border-radius: 2rem;
-  padding: 2.5rem 2rem;
-  height: 50rem;
-  color: #fff;
-  text-align: center;
-  background: #7a8537;
+  // border-radius: 2rem;
+  // padding: 2.5rem 2rem;
+  // height: 50rem;
+  // color: #fff;
+  // text-align: center;
 
-  @include maxWidth($lg) {
-    height: 40rem;
-  }
+  // @include maxWidth($lg) {
+  //   height: 40rem;
+  // }
 
-  @include maxWidth($sm) {
-    height: 30rem;
-  }
+  // @include maxWidth($sm) {
+  //   height: 30rem;
+  // }
 }
 
 .materials-card-header {
@@ -1516,15 +1520,15 @@
 }
 
 .materials-card-image {
-  position: absolute;
-  bottom: -50px;
-  left: 0;
-  right: 0;
+  // position: absolute;
+  // bottom: -50px;
+  // left: 0;
+  // right: 0;
 
-  img {
-    aspect-ratio: 6 / 3;
-    object-fit: contain;
-  }
+  // img {
+  //   aspect-ratio: 6 / 3;
+  //   object-fit: contain;
+  // }
 }
 
 .momneadknow-blog {

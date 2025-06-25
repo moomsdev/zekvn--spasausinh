@@ -172,10 +172,12 @@ function rename_post_formats($safe_text)
     return 'Hỏi đáp';
   if ($safe_text == 'Chuẩn')
     return 'Tin tức';
+  if ($safe_text == 'Video')
+    return 'Dịch vụ';
   return $safe_text;
 }
 add_filter('esc_html', 'rename_post_formats');
-add_theme_support('post-formats', array('aside', 'chat'));
+add_theme_support('post-formats', array('aside', 'chat', 'video'));
 
 /* =============================== */
 /* home_xn */
@@ -994,6 +996,127 @@ function province(){
 }
 
 /* =============================== */
+/* Enqueue cart AJAX script */
+function enqueue_cart_ajax_script() {
+    if (is_cart()) {
+        wp_enqueue_script(
+            'cart-ajax', 
+            get_template_directory_uri() . '/js/cart-ajax.js',
+            array('jquery'),
+            '1.0.0',
+            true
+        );
+        
+        wp_localize_script('cart-ajax', 'cart_ajax_object', array(
+            'ajax_url' => admin_url('admin-ajax.php'),
+            'remove_nonce' => wp_create_nonce('remove_cart_item_nonce')
+        ));
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_cart_ajax_script');
+
+/* =============================== */
+/* AJAX handler for cart item update */
+add_action('wp_ajax_update_cart_item', 'handle_update_cart_item');
+add_action('wp_ajax_nopriv_update_cart_item', 'handle_update_cart_item');
+
+function handle_update_cart_item() {
+    if (!isset($_POST['cart_item_key']) || !isset($_POST['quantity'])) {
+        wp_send_json_error(array('message' => 'Missing required parameters'));
+        return;
+    }
+    
+    $cart_item_key = sanitize_text_field($_POST['cart_item_key']);
+    $quantity = intval($_POST['quantity']);
+    
+    // Update cart item quantity
+    $cart_updated = WC()->cart->set_quantity($cart_item_key, $quantity, true);
+    
+    if (!$cart_updated) {
+        wp_send_json_error(array('message' => 'Could not update cart item'));
+        return;
+    }
+    
+    // Get updated cart item
+    $cart_item = WC()->cart->get_cart_item($cart_item_key);
+    if (!$cart_item) {
+        wp_send_json_error(array('message' => 'Cart item not found'));
+        return;
+    }
+    
+    // Calculate subtotal
+    $product = $cart_item['data'];
+    $subtotal = WC()->cart->get_product_subtotal($product, $cart_item['quantity']);
+    
+    // Get cart totals HTML
+    ob_start();
+    do_action('woocommerce_cart_collaterals');
+    $cart_totals = ob_get_clean();
+    
+    // Get cart count
+    $cart_count = WC()->cart->get_cart_contents_count();
+    
+    // Get notices
+    ob_start();
+    wc_print_notices();
+    $notices = ob_get_clean();
+    
+    wp_send_json_success(array(
+        'subtotal' => $subtotal,
+        'cart_totals' => $cart_totals,
+        'cart_count' => $cart_count,
+        'notice' => $notices
+    ));
+}
+
+/* =============================== */
+/* AJAX handler for removing cart item */
+add_action('wp_ajax_remove_cart_item', 'handle_remove_cart_item');
+add_action('wp_ajax_nopriv_remove_cart_item', 'handle_remove_cart_item');
+
+function handle_remove_cart_item() {
+    if (!isset($_POST['cart_item_key']) || !wp_verify_nonce($_POST['security'], 'remove_cart_item_nonce')) {
+        wp_send_json_error(array('message' => 'Invalid request'));
+        return;
+    }
+    
+    $cart_item_key = sanitize_text_field($_POST['cart_item_key']);
+    
+    // Remove item from cart
+    $removed = WC()->cart->remove_cart_item($cart_item_key);
+    
+    if (!$removed) {
+        wp_send_json_error(array('message' => 'Could not remove item from cart'));
+        return;
+    }
+    
+    // Get cart totals HTML
+    ob_start();
+    do_action('woocommerce_cart_collaterals');
+    $cart_totals = ob_get_clean();
+    
+    // Get cart count
+    $cart_count = WC()->cart->get_cart_contents_count();
+    
+    // Get notices
+    ob_start();
+    wc_print_notices();
+    $notices = ob_get_clean();
+    
+    // Get cart fragments for WooCommerce
+    $fragments = apply_filters('woocommerce_add_to_cart_fragments', array());
+    $cart_hash = WC()->cart->get_cart_hash();
+    
+    wp_send_json_success(array(
+        'cart_totals' => $cart_totals,
+        'cart_count' => $cart_count,
+        'notice' => $notices,
+        'fragments' => $fragments,
+        'cart_hash' => $cart_hash
+    ));
+}
+
+/* =============================== */
 /* AJAX handler for product filtering */
 add_action('wp_ajax_filter_products', 'handle_filter_products');
 add_action('wp_ajax_nopriv_filter_products', 'handle_filter_products');
@@ -1162,3 +1285,87 @@ add_action('wp_footer', function(){
       </script>
   <?php
 });
+remove_action( 'wpcf7_swv_create_schema', 'wpcf7_swv_add_select_enum_rules', 20, 2 );
+
+/* =============================== */
+/* post format */
+
+// Hiển thị thông tin tài khoản ngân hàng trong trang checkout cho phương thức BACS
+add_action('woocommerce_review_order_before_payment', 'display_bacs_account_details_on_checkout');
+
+function display_bacs_account_details_on_checkout() {
+    // Chỉ hiển thị khi có ít nhất một payment method enabled
+    $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
+    
+    if (isset($available_gateways['bacs'])) {
+        $bacs_gateway = $available_gateways['bacs'];
+        $account_details = $bacs_gateway->account_details;
+        
+        if (!empty($account_details)) {
+            echo '<div id="bacs-account-details" style="display:none; margin-top: 20px; margin-bottom: 20px; padding: 15px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 5px;">';
+            echo '<p style="margin-top: 0;">Thông tin tài khoản ngân hàng:</p>';
+            
+            foreach ($account_details as $account) {    
+                echo '<ul style="margin: 0; padding-left: 20px; list-style: none;">';
+
+                if (!empty($account['account_name'])) {
+                  echo '<li><strong>Tên tài khoản:</strong> ' . esc_html($account['account_name']) . '</li>';
+              }
+                
+                if (!empty($account['bank_name'])) {
+                    echo '<li><strong>Ngân hàng:</strong> ' . esc_html($account['bank_name']) . '</li>';
+                }
+                
+                if (!empty($account['account_number'])) {
+                    echo '<li><strong>Số tài khoản:</strong> ' . esc_html($account['account_number']) . '</li>';
+                }
+                
+                if (!empty($account['sort_code'])) {
+                    echo '<li><strong>Mã chi nhánh:</strong> ' . esc_html($account['sort_code']) . '</li>';
+                }
+                
+                if (!empty($account['iban'])) {
+                    echo '<li><strong>IBAN:</strong> ' . esc_html($account['iban']) . '</li>';
+                }
+                
+                if (!empty($account['bic'])) {
+                    echo '<li><strong>BIC/Swift:</strong> ' . esc_html($account['bic']) . '</li>';
+                }
+                
+                echo '</ul>';
+            }
+            
+            echo '</div>';
+            
+            // JavaScript để hiển thị/ẩn thông tin tài khoản khi chọn payment method
+            ?>
+            <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                function toggleBacsDetails() {
+                    if ($('input[name="payment_method"]:checked').val() === 'bacs') {
+                        $('#bacs-account-details').slideDown();
+                    } else {
+                        $('#bacs-account-details').slideUp();
+                    }
+                }
+                
+                // Kiểm tra khi trang load
+                toggleBacsDetails();
+                
+                // Kiểm tra khi thay đổi payment method
+                $(document.body).on('change', 'input[name="payment_method"]', function() {
+                    toggleBacsDetails();
+                });
+                
+                // Kiểm tra sau khi update checkout
+                $(document.body).on('updated_checkout', function() {
+                    toggleBacsDetails();
+                });
+            });
+            </script>
+            <?php
+        }
+    }
+}
+
+

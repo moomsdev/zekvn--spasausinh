@@ -1,6 +1,8 @@
 <?php
-$faqsTitle = isset($args['faqs_title']) ? $args['faqs_title'] : 'Tiêu đề mặc định';
-$faqs = isset($args['faqs']) ? $args['faqs'] : '';
+$faqsTitle = $args['faqs_title'];
+$faqs = $args['faqs'];
+
+if ($faqs) : ?>
 ?>
 <div class="faq-card p-0 p-lg-4">
   <div class="container">
@@ -15,3 +17,4 @@ $faqs = isset($args['faqs']) ? $args['faqs'] : '';
 
   </div>
 </div>
+<?php endif; ?>

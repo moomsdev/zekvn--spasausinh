@@ -10,6 +10,7 @@ $cat_service = get_field('cat_service', $term);
     <div class="service-page">
         <?php get_template_part('template-parts/section', 'slider_hero'); ?>
         <?php get_template_part('template-parts/section', 'service'); ?>
+        <?php get_template_part('template-parts/section', 'contact'); ?>
     </div>
   <?php else: ?>
   <div class="page-body">
