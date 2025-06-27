@@ -704,7 +704,7 @@ a img.aligncenter {
 
 .supports {
   position: fixed;
-  z-index: 999;
+  z-index: 99;
   bottom: 8rem;
   right: 2rem;
 }
@@ -714,6 +714,8 @@ a img.aligncenter {
 }
 
 .supports .item a {
+  position: relative;
+  z-index: 999;
   height: 30px;
   width: 30px;
   display: flex;
@@ -746,16 +748,12 @@ a img.aligncenter {
   max-height: 30px;
 }
 
-.supports .item a:hover {
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5294117647);
-}
-
 .backtop {
   position: fixed;
   right: 2rem;
   bottom: 2rem;
   transition: 0.5s;
-  z-index: 999;
+  z-index: 99;
 }
 
 .backtop a {
