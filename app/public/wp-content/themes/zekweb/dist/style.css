@@ -3106,6 +3106,14 @@ footer .social-list a:hover {
     min-height: 3.8rem;
   }
 }
+.section-blog .swiper-slide {
+  padding: 0.5rem 1rem;
+}
+@media only screen and (max-width: 768px) {
+  .section-blog .swiper-slide {
+    padding: 0.5rem;
+  }
+}
 .section-blog .blog-pagination {
   margin-top: 2rem;
   position: relative;
@@ -5045,6 +5053,8 @@ footer .social-list a:hover {
 .loop-post figure.post-image {
   position: relative;
   overflow: hidden;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
 }
 .loop-post figure.post-image img {
   aspect-ratio: 558/500;

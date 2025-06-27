@@ -280,7 +280,7 @@
     // Slider blog
     new Swiper('.blog-slider', {
       slidesPerView: 3,
-      spaceBetween: 20,
+      spaceBetween: 10,
       loop: true,
       autoplay: {
           delay: 4000,
@@ -292,11 +292,9 @@
       },
       breakpoints: {
         0: {
-            spaceBetween: 10,
             slidesPerView: 2
         },
         991: {
-            spaceBetween: 20,
             slidesPerView: 3
         },
       }

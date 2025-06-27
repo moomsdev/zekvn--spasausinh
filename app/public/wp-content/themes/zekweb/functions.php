@@ -985,17 +985,6 @@ function getYoutubeVideoId($url) {
 }
 
 /* =============================== */
-/* province  connect api viettelpost */
-add_action('wp_ajax_nopriv_province', 'province');
-add_action('wp_ajax_province', 'province');
-
-function province(){
-    $tinh_thanh = file_get_contents('https://partner.viettelpost.vn/v2/categories/listProvince');
-    $tinh_thanh = json_decode($tinh_thanh);
-    wp_send_json_success($tinh_thanh);
-}
-
-/* =============================== */
 /* Enqueue cart AJAX script */
 function enqueue_cart_ajax_script() {
     if (is_cart()) {
@@ -1236,60 +1225,7 @@ function handle_filter_products() {
     wp_send_json_success(array('html' => $html));
 }
 
-add_action('wp_footer', function(){
-  ?>
-      <script>
-          jQuery(document).ready(function($){
-              $.ajax({
-                  url: '<?php echo admin_url('admin-ajax.php') ?>',
-                  data: {
-                      action: 'province'
-                  },
-                  success(res) {
-                      var province = res.data.data
-
-                      var html = '<option value="">Chọn tỉnh thành</option>';
-
-                      $.each(province, function(i, v) {
-                          html += `<option value="${v.PROVINCE_NAME}" data-id="${v.PROVINCE_ID}">${v.PROVINCE_NAME}</option>`;
-                      });
-
-                      $('#tinh_thanh').html(html)
-                  }
-              });
-
-              $(document).on('change', '#tinh_thanh', function(){
-                  var id = $(this).find(':selected').attr('data-id')
-                  
-                  $.ajax({
-                      url: '<?php echo admin_url('admin-ajax.php') ?>',
-                      data: {
-                          action: 'district',
-                          id: id
-                      },
-                      success(res) {
-                          console.log(res)
-                          var district = res.data.data
-
-                          var html = '<option value="">Chọn quận huyện</option>';
-
-                          $.each(district, function(i, v) {
-                              html += `<option value="${v.DISTRICT_NAME}" data-id="${v.DISTRICT_ID}">${v.DISTRICT_NAME}</option>`;
-                          });
-
-                          $('#quan_huyen').html(html)
-                      }
-                  });
-              })
-          });
-      </script>
-  <?php
-});
-remove_action( 'wpcf7_swv_create_schema', 'wpcf7_swv_add_select_enum_rules', 20, 2 );
-
 /* =============================== */
-/* post format */
-
 // Hiển thị thông tin tài khoản ngân hàng trong trang checkout cho phương thức BACS
 add_action('woocommerce_review_order_before_payment', 'display_bacs_account_details_on_checkout');
 

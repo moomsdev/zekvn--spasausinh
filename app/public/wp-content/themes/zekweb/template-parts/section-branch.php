@@ -28,14 +28,10 @@ $branchList = get_field('sec11_branch', 'option');
                     if ($branchList) :
                         foreach ($branchList as $branch) :
                             $branch_address = $branch['branch_address'];
-                            $branch_post = $branch['showroom_post'];
-                            $post_url = '';
+                            $branch_url = $branch['url'];
                             
-                            if ($branch_post) {
-                                $post_url = get_permalink($branch_post);
-                            }
                     ?>
-                        <option value="<?php echo $post_url; ?>"><?php echo $branch_address; ?></option>
+                        <option value="<?php echo $branch_url; ?>"><?php echo $branch_address; ?></option>
                     <?php 
                         endforeach; 
                     endif;

@@ -92,6 +92,60 @@
   </a>
 </div>
 
+<div id="gom-all-in-one"><!-- v3 -->
+  <!-- map -->
+  <div id="map-vr" class="button-contact">
+    <div class="phone-vr">
+      <div class="phone-vr-circle-fill"></div>
+      <div class="phone-vr-img-circle">
+        <a target="_blank" href="https://maps.app.goo.gl/qjhcR4bp3fUX1W6D8">
+          <img alt="google map" src="https://homecareshop.net.vn/wp-content/plugins/button-contact-vr/legacy/img/showroom4.png">
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- end map -->
+
+  <!-- messenger -->
+  <div id="messenger-vr" class="button-contact">
+    <div class="phone-vr">
+      <div class="phone-vr-circle-fill"></div>
+      <div class="phone-vr-img-circle">
+        <a target="_blank" href="https://m.me/myphamtinhhoacocay">
+          <img alt="messenger" src="https://homecareshop.net.vn/wp-content/plugins/button-contact-vr/legacy/img/messenger.png">
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- end messenger -->
+
+  <!-- zalo -->
+  <div id="zalo-vr" class="button-contact">
+    <div class="phone-vr">
+      <div class="phone-vr-circle-fill"></div>
+      <div class="phone-vr-img-circle">
+        <a target="_blank" href="https://zalo.me/2721014332181762934">
+          <img alt="Zalo" src="https://homecareshop.net.vn/wp-content/plugins/button-contact-vr/legacy/img/zalo.png">
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- end zalo -->
+
+  <!-- Phone -->
+  <div id="phone-vr" class="button-contact">
+    <div class="phone-vr">
+      <div class="phone-vr-circle-fill"></div>
+      <div class="phone-vr-img-circle">
+        <a href="tel:0888595602">
+          <img alt="Phone" src="https://homecareshop.net.vn/wp-content/plugins/button-contact-vr/legacy/img/phone.png">
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- end phone -->
+</div>
+
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/swiper-bundle.min.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/fancybox.umd.js"></script>

@@ -1,8 +1,9 @@
-<?php get_header();
-$a = get_query_var('cat'); ?>
-<?php $term = get_queried_object(); ?>
-<?php $category = get_field('category', "option"); ?>
-<?php 
+<?php
+get_header();
+$a = get_query_var('cat');
+$term = get_queried_object();
+$category = get_field('category', "option");
+$category_sidebar = get_field('category_sidebar', "option");
 $cat_service = get_field('cat_service', $term);
 ?>
 <main id="main">
@@ -16,12 +17,6 @@ $cat_service = get_field('cat_service', $term);
   <div class="page-body">
     <?php get_template_part('loop_template/breadcrums'); ?>
     <div class="container">
-      <?php
-      // $all_categories = get_terms([
-      //     'taxonomy' => 'category',
-      //     'hide_empty' => false, // true nếu chỉ muốn hiển thị danh mục có sản phẩm
-      // ]);
-      // if (!empty($all_categories) && !is_wp_error($all_categories)) : ?>
       <ul class="all-categories">
         <?php
         $current_cat_id = get_queried_object_id();
@@ -29,8 +24,7 @@ $cat_service = get_field('cat_service', $term);
           $term = get_term($cat_id, 'category');
           if (!is_wp_error($term) && $term):
             ?>
-            <li
-              class="all-categories__item <?php echo ($term->term_id == $current_cat_id) ? 'active' : ''; ?>">
+            <li class="all-categories__item <?php echo ($term->term_id == $current_cat_id) ? 'active' : ''; ?>">
               <a href="<?php echo get_term_link($term); ?>">
                 <?php echo esc_html($term->name); ?>
               </a>
@@ -40,7 +34,7 @@ $cat_service = get_field('cat_service', $term);
         endforeach;
         ?>
       </ul>
-      <?php //endif; ?>
+
       <div class="row">
         <div class="col-lg-8 col-md-12 mb-4">
           <?php
@@ -103,13 +97,18 @@ $cat_service = get_field('cat_service', $term);
 
         <div class="col-lg-4 col-md-12 d-none d-lg-block">
           <?php
-          $current_cat_id = get_queried_object_id();
-          $other_cats = get_terms([
-            'taxonomy' => 'category',
-            'exclude' => [$current_cat_id],
-            'number' => 2,
-            'hide_empty' => false,
-          ]);
+          $other_cats = [];
+          if (!empty($category_sidebar) && is_array($category_sidebar)) {
+            foreach ($category_sidebar as $cat_id) {
+              // Loại bỏ category hiện tại nếu có trong danh sách
+              if ($cat_id != $current_cat_id) {
+                $term = get_term($cat_id, 'category');
+                if (!is_wp_error($term) && $term) {
+                  $other_cats[] = $term;
+                }
+              }
+            }
+          }
           if (!empty($other_cats) && !is_wp_error($other_cats)):
             foreach ($other_cats as $cat):
               ?>

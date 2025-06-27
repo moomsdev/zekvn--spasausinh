@@ -11,7 +11,12 @@ Template Name: Giới Thiệu
       <div class="heading-wrapper">
         <h2 class="section-heading fs-48 text-white">
           <?php echo get_the_title(); ?></h2>
-        <?php echo wpautop(get_field('short_desc')); ?>
+        <div class="d-none d-lg-block">
+          <?php echo wpautop(get_field('short_desc')); ?>
+        </div>
+        <div class="d-lg-none">
+          <?php echo wpautop(get_field('short_desc_mb')); ?>
+        </div>
       </div>
     </div>
   </section>
@@ -29,8 +34,11 @@ Template Name: Giới Thiệu
 
       <div class="container">
         <div class="heading-wrapper">
-          <h2 class="section-heading fs-48">
-            <?php echo get_field('title_story') ?>
+          <h2 class="section-heading fs-48 d-none d-lg-block">
+            <?php echo wpautop(get_field('title_story')) ?>
+          </h2>
+          <h2 class="section-heading fs-48 d-block d-lg-none">
+            <?php echo wpautop(get_field('title_story_mb')) ?>
           </h2>
           <?php echo wpautop(get_field('story_content')); ?>
         </div>

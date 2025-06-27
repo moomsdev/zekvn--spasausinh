@@ -20,6 +20,14 @@
     }
   }
 
+  .swiper-slide {
+    padding: .5rem 1rem;
+
+    @include maxWidth($md) {
+      padding: .5rem;
+    }
+  }
+
   .blog-pagination {
     margin-top: 2rem;
     position: relative;
@@ -1709,6 +1717,8 @@
   figure.post-image  {
     position: relative;
     overflow: hidden;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
     img {
       aspect-ratio: 558/500;
       object-fit: cover;
