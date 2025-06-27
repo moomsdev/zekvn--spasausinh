@@ -710,15 +710,12 @@ a img.aligncenter {
 }
 
 .supports .item:not(:first-child) {
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 .supports .item a {
-  height: 48px;
-  width: 48px;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  height: 30px;
+  width: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2046,12 +2043,6 @@ a img.aligncenter {
   #main {
     overflow: hidden;
   }
-  .supports .item a {
-    width: 100%;
-    max-height: 40px;
-    position: relative;
-    overflow: hidden;
-  }
   .supports .item a img {
     max-width: 40px;
     max-height: 40px;
@@ -3088,6 +3079,123 @@ footer .social-list a:hover {
   color: #FFC000;
 }
 
+.supports {
+  right: 2.5rem !important;
+}
+.supports .item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.supports .item .icon {
+  padding: 0.5rem;
+  border-radius: 50%;
+  color: rgb(255, 255, 255) !important;
+  background-color: #31a03b !important;
+  box-sizing: border-box;
+  animation: oscillate-rotation 1s infinite ease-in-out;
+  transform-origin: 50% 50%;
+}
+.supports .item .icon:after, .supports .item .icon:before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  content: "";
+  transition: all 0.5s;
+  transform-origin: 50% 50%;
+}
+.supports .item .icon:after {
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid #31a03b;
+  opacity: 0.5;
+  animation: ring-circle-anim 1.2s infinite ease-in-out;
+}
+.supports .item .icon:before {
+  background-color: rgba(49, 160, 59, 0.5);
+  border-radius: 50%;
+  border: none;
+  animation: ring-circle-fill-anim 2.3s infinite ease-in-out;
+}
+.supports .item.zalo-item .icon {
+  background-color: rgba(33, 150, 243, 0.7) !important;
+}
+.supports .item.zalo-item .icon:after {
+  border-color: rgba(33, 150, 243, 0.7) !important;
+}
+.supports .item.zalo-item .icon:before {
+  background-color: rgba(33, 150, 243, 0.7) !important;
+}
+.supports .item.messenger-item .icon {
+  background-color: rgba(106, 79, 254, 0.5) !important;
+}
+.supports .item.messenger-item .icon:after {
+  border-color: rgba(106, 79, 254, 0.5) !important;
+}
+.supports .item.messenger-item .icon:before {
+  background-color: rgba(106, 79, 254, 0.5) !important;
+}
+
+@media only screen and (max-width: 992px) {
+  .backtop {
+    right: 2.5rem;
+  }
+}
+
+@keyframes ring-circle-anim {
+  0% {
+    transform: rotate(0) scale(1.1) skew(0deg);
+    opacity: 0;
+  }
+  30% {
+    transform: rotate(0) scale(1.5) skew(0deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: rotate(0) scale(1.7) skew(0deg);
+    opacity: 0.1;
+  }
+}
+@keyframes ring-circle-fill-anim {
+  0% {
+    transform: rotate(0) scale(1) skew(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    transform: rotate(0) scale(1.4) skew(0deg);
+    opacity: 0.2;
+  }
+  100% {
+    transform: rotate(0) scale(1.1) skew(0deg);
+    opacity: 0.2;
+  }
+}
+@keyframes oscillate-rotation {
+  0% {
+    transform: rotate(0) scale(1) skew(0deg);
+  }
+  10% {
+    transform: rotate(-25deg) scale(1) skew(0deg);
+  }
+  20% {
+    transform: rotate(25deg) scale(1) skew(0deg);
+  }
+  30% {
+    transform: rotate(-25deg) scale(1) skew(0deg);
+  }
+  40% {
+    transform: rotate(25deg) scale(1) skew(0deg);
+  }
+  50% {
+    transform: rotate(0) scale(1) skew(0deg);
+  }
+  100% {
+    transform: rotate(0) scale(1) skew(0deg);
+  }
+}
 /* Section blog*/
 .section-blog .loop-post .post-title {
   display: -webkit-box;
@@ -5991,6 +6099,7 @@ footer .social-list a:hover {
 .single-post .single-related .post-related .item img {
   object-fit: cover;
   aspect-ratio: 16/9;
+  border-radius: 1rem;
 }
 .single-post .single-related .post-related .item .title a {
   font-weight: 500;

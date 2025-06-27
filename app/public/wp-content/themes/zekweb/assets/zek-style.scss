@@ -656,14 +656,11 @@ a img.aligncenter {
   right: 2rem;
 }
 .supports .item:not(:first-child) {
-  margin-top: 10px;
+  margin-top: 30px;
 }
 .supports .item a {
-  height: 48px;
-  width: 48px;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: 0 0 5px #0003;
+  height: 30px;
+  width: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1991,13 +1988,6 @@ a img.aligncenter {
     margin: 0;
   }
   #main {
-    overflow: hidden;
-  }
-
-  .supports .item a {
-    width: 100%;
-    max-height: 40px;
-    position: relative;
     overflow: hidden;
   }
 

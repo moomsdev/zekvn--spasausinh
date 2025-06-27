@@ -92,58 +92,42 @@
   </a>
 </div>
 
-<div id="gom-all-in-one"><!-- v3 -->
-  <!-- map -->
-  <div id="map-vr" class="button-contact">
-    <div class="phone-vr">
-      <div class="phone-vr-circle-fill"></div>
-      <div class="phone-vr-img-circle">
-        <a target="_blank" href="https://maps.app.goo.gl/qjhcR4bp3fUX1W6D8">
-          <img alt="google map" src="https://homecareshop.net.vn/wp-content/plugins/button-contact-vr/legacy/img/showroom4.png">
+<div class="supports">
+  <!-- Hotline -->
+  <div class="item hotline-item d-lg-none">
+    <div class="item-vr">
+      <div class="icon">
+        <a href="tel:<?php the_field('hotline', 'option'); ?>"
+          class="hotline" title="Gọi ngay">
+          <img
+            src="<?php bloginfo('template_url'); ?>/images/support-hotline.png"
+            alt="icon">
         </a>
       </div>
     </div>
   </div>
-  <!-- end map -->
-
-  <!-- messenger -->
-  <div id="messenger-vr" class="button-contact">
-    <div class="phone-vr">
-      <div class="phone-vr-circle-fill"></div>
-      <div class="phone-vr-img-circle">
-        <a target="_blank" href="https://m.me/myphamtinhhoacocay">
-          <img alt="messenger" src="https://homecareshop.net.vn/wp-content/plugins/button-contact-vr/legacy/img/messenger.png">
-        </a>
-      </div>
-    </div>
-  </div>
-  <!-- end messenger -->
 
   <!-- zalo -->
-  <div id="zalo-vr" class="button-contact">
-    <div class="phone-vr">
-      <div class="phone-vr-circle-fill"></div>
-      <div class="phone-vr-img-circle">
-        <a target="_blank" href="https://zalo.me/2721014332181762934">
-          <img alt="Zalo" src="https://homecareshop.net.vn/wp-content/plugins/button-contact-vr/legacy/img/zalo.png">
+  <div class="item zalo-item">
+    <div class="item-vr">
+      <div class="icon">
+        <a href="http://zalo.me/<?php the_field('zalo', 'option') ?>" target="_blank" class="zalo" title="Chat Zalo">
+          <img src="<?php bloginfo('template_url'); ?>/images/zalo.png" alt="icon">
         </a>
       </div>
     </div>
   </div>
-  <!-- end zalo -->
 
-  <!-- Phone -->
-  <div id="phone-vr" class="button-contact">
-    <div class="phone-vr">
-      <div class="phone-vr-circle-fill"></div>
-      <div class="phone-vr-img-circle">
-        <a href="tel:0888595602">
-          <img alt="Phone" src="https://homecareshop.net.vn/wp-content/plugins/button-contact-vr/legacy/img/phone.png">
+  <!-- Messenger -->
+  <div class="item messenger-item">
+    <div class="item-vr">
+      <div class="icon">
+        <a href="https://m.me/<?php the_field('messenger', 'option') ?>" target="_blank" class="messenger" title="Chat Facebook">
+          <img decoding="async" src="<?php bloginfo('template_url'); ?>/images/messenger.png" alt="icon">
         </a>
       </div>
     </div>
   </div>
-  <!-- end phone -->
 </div>
 
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/swiper-bundle.min.js"></script>
