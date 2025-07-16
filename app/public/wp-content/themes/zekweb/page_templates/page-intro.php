@@ -23,24 +23,67 @@ Template Name: Giới Thiệu
 
   <?php get_template_part('template-parts/section', 'overview') ?>
 
-  <section class="intro-section full-width">
+  <!-- <section class="intro-section full-width">
     <div class="intro-content">
       <figure class="background-intro d-none d-lg-block">
-        <img src="<?php echo get_field('background') ?>" alt="background-image">
+        <img src="<?php //echo get_field('background') ?>" alt="background-image">
       </figure>
       <figure class="background-intro d-lg-none">
-        <img src="<?php echo get_field('background_mb') ?>" alt="background-image">
+        <img src="<?php //echo get_field('background_mb') ?>" alt="background-image">
       </figure>
 
       <div class="container">
         <div class="heading-wrapper">
           <h2 class="section-heading fs-48 d-none d-lg-block">
-            <?php echo wpautop(get_field('title_story')) ?>
+            <?php //echo wpautop(get_field('title_story')) ?>
           </h2>
           <h2 class="section-heading fs-48 d-block d-lg-none">
-            <?php echo wpautop(get_field('title_story_mb')) ?>
+            <?php //echo wpautop(get_field('title_story_mb')) ?>
           </h2>
-          <?php echo wpautop(get_field('story_content')); ?>
+          <?php //echo wpautop(get_field('story_content')); ?>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <?php
+  $title = get_field('title_story');
+  $title_mb = get_field('title_story_mb');
+  $description = get_field('story_content');
+  $img = get_field('story_img');
+  ?>
+  <section class="section-story full-width">
+    <div class="story-main" style="background-image: url('<?php echo  get_field('background'); ?>'); background-size: cover; background-position: center; background-repeat: no-repeat;" >
+      <div class="section-story__bg"> 
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="story-content col-12 col-lg-7" data-aos="fade-left" data-aos-duration="1000">
+            <?php
+            if ($title) :
+                echo '<h3 class="d-none d-lg-block story-title mb-1 mb-md-4">' . $title . '</h3>';
+            endif; 
+            ?>
+
+            <?php
+            if ($title_mb) :
+                echo '<h3 class="d-block d-lg-none story-title mb-3">' . $title_mb . '</h3>';
+            endif; 
+            ?>
+
+            <?php
+            if ($description) :
+                echo '<div class="story-description">' . wpautop($description) . '</div>';
+            endif;
+            ?>
+          </div>
+
+          <div class="story-image col-12 col-lg-5" data-aos="fade-right" data-aos-duration="1000">
+            <figure class="story-image__img">
+                <img src="<?php echo $img; ?>" alt="story-image" loading="lazy">
+            </figure>
+          </div>
         </div>
       </div>
     </div>

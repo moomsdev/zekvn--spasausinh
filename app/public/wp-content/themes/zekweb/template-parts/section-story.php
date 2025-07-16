@@ -10,28 +10,12 @@ $btn = get_field('sec2_btn', 'option');
 ?>
 
 <section class="section-story full-width">
-  <div class="story-main">
-    <div class="section-story__bg">
-      <figure class="bg-left">
-        <img src="<?php echo $backgroundLeft; ?>" alt="story-image-bg" loading="lazy">
-      </figure>
-      <figure class="bg-right">
-        <img src="<?php echo $background; ?>" alt="story-image-bg" loading="lazy">
-      </figure>
+  <div class="story-main" style="background-image: url('<?php echo $background; ?>'); background-size: cover; background-position: center; background-repeat: no-repeat;" >
+    <div class="section-story__bg"> 
     </div>
 
     <div class="container">
       <div class="row">
-        <div class="story-image col-12 col-lg-5" data-aos="fade-right" data-aos-duration="1000">
-          <figure class="story-image__bg">
-            <img src="<?php echo $bgImg; ?>" alt="story-image-bg" loading="lazy">
-          </figure>
-
-          <figure class="story-image__img">
-              <img src="<?php echo $img; ?>" alt="story-image" loading="lazy">
-          </figure>
-        </div>
-
         <div class="story-content col-12 col-lg-7" data-aos="fade-left" data-aos-duration="1000">
           <?php
           if ($title) :
@@ -56,6 +40,12 @@ $btn = get_field('sec2_btn', 'option');
               echo '<div class="d-flex justify-content-center justify-content-md-start"><a href="' . $btn[0]['url'] . '" class="btn-hightlight bora-1 mt-1 mt-md-5">' . $btn[0]['text'] . '</a></div>';
           endif;
           ?>
+        </div>
+
+        <div class="story-image col-12 col-lg-5" data-aos="fade-right" data-aos-duration="1000">
+          <figure class="story-image__img">
+              <img src="<?php echo $img; ?>" alt="story-image" loading="lazy">
+          </figure>
         </div>
       </div>
     </div>

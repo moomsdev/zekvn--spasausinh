@@ -949,93 +949,29 @@
 /* Section story */
 .section-story {
   .story-main {
-    padding: 5rem 0;
+    padding-top: 5rem;
     position: relative;
 
     @include maxWidth($lg) {
       padding: 3rem 0;
     }
-  }
 
-  .section-story__bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: $primaryColor;
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    z-index: -1;
-    overflow: hidden;
-
-    @include maxWidth($xl) {
-      grid-template-columns: 1fr;
-    }
-
-    figure.bg-left {
-      padding: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      @include maxWidth($xl) {
-        display: none;
-      }
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        opacity: .25;
-      }
-    }
-
-    figure.bg-right {
-      position: relative;
-
-      &:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #333;
-        opacity: 0.8;
-        z-index: 1;
-      }
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: bottom center;
-      }
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #333;
+      opacity: 0.8;
+      z-index: 1;
     }
   }
 
   .story-image {
     position: relative;
     z-index: 2;
-
-    .story-image__bg {
-      position: relative;
-      border-radius: 2rem;
-      overflow: hidden;
-
-      @include maxWidth($lg) {
-        height: auto;
-        width: 100%;
-        max-width: 30%;
-        margin: 0 auto;
-        display: block;
-      }
-      
-      @include maxWidth($md) {
-        max-width: 50%;
-      }
-    }
 
     .story-image__img {
       position: absolute;
@@ -1046,7 +982,8 @@
       height: 100%;
 
       @include maxWidth($lg) {
-        transform: translate(-50%, -1rem);
+        transform: translate(-50%, 3rem); 
+        position: relative;
       }
       
       img {
@@ -1056,13 +993,14 @@
 
         @include maxWidth($lg) {
           height: calc(100% + 1rem);
+          max-height: 35rem;
         }
       }
     }
   }
 
   .story-content {
-    padding: 3rem 2rem;
+    padding: 3rem 2rem 5rem;
     position: relative;
     color: #fff;
     z-index: 2;
@@ -1099,15 +1037,7 @@
 
   .story-description {
     text-align: justify;
-    font-size: 1.6rem;
-
-    @include maxWidth($xxl) {
-      font-size: 1.6rem;
-    }
-
-    @include maxWidth($lg) {
-      font-size: 1.6rem;
-    }
+    font-weight: 600;
   }
 
   .story-btn {
